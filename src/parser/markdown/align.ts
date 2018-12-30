@@ -12,6 +12,7 @@ export type MarkdownAlign = 'left' | 'center' | 'right';
 
 export type AlignError = 'invalid align';
 
+// tslint:disable-next-line:no-namespace
 export namespace Align {
 	export function isColumnReference(arg: Align): arg is ColumnReference {
 		return typeof arg === 'object' && arg.type === 'Reference';
@@ -92,9 +93,7 @@ export namespace Align {
 
 				let maxReferenceColumn = 0;
 
-				for (const index in align) {
-					const value = align[index];
-
+				for (const value of align) {
 					if (isColumnReference(value)) {
 						if (++referenceCount[value.colunm] > 1) {
 							return [[], 'invalid align'];
