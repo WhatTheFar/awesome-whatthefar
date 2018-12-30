@@ -37,6 +37,7 @@
 		"@types/prettier": "1.15.2",
 		"@types/request": "2.48.1",
 		"@types/request-promise-native": "1.0.15",
+		"concurrently": "^4.1.0",
 		"jest": "23.6.0",
 		"nodemon": "1.18.9",
 		"prettier": "1.15.3",
