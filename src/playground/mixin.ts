@@ -1,3 +1,5 @@
+// tslint:disable:max-classes-per-file
+
 // Needed for all mixins
 type Constructor<T = {}> = new (...args: any[]) => T;
 
@@ -8,20 +10,20 @@ type Constructor<T = {}> = new (...args: any[]) => T;
 // A mixin that adds a property
 function Timestamped<TBase extends Constructor>(Base: TBase) {
 	return class extends Base {
-		timestamp = Date.now();
+		public timestamp = Date.now();
 	};
 }
 
 // a mixin that adds a property and methods
 function Activatable<TBase extends Constructor>(Base: TBase) {
 	return class extends Base {
-		isActivated = false;
+		public isActivated = false;
 
-		activate() {
+		public activate() {
 			this.isActivated = true;
 		}
 
-		deactivate() {
+		public deactivate() {
 			this.isActivated = false;
 		}
 	};
@@ -33,7 +35,7 @@ function Activatable<TBase extends Constructor>(Base: TBase) {
 
 // Simple class
 class User {
-	name = '';
+	public name = '';
 }
 
 // User that is Timestamped

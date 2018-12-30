@@ -1,14 +1,17 @@
+// tslint:disable:max-classes-per-file
+// tslint:disable:no-empty
+
 /** Hierarchy */
 class Animal {
 	constructor(public name: string) {}
 }
 class Cat extends Animal {
-	meow() {}
+	public meow() {}
 }
 
 /** An item of each */
-var animal = new Animal('animal');
-var cat = new Cat('cat');
+let animal = new Animal('animal');
+let cat = new Cat('cat');
 
 /**
  * Demo : polymorphism 101
