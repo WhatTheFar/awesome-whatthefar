@@ -13,7 +13,7 @@ describe('Align', () => {
 		});
 
 		test('single Invalid Align, should error', () => {
-			const validAligns: Exclude<Align, ValidAlign>[] = [
+			const validAligns: Array<Exclude<Align, ValidAlign>> = [
 				{ type: 'Reference', colunm: 2 },
 				{ type: 'Reference', colunm: 5 }
 			];

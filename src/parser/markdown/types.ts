@@ -1,15 +1,28 @@
-import { TableOptions } from './table';
 import { CsvInput } from '../csv';
+import { TableOptions } from './table';
 
 export interface MarkdownPage {
 	type: 'MarkdownPage';
 	title: string;
 	description?: string;
 	items?: MarkdownItem[];
-	options?: {
-		tableOfContent: boolean;
-	};
+	options?: MarkdownPageOptions;
 }
+
+export interface MarkdownPageOptions {
+	tableOfContent: boolean;
+}
+
+export const defaultMarkdownPageOptions: Required<MarkdownPageOptions> = {
+	tableOfContent: true
+};
+
+export type MarkdownItem =
+	| MarkdownSection
+	| MarkdownTable
+	| MarkdownHeader
+	| MarkdownPlainText
+	| MarkdownList;
 
 export interface MarkdownSection {
 	type: 'MarkdownSection';
@@ -18,7 +31,15 @@ export interface MarkdownSection {
 	items?: MarkdownItem[];
 }
 
-export type MarkdownItem = MarkdownSection | MarkdownTable | MarkdownHeader;
+export interface MarkdownTable {
+	type: 'MarkdownTable';
+	title: string;
+	description?: string;
+	data: {
+		input: CsvInput;
+		options?: TableOptions;
+	};
+}
 
 export interface MarkdownHeader {
 	type: 'MarkdownHeader';
@@ -33,16 +54,7 @@ export interface MarkdownPlainText {
 
 export interface MarkdownList {
 	type: 'MarkdownList';
-	text: string;
-	list?: MarkdownList;
+	list?: MarkdownListItem[];
 }
 
-export interface MarkdownTable {
-	type: 'MarkdownTable';
-	title: string;
-	description?: string;
-	data: {
-		input: CsvInput;
-		options?: TableOptions;
-	};
-}
+export type MarkdownListItem = string | MarkdownList;

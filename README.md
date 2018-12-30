@@ -1,8 +1,26 @@
-## Awesome WhatTheFar
+# Awesome WhatTheFar
 
 [![Awesome](https://cdn.rawgit.com/sindresorhus/awesome/d7305f38d29fed78fa85652e3a63e154dd8e8829/media/badge.svg)](https://github.com/sindresorhus/awesome)
 
 😎 Curated list of awesome WhatTheFar
+
+## Table of Contents
+
+-   [Contract](#contract)
+-   [My Developer Skills](#my-developer-skills)
+    -   [Programming Principle](#programming-principle)
+    -   [Programming Language](#programming-language)
+    -   [Frontend Development](#frontend-development)
+    -   [Backend Development](#backend-development)
+    -   [Android Development](#android-development)
+    -   [DevOps](#devops)
+-   [My Readling List](#my-readling-list)
+    -   [Programming Book](#programming-book)
+    -   [Non-fiction Book](#non-fiction-book)
+    -   [Non-fiction Book (Thai)](<#non-fiction-book-(thai)>)
+    -   [Fiction Book](#fiction-book)
+-   [Self-learning List](#self-learning-list)
+    -   [Udemy Course](#udemy-course)
 
 ### Contract
 
@@ -28,7 +46,7 @@
 | Reactive Programming          |    Advanced     |
 | Test Driven Development (TDD) |  Intermediate   |
 
-### Programming Principle
+### Programming Language
 
 | Title      | Expertise Level |
 | :--------- | :-------------: |
@@ -39,7 +57,7 @@
 | Python     |  Intermediate   |
 | TypeScript |    Advanced     |
 
-### Programming Principle
+### Frontend Development
 
 | Title   | Expertise Level |
 | :------ | :-------------: |
@@ -47,7 +65,7 @@
 | React   |    Advanced     |
 | Vue.js  |    Beginner     |
 
-### Programming Principle
+### Backend Development
 
 | Title                 | Expertise Level |
 | :-------------------- | :-------------: |
@@ -62,7 +80,7 @@
 | Prisma                |    Advanced     |
 | Redis                 |    Beginner     |
 
-### Programming Principle
+### Android Development
 
 | Title                          | Expertise Level |
 | :----------------------------- | :-------------: |
@@ -75,7 +93,7 @@
 | RxAndroid                      |    Advanced     |
 | RxJava                         |    Advanced     |
 
-### Programming Principle
+### DevOps
 
 | Title          | Expertise Level |
 | :------------- | :-------------: |
@@ -95,7 +113,6 @@
 
 | Book                                                                                                                          | Author                                                              | Done |
 | :---------------------------------------------------------------------------------------------------------------------------- | :------------------------------------------------------------------ | :--: |
-| Algorithms to Live By: The Computer Science of Human Decisions                                                                | Brian Christian and Tom Griffiths                                   |      |
 | Building Microservices: Designing Fine-Grained Systems                                                                        | Sam Newman                                                          |      |
 | Category Theory for Programmer                                                                                                | Bartosz Milewski                                                    |      |
 | Clean Code: A Handbook of Agile Software Craftsmanship                                                                        | Robert C. Martin                                                    |      |
@@ -131,7 +148,9 @@
 | :-------------------------------------------------------------------------------------------------------------- | :------------------------------------------------------- | :--: |
 | 100 Tricks to Appear Smart in Meetings: How to Get By Without Even Trying                                       | Sarah Cooper                                             |      |
 | 21 Lessons for the 21st Century                                                                                 | Yuval Noah Harari                                        |      |
+| Algorithms to Live By: The Computer Science of Human Decisions                                                  | Brian Christian and Tom Griffiths                        |      |
 | Bad Blood: Secrets and Lies in a Silicon Valley Startup                                                         | John Carreyrou                                           |      |
+| Blitzscaling: The Lightning-Fast Path to Building Massively Valuable Companies                                  | Chris Yeh and Reid Hoffman                               |      |
 | Blue Ocean Shift: Beyond Competing - Proven Steps to Inspire Confidence and Seize New Growth                    | Renée Mauborgne and W. Chan Kim                          |      |
 | Creativity, Inc.: Overcoming the Unseen Forces That Stand in the Way of True Inspiration                        | Amy Wallace and Edwin Catmull                            |      |
 | Designing Your Life: How to Build a Well-lived, Joyful Life                                                     | Bill Burnett and Dave Evans                              |      |
@@ -139,6 +158,7 @@
 | Drive: The Surprising Truth About What Motivates Us                                                             | Daniel H. Pink                                           |      |
 | Factfulness: Ten Reasons We're Wrong About the World--and Why Things Are Better Than You Think                  | Anna Rosling Rönnlund, Hans Rosling, and Ola Rosling     |      |
 | Freakonomics: A Rogue Economist Explores the Hidden Side of Everything                                          | Stephen J. Dubner and Steven Levitt                      |  ✓   |
+| Gone Fishing with Buffett: A Young Man Learns Value Investing from a Mysterious Old Man                         | Sean Seah                                                |      |
 | Good to Great: Why Some Companies Make the Leap...and Others Don't                                              | James C. Collins                                         |      |
 | Hit Refresh: The Quest to Rediscover Microsoft's Soul and Imagine a Better Future for Everyone                  | Satya Nadella                                            |  ✓   |
 | Homo Deus : A Brief History of Tomorrow                                                                         | Yuval Noah Harari                                        |      |
@@ -153,24 +173,26 @@
 | Principles: Life and Work                                                                                       | Ray Dalio                                                |      |
 | Quiet Impact: How to be a Successful Introvert                                                                  | Sylvia C. Löhken                                         |      |
 | Quiet Power: The Secret Strengths of Introverts                                                                 | Erica Moroz, Gregory Mone, and Susan Cain                |      |
+| Radical Candor: Be a Kick-Ass Boss Without Losing Your Humanity                                                 | Kim Scott                                                |      |
 | Sapiens: A Brief History of Humankind                                                                           | Yuval Noah Harari                                        |  ✓   |
 | Sprint: How to Solve Big Problems and Test New Ideas in Just Five Days                                          | Jake Knapp                                               |  ✓   |
 | Start With Why: How Great Leaders Inspire Everyone to Take Action                                               | Simon Sinek                                              |      |
 | The 7 Habits of Highly Effective People: Powerful Lessons in Personal Change                                    | Stephen R. Covey                                         |      |
 | The First 20 Hours: How to Learn Anything ... Fast                                                              | Josh Kaufman                                             |      |
+| The Hard Thing About Hard Things: Building a Business When There Are No Easy Answers                            | Ben Horowitz                                             |      |
 | The Headspace Guide to Meditation & Mindfulness                                                                 | Andy Puddicombe                                          |      |
 | The Intelligent Investor                                                                                        | Benjamin Graham                                          |      |
 | The Lean Startup: How Today's Entrepreneurs Use Continuous Innovation to Create Radically Successful Businesses | Eric Ries                                                |  ✓   |
 | The Order of Time                                                                                               | Carlo Rovelli                                            |      |
 | The Phoenix Project: A Novel about IT, DevOps, and Helping Your Business Win                                    | Gene Kim, George Spafford, and Kevin Behr                |      |
 | The Power of Habit: Why We Do What We Do in Life and Business                                                   | Charles Duhigg                                           |      |
+| The Start-Up of You: Adapt to the Future, Invest in Yourself, and Transform Your Career                         | Reid Hoffman                                             |      |
 | The Subtle Art of Not Giving a F\*ck: A Counterintuitive Approach to Living a Good Life                         | Mark Manson                                              |      |
 | To Sell Is Human: The Surprising Truth About Moving Others                                                      | Daniel H. Pink                                           |      |
+| Vivid Vision: A Remarkable Tool For Aligning Your Business Around a Shared Vision of the Future                 | Cameron Herold                                           |      |
 | What I Wish I Knew When I Was 20: A Crash Course on Making Your Place in the World                              | Tina Seelig                                              |      |
 | When: The Scientific Secrets of Perfect Timing                                                                  | Daniel H. Pink                                           |      |
 | Zero to One: Notes on Startups, or How to Build the Future                                                      | Blake Masters and Peter Thiel                            |      |
-| Gone Fishing with Buffett: A Young Man Learns Value Investing from a Mysterious Old Man                         | Sean Seah                                                |      |
-| Vivid Vision: A Remarkable Tool For Aligning Your Business Around a Shared Vision of the Future                 | Cameron Herold                                           |      |
 
 ### Non-fiction Book (Thai)
 

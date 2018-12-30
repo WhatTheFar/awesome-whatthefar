@@ -1,18 +1,19 @@
 import { MarkdownPage } from '../parser/markdown/types';
 import {
-	contactTable,
-	programmingPrincipleTable,
-	programmingLanguageTable,
-	frontendTable,
-	backendTable,
 	androidTable,
+	backendTable,
+	contactTable,
 	devOpsTable,
-	programmingBookTable,
-	udemyTable,
-	nonFictionThaiBookTable,
 	fictionBookTable,
-	nonFictionBookTable
-} from './table.input';
+	frontendTable,
+	nonFictionBookTable,
+	nonFictionThaiBookTable,
+	programmingBookTable,
+	programmingLanguageTable,
+	programmingPrincipleTable,
+	udemyTable
+} from './table';
+// tslint:disable:max-line-length
 
 export const readmeMarkdown: MarkdownPage = {
 	type: 'MarkdownPage',
@@ -22,6 +23,14 @@ export const readmeMarkdown: MarkdownPage = {
 
 😎 Curated list of awesome WhatTheFar`,
 	items: [
+		// For debugging purpose
+		// {
+		// 	type: 'MarkdownList',
+		// 	list: [
+		// 		'FirstItem',
+		// 		{ type: 'MarkdownList', list: ['NestedFirst', 'NestedSecond'] }
+		// 	]
+		// },
 		contactTable,
 		{
 			type: 'MarkdownSection',

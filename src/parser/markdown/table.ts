@@ -1,6 +1,7 @@
-import { Align, ValidAlign, MarkdownAlign } from './align';
-import { CsvInput, parseCsvFromInput } from '../csv';
 import { ParseResult } from 'papaparse';
+import { CsvInput, parseCsvFromInput } from '../csv';
+import { Align, MarkdownAlign } from './align';
+import { COLON, DASH, NEW_LINE, PIPE, SPACE } from './constant';
 import { formatMarkdown } from './utils';
 
 export interface TableOptions {
@@ -13,13 +14,6 @@ const defaultTableOptions: Required<TableOptions> = {
 
 declare const _ParseResult: ParseResult;
 export type ParseErrors = typeof _ParseResult.errors;
-
-/* Characters. */
-const COLON = ':';
-const DASH = '-';
-const PIPE = '|';
-export const SPACE = ' ';
-export const NEW_LINE = '\n';
 
 const DEFAULT_DELIMITER = SPACE + PIPE + SPACE;
 const DEFAULT_START = PIPE + SPACE;
@@ -77,7 +71,7 @@ export async function parseMarkdownTableFromData(
 	data: string[][],
 	options: TableOptions = defaultTableOptions
 ) {
-	const validOptions: Required<TableOptions> = {
+	const { align }: Required<TableOptions> = {
 		...defaultTableOptions,
 		...options
 	};
@@ -89,7 +83,7 @@ export async function parseMarkdownTableFromData(
 	// Each column size
 	const { columnSize } = validateTableData(data);
 
-	const [aligns, alignErr] = Align.validateAlign(validOptions.align, columnSize);
+	const [aligns, alignErr] = Align.validateAlign(align, columnSize);
 	if (alignErr) {
 		throw new Error(alignErr);
 	}
@@ -102,9 +96,9 @@ export async function parseMarkdownTableFromData(
 		}
 
 		const referenceMappingTemp: string[] = [];
-		aligns.forEach((align, index) => {
-			if (Align.isColumnReference(align)) {
-				referenceMappingTemp[align.colunm] = row[index];
+		aligns.forEach((value, index) => {
+			if (Align.isColumnReference(value)) {
+				referenceMappingTemp[value.colunm] = row[index];
 			}
 		});
 
