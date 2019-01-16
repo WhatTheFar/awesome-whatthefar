@@ -7,6 +7,7 @@
 	"author": "WhatTheFar <jakpat.m@gmail.com>",
 	"license": "MIT",
 	"scripts": {
+		"awesome": "ts-node src/script/gen-readme.ts",
 		"start": "node dist/index.js",
 		"build": "yarn build-ts && yarn tslint",
 		"serve": "nodemon --watch dist --delay 1 dist/index.js",
