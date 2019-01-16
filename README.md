@@ -7,12 +7,13 @@
 ## Table of Contents
 
 -   [Contact](#contact)
--   [My Developer Skills](#my-developer-skills)
+-   [My Programming Skills](#my-programming-skills)
     -   [Programming Principle](#programming-principle)
     -   [Programming Language](#programming-language)
-    -   [Frontend Development](#frontend-development)
-    -   [Backend Development](#backend-development)
-    -   [Android Development](#android-development)
+    -   [Developer](#developer)
+        -   [Frontend](#frontend)
+        -   [Backend](#backend)
+        -   [Android](#android)
     -   [DevOps](#devops)
 -   [My Reading List](#my-reading-list)
     -   [Programming Book](#programming-book)
@@ -21,6 +22,7 @@
     -   [Fiction Book](#fiction-book)
 -   [Self-learning List](#self-learning-list)
     -   [Udemy Course](#udemy-course)
+    -   [TedxTalk](#tedxtalk)
 
 ### Contact
 
@@ -31,7 +33,7 @@
 | Linkedin | [Jakpat M.](https://www.linkedin.com/in/jakpatm/) |
 | Mobile   | 098-919-2919 (TH)                                 |
 
-## My Developer Skills
+## My Programming Skills
 
 ### Programming Principle
 
@@ -57,7 +59,9 @@
 | Python     |  Intermediate   |
 | TypeScript |    Advanced     |
 
-### Frontend Development
+## Developer
+
+### Frontend
 
 | Title   | Expertise Level |
 | :------ | :-------------: |
@@ -65,7 +69,7 @@
 | React   |    Advanced     |
 | Vue.js  |    Beginner     |
 
-### Backend Development
+### Backend
 
 | Title                 | Expertise Level |
 | :-------------------- | :-------------: |
@@ -80,7 +84,7 @@
 | Prisma                |    Advanced     |
 | Redis                 |    Beginner     |
 
-### Android Development
+### Android
 
 | Title                          | Expertise Level |
 | :----------------------------- | :-------------: |
@@ -146,15 +150,17 @@
 
 | Book                                                                                                            | Author                                                   | Done |
 | :-------------------------------------------------------------------------------------------------------------- | :------------------------------------------------------- | :--: |
-| 100 Tricks to Appear Smart in Meetings: How to Get By Without Even Trying                                       | Sarah Cooper                                             |      |
+| 100 Tricks to Appear Smart in Meetings: How to Get By Without Even Trying                                       | Sarah Cooper                                             |  ✓   |
 | 21 Lessons for the 21st Century                                                                                 | Yuval Noah Harari                                        |      |
 | Algorithms to Live By: The Computer Science of Human Decisions                                                  | Brian Christian and Tom Griffiths                        |      |
 | Bad Blood: Secrets and Lies in a Silicon Valley Startup                                                         | John Carreyrou                                           |      |
 | Blitzscaling: The Lightning-Fast Path to Building Massively Valuable Companies                                  | Chris Yeh and Reid Hoffman                               |      |
 | Blue Ocean Shift: Beyond Competing - Proven Steps to Inspire Confidence and Seize New Growth                    | Renée Mauborgne and W. Chan Kim                          |      |
+| Change by Design: How Design Thinking Transforms Organizations and Inspires Innovation                          | Tim Brown                                                |      |
+| Creative Confidence: Unleashing the Creative Potential Within Us All                                            | David Kelley and Tom Kelley                              |  ✓   |
 | Creativity, Inc.: Overcoming the Unseen Forces That Stand in the Way of True Inspiration                        | Amy Wallace and Edwin Catmull                            |      |
 | Designing Your Life: How to Build a Well-lived, Joyful Life                                                     | Bill Burnett and Dave Evans                              |      |
-| Disciplined Entrepreneurship: 24 Steps to a Successful Startup                                                  | Bill Aulet                                               |      |
+| Disciplined Entrepreneurship: 24 Steps to a Successful Startup                                                  | Bill Aulet                                               |  ✓   |
 | Drive: The Surprising Truth About What Motivates Us                                                             | Daniel H. Pink                                           |      |
 | Factfulness: Ten Reasons We're Wrong About the World--and Why Things Are Better Than You Think                  | Anna Rosling Rönnlund, Hans Rosling, and Ola Rosling     |      |
 | Freakonomics: A Rogue Economist Explores the Hidden Side of Everything                                          | Stephen J. Dubner and Steven Levitt                      |  ✓   |
@@ -163,7 +169,7 @@
 | Hit Refresh: The Quest to Rediscover Microsoft's Soul and Imagine a Better Future for Everyone                  | Satya Nadella                                            |  ✓   |
 | Homo Deus : A Brief History of Tomorrow                                                                         | Yuval Noah Harari                                        |      |
 | Hooked: How to Build Habit-Forming Products                                                                     | Nir Eyal                                                 |  ✓   |
-| How to Win Friends and Influence People: The Only Book You Need to Lead You to Success                          | Dale Carnegie                                            |      |
+| How to Win Friends and Influence People: The Only Book You Need to Lead You to Success                          | Dale Carnegie                                            |  ✓   |
 | How will you measure your life?                                                                                 | Clayton M. Christensen, James Allworth, and Karen Dillon |  ✓   |
 | Make Time: How to Focus on What Matters Every Day                                                               | Jake Knapp and John Zeratsky                             |      |
 | Managing Oneself                                                                                                | Peter Drucker                                            |  ✓   |
@@ -178,7 +184,8 @@
 | Sprint: How to Solve Big Problems and Test New Ideas in Just Five Days                                          | Jake Knapp                                               |  ✓   |
 | Start With Why: How Great Leaders Inspire Everyone to Take Action                                               | Simon Sinek                                              |      |
 | The 7 Habits of Highly Effective People: Powerful Lessons in Personal Change                                    | Stephen R. Covey                                         |      |
-| The First 20 Hours: How to Learn Anything ... Fast                                                              | Josh Kaufman                                             |      |
+| The First 20 Hours: How to Learn Anything ... Fast                                                              | Josh Kaufman                                             |  ✓   |
+| The Go-Giver: A Little Story about a Powerful Business Idea                                                     | Bob Burg                                                 |  ✓   |
 | The Hard Thing About Hard Things: Building a Business When There Are No Easy Answers                            | Ben Horowitz                                             |      |
 | The Headspace Guide to Meditation & Mindfulness                                                                 | Andy Puddicombe                                          |      |
 | The Intelligent Investor                                                                                        | Benjamin Graham                                          |      |
@@ -192,7 +199,7 @@
 | Vivid Vision: A Remarkable Tool For Aligning Your Business Around a Shared Vision of the Future                 | Cameron Herold                                           |      |
 | What I Wish I Knew When I Was 20: A Crash Course on Making Your Place in the World                              | Tina Seelig                                              |      |
 | When: The Scientific Secrets of Perfect Timing                                                                  | Daniel H. Pink                                           |      |
-| Zero to One: Notes on Startups, or How to Build the Future                                                      | Blake Masters and Peter Thiel                            |      |
+| Zero to One: Notes on Startups, or How to Build the Future                                                      | Blake Masters and Peter Thiel                            |  ✓   |
 
 ### Thai Non-fiction Book
 
@@ -204,8 +211,6 @@
 | ที่...หัวมุมถนน                                       | รวิศ หาญอุตสาหะ         |      |
 | พัฒนาองค์กรและชีวิตด้วยแนวคิด OKRs                    | ดร. นภดล ร่มโพธิ์       |  ✓   |
 | พื้นฐานการออกแบบฐานข้อมูลเขิงสัมพันธ์                 | ดร. โปรดปราน บุณยพุกกณะ |      |
-| รวยด้วยกองทุน ใครๆ ก็ทำได้                            | ธนัฐ ศิริวรางกูร        |      |
-| เกมเศรษฐี ลงทุนให้รวยด้วยอสังหาริมทรัพย์              | จักรพงษ์ เมษพันธุ์      |      |
 
 ### Fiction Book
 
@@ -229,3 +234,29 @@
 | [Node with React: Fullstack Web Development](https://www.udemy.com/node-with-react-fullstack-web-development/)                |
 | [The Complete Node.js Developer Course (2nd Edition)](https://www.udemy.com/the-complete-nodejs-developer-course-2/)          |
 | [The Complete React Web Developer Course (with Redux)](https://www.udemy.com/react-2nd-edition/)                              |
+
+### TedxTalk
+
+| Talk                                                                                           | Speaker                  |
+| :--------------------------------------------------------------------------------------------- | :----------------------- |
+| [3 ways to make better decisions -- by thinking like a computer](https://youtu.be/1mLQFm3wEfw) | Tom Griffiths            |
+| [Flow, the secret to happiness](https://youtu.be/fXIeFJCqsPs)                                  | Mihaly Csikszentmihalyi  |
+| [How to build a company where the best ideas win](https://youtu.be/HXbsVbFAczg)                | Ray Dalio                |
+| [How to build your creative confidence](https://youtu.be/16p9YRF0l-g)                          | David Kelley             |
+| [How to Read a Book a Day](https://youtu.be/e2-ahs905MQ)                                       | Jordan Harry             |
+| [Start with why -- how great leaders inspire action](https://youtu.be/u4ZoJKF_VuA)             | Simon Sinek              |
+| [The beauty of data visualization](https://youtu.be/5Zg-C8AAIGg)                               | David McCandless         |
+| [The first 20 hours -- how to learn anything](https://youtu.be/5MgBikgcWnY)                    | Josh Kaufman             |
+| [The power of introverts](https://youtu.be/c0KYU2j0TM4)                                        | Susan Cain               |
+| [The Power of Pain](https://youtu.be/tcP6E5tTes8)                                              | K.S. Khunkhao            |
+| [What makes some technology so habit-forming?](https://youtu.be/11dYx_rW_Ks)                   | Nir Eyal                 |
+| [ความจริงจริงๆ](https://youtu.be/EoBLvRzVf5U)                                                  | นวพล ธำรงรัตนฤทธิ์       |
+| [ทำงานอย่างไรภายใต้ข้อจำกัด](https://youtu.be/XAv4MNe6IwE)                                     | Supawat Promtun          |
+| [โปรดเรียกฉันด้วยนามอันแท้จริง](https://youtu.be/48A9SU6_bQ8)                                  | นิติ ชัยชิตาทร           |
+| [พลังแห่งความคิด(ไร้)สาระ](https://youtu.be/Tv7y2pVL1NQ)                                       | Winai Chairakpong        |
+| [พลิกมุมคิด... ชีวิต Take Off](https://youtu.be/T9R4sZrvGd0)                                   | เอกก์ ภทรธนกุล           |
+| [รวิศ หาญอุตสาหะ](https://youtu.be/23BA9X6Pphk)                                                | รวิศ หาญอุตสาหะ          |
+| [เริ่มเมื่อยังไม่พร้อม](https://youtu.be/yRUm1voMUV0)                                          | พงศธร ธนบดีภัทร          |
+| [ศรัทธาราคาสิบบาท](https://youtu.be/XIVFyHU79J0)                                               | อุไรวรรณ ศิวะกุล         |
+| [สมองกลแทนสมองคนได้จริงหรือ](https://youtu.be/J_wMpRUUpYU)                                     | Virot Chiraphadhanakul   |
+| [อย่าให้รักเดียวเป็นเรื่องมหัศจรรย์](https://youtu.be/1pRtDpRJZdY)                             | NAPAPORN TRIVITWAREEGUNE |

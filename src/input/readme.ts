@@ -11,7 +11,8 @@ import {
 	programmingBookTable,
 	programmingLanguageTable,
 	programmingPrincipleTable,
-	udemyTable
+	udemyTable,
+	tedxTalkTable
 } from './table';
 // tslint:disable:max-line-length
 
@@ -34,13 +35,15 @@ export const readmeMarkdown: MarkdownPage = {
 		contactTable,
 		{
 			type: 'MarkdownSection',
-			title: 'My Developer Skills',
+			title: 'My Programming Skills',
 			items: [
 				programmingPrincipleTable,
 				programmingLanguageTable,
-				frontendTable,
-				backendTable,
-				androidTable,
+				{
+					type: 'MarkdownSection',
+					title: 'Developer',
+					items: [frontendTable, backendTable, androidTable]
+				},
 				devOpsTable
 			]
 		},
@@ -57,7 +60,7 @@ export const readmeMarkdown: MarkdownPage = {
 		{
 			type: 'MarkdownSection',
 			title: 'Self-learning List',
-			items: [udemyTable]
+			items: [udemyTable, tedxTalkTable]
 		}
 	]
 };

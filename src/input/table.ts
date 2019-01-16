@@ -50,7 +50,7 @@ export const programmingLanguageTable: MarkdownTable = {
 
 export const frontendTable: MarkdownTable = {
 	type: 'MarkdownTable',
-	title: 'Frontend Development',
+	title: 'Frontend',
 	data: {
 		input: {
 			type: 'GoogleSheetInput',
@@ -65,7 +65,7 @@ export const frontendTable: MarkdownTable = {
 
 export const backendTable: MarkdownTable = {
 	type: 'MarkdownTable',
-	title: 'Backend Development',
+	title: 'Backend',
 	data: {
 		input: {
 			type: 'GoogleSheetInput',
@@ -80,7 +80,7 @@ export const backendTable: MarkdownTable = {
 
 export const androidTable: MarkdownTable = {
 	type: 'MarkdownTable',
-	title: 'Android Development',
+	title: 'Android',
 	data: {
 		input: {
 			type: 'GoogleSheetInput',
@@ -179,6 +179,21 @@ export const udemyTable: MarkdownTable = {
 		},
 		options: {
 			align: ['left', { type: 'Reference', colunm: 0 }]
+		}
+	}
+};
+
+export const tedxTalkTable: MarkdownTable = {
+	type: 'MarkdownTable',
+	title: 'TedxTalk',
+	data: {
+		input: {
+			type: 'GoogleSheetInput',
+			publishedId,
+			sheetId: '1207299647'
+		},
+		options: {
+			align: ['left', 'left', { type: 'Reference', colunm: 0 }, 'skip']
 		}
 	}
 };
