@@ -154,7 +154,7 @@
 | Blue Ocean Shift: Beyond Competing - Proven Steps to Inspire Confidence and Seize New Growth                    | Renée Mauborgne and W. Chan Kim                          |      |
 | Creativity, Inc.: Overcoming the Unseen Forces That Stand in the Way of True Inspiration                        | Amy Wallace and Edwin Catmull                            |      |
 | Designing Your Life: How to Build a Well-lived, Joyful Life                                                     | Bill Burnett and Dave Evans                              |      |
-| Disciplined Entrepreneurship: 24 Steps to a Successful Startup                                                  | Bill Aulet                                               |      |
+| Disciplined Entrepreneurship: 24 Steps to a Successful Startup                                                  | Bill Aulet                                               |  ✓   |
 | Drive: The Surprising Truth About What Motivates Us                                                             | Daniel H. Pink                                           |      |
 | Factfulness: Ten Reasons We're Wrong About the World--and Why Things Are Better Than You Think                  | Anna Rosling Rönnlund, Hans Rosling, and Ola Rosling     |      |
 | Freakonomics: A Rogue Economist Explores the Hidden Side of Everything                                          | Stephen J. Dubner and Steven Levitt                      |  ✓   |
@@ -179,6 +179,7 @@
 | Start With Why: How Great Leaders Inspire Everyone to Take Action                                               | Simon Sinek                                              |      |
 | The 7 Habits of Highly Effective People: Powerful Lessons in Personal Change                                    | Stephen R. Covey                                         |      |
 | The First 20 Hours: How to Learn Anything ... Fast                                                              | Josh Kaufman                                             |      |
+| The Go-Giver: A Little Story about a Powerful Business Idea                                                     | Bob Burg                                                 |  ✓   |
 | The Hard Thing About Hard Things: Building a Business When There Are No Easy Answers                            | Ben Horowitz                                             |      |
 | The Headspace Guide to Meditation & Mindfulness                                                                 | Andy Puddicombe                                          |      |
 | The Intelligent Investor                                                                                        | Benjamin Graham                                          |      |
