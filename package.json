@@ -34,7 +34,7 @@
 		"@types/dotenv": "6.1.0",
 		"@types/jest": "23.3.10",
 		"@types/lodash": "4.14.119",
-		"@types/papaparse": "4.5.5",
+		"@types/papaparse": "4.5.7",
 		"@types/prettier": "1.15.2",
 		"@types/request": "2.48.1",
 		"@types/request-promise-native": "1.0.15",
