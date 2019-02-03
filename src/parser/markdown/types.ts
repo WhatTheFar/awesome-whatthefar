@@ -37,7 +37,7 @@ export interface MarkdownTable {
 	type: 'MarkdownTable';
 	title: string;
 	description?: string;
-	data: {
+	tableData: {
 		input: CsvInput;
 		options?: TableOptions;
 	};

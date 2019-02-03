@@ -149,8 +149,8 @@ function parseMarkdownHeader({ title, size }: MarkdownHeader): string {
 
 async function parseMarkdownTable(table: MarkdownTable): Promise<string> {
 	const [tableString, err] = await parseMarkdownTableFromCsvInput(
-		table.data.input,
-		table.data.options
+		table.tableData.input,
+		table.tableData.options
 	);
 	if (err) {
 		console.error(table.title);

@@ -1,4 +1,4 @@
-import { ParseResult } from 'papaparse';
+import { ParseError } from 'papaparse';
 import { CsvInput, parseCsvFromInput } from '../csv';
 import { Align, MarkdownAlign } from './align';
 import { COLON, DASH, NEW_LINE, PIPE, SPACE } from './constant';
@@ -11,9 +11,6 @@ export interface TableOptions {
 const defaultTableOptions: Required<TableOptions> = {
 	align: 'left'
 };
-
-declare const _ParseResult: ParseResult;
-export type ParseErrors = typeof _ParseResult.errors;
 
 const DEFAULT_DELIMITER = SPACE + PIPE + SPACE;
 const DEFAULT_START = PIPE + SPACE;
@@ -134,11 +131,11 @@ export async function parseMarkdownTableFromData(
 export async function parseMarkdownTableFromCsvInput(
 	input: CsvInput,
 	options?: TableOptions
-): Promise<[string, ParseErrors?]> {
-	const result = await parseCsvFromInput(input);
-	if (!!result.errors.length) {
-		return ['', result.errors];
+): Promise<[string, ParseError[]?]> {
+	const [data, errors] = await parseCsvFromInput(input);
+	if (errors && !!errors.length) {
+		return ['', errors];
 	}
 
-	return [await parseMarkdownTableFromData(result.data, options)];
+	return [await parseMarkdownTableFromData(data, options)];
 }

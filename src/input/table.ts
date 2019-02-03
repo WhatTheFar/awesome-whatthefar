@@ -6,7 +6,7 @@ const publishedId =
 export const contactTable: MarkdownTable = {
 	type: 'MarkdownTable',
 	title: 'Contact',
-	data: {
+	tableData: {
 		input: {
 			type: 'GoogleSheetInput',
 			publishedId,
@@ -21,7 +21,7 @@ export const contactTable: MarkdownTable = {
 export const programmingPrincipleTable: MarkdownTable = {
 	type: 'MarkdownTable',
 	title: 'Programming Principle',
-	data: {
+	tableData: {
 		input: {
 			type: 'GoogleSheetInput',
 			publishedId,
@@ -36,7 +36,7 @@ export const programmingPrincipleTable: MarkdownTable = {
 export const programmingLanguageTable: MarkdownTable = {
 	type: 'MarkdownTable',
 	title: 'Programming Language',
-	data: {
+	tableData: {
 		input: {
 			type: 'GoogleSheetInput',
 			publishedId,
@@ -51,7 +51,7 @@ export const programmingLanguageTable: MarkdownTable = {
 export const frontendTable: MarkdownTable = {
 	type: 'MarkdownTable',
 	title: 'Frontend',
-	data: {
+	tableData: {
 		input: {
 			type: 'GoogleSheetInput',
 			publishedId,
@@ -66,7 +66,7 @@ export const frontendTable: MarkdownTable = {
 export const backendTable: MarkdownTable = {
 	type: 'MarkdownTable',
 	title: 'Backend',
-	data: {
+	tableData: {
 		input: {
 			type: 'GoogleSheetInput',
 			publishedId,
@@ -81,7 +81,7 @@ export const backendTable: MarkdownTable = {
 export const androidTable: MarkdownTable = {
 	type: 'MarkdownTable',
 	title: 'Android',
-	data: {
+	tableData: {
 		input: {
 			type: 'GoogleSheetInput',
 			publishedId,
@@ -96,7 +96,7 @@ export const androidTable: MarkdownTable = {
 export const devOpsTable: MarkdownTable = {
 	type: 'MarkdownTable',
 	title: 'DevOps',
-	data: {
+	tableData: {
 		input: {
 			type: 'GoogleSheetInput',
 			publishedId,
@@ -111,7 +111,7 @@ export const devOpsTable: MarkdownTable = {
 export const programmingBookTable: MarkdownTable = {
 	type: 'MarkdownTable',
 	title: 'Programming Book',
-	data: {
+	tableData: {
 		input: {
 			type: 'GoogleSheetInput',
 			publishedId,
@@ -126,7 +126,7 @@ export const programmingBookTable: MarkdownTable = {
 export const nonFictionBookTable: MarkdownTable = {
 	type: 'MarkdownTable',
 	title: 'Non-fiction Book',
-	data: {
+	tableData: {
 		input: {
 			type: 'GoogleSheetInput',
 			publishedId,
@@ -141,7 +141,7 @@ export const nonFictionBookTable: MarkdownTable = {
 export const nonFictionThaiBookTable: MarkdownTable = {
 	type: 'MarkdownTable',
 	title: 'Thai Non-fiction Book',
-	data: {
+	tableData: {
 		input: {
 			type: 'GoogleSheetInput',
 			publishedId,
@@ -156,7 +156,7 @@ export const nonFictionThaiBookTable: MarkdownTable = {
 export const fictionBookTable: MarkdownTable = {
 	type: 'MarkdownTable',
 	title: 'Fiction Book',
-	data: {
+	tableData: {
 		input: {
 			type: 'GoogleSheetInput',
 			publishedId,
@@ -171,7 +171,7 @@ export const fictionBookTable: MarkdownTable = {
 export const udemyTable: MarkdownTable = {
 	type: 'MarkdownTable',
 	title: 'Udemy Course',
-	data: {
+	tableData: {
 		input: {
 			type: 'GoogleSheetInput',
 			publishedId,
@@ -186,7 +186,7 @@ export const udemyTable: MarkdownTable = {
 export const tedxTalkTable: MarkdownTable = {
 	type: 'MarkdownTable',
 	title: 'TedxTalk',
-	data: {
+	tableData: {
 		input: {
 			type: 'GoogleSheetInput',
 			publishedId,

@@ -1,6 +1,10 @@
-import { parse } from 'papaparse';
+import { parse, ParseError } from 'papaparse';
 import * as rp from 'request-promise-native';
 
+export interface MemoryInput {
+	type: 'MemoryInput';
+	data: string[][];
+}
 export interface FileInput {
 	type: 'FileInput';
 	filePath: string;
@@ -11,7 +15,7 @@ export interface GoogleSheetInput {
 	sheetId: string;
 }
 
-export type CsvInput = FileInput | GoogleSheetInput;
+export type CsvInput = MemoryInput | FileInput | GoogleSheetInput;
 
 function parseGoogleSheetUrl({ publishedId, sheetId }: GoogleSheetInput): string {
 	return (
@@ -39,12 +43,9 @@ async function parseCsvFromText(
 	});
 }
 
-// export async function parseCsvFromInput(input: FileInput): Promise<Papa.ParseResult>;
-// export async function parseCsvFromInput(
-// 	input: GoogleSheetInput
-// ): Promise<Papa.ParseResult>;
-// export async function parseCsvFromInput(input: CsvInput): Promise<Papa.ParseResult>;
-export async function parseCsvFromInput(input: CsvInput): Promise<Papa.ParseResult> {
+export async function parseCsvFromInput(
+	input: CsvInput
+): Promise<[string[][], ParseError[]?]> {
 	let csvInput: string;
 
 	switch (input.type) {
@@ -54,6 +55,9 @@ export async function parseCsvFromInput(input: CsvInput): Promise<Papa.ParseResu
 		case 'GoogleSheetInput':
 			csvInput = await rp(parseGoogleSheetUrl(input));
 			break;
+		case 'MemoryInput':
+			return [input.data];
+			break;
 		default:
 			const _exhaustiveCheck: never = input;
 			return _exhaustiveCheck;
@@ -61,7 +65,11 @@ export async function parseCsvFromInput(input: CsvInput): Promise<Papa.ParseResu
 
 	const result = await parseCsvFromText(csvInput);
 
-	return result;
+	if (!!result.errors.length) {
+		return [[], result.errors];
+	}
+
+	return [result.data];
 
 	// Method 1
 	// const data = await rp(csvInput);
