@@ -10,11 +10,13 @@ export interface MarkdownPage {
 }
 
 export interface MarkdownPageOptions {
-	tableOfContent: boolean;
+	tableOfContent?: boolean;
+	backToTop?: boolean;
 }
 
 export const defaultMarkdownPageOptions: Required<MarkdownPageOptions> = {
-	tableOfContent: true
+	tableOfContent: true,
+	backToTop: true
 };
 
 export type MarkdownItem =

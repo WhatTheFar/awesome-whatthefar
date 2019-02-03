@@ -23,6 +23,9 @@ const MD_TABLE_HEADER_SIZE = 3;
 const MD_HEADER = '#';
 const MD_LIST = '*';
 
+const tableOfContentsTitle = 'Table of Contents';
+const backToTopTitle = 'Back to Top';
+
 export async function generateMarkdownFile(
 	markdownPage: MarkdownPage,
 	filepath: string
@@ -38,11 +41,18 @@ async function parseMarkdownFile({
 	items,
 	options
 }: MarkdownPage): Promise<string> {
-	const { tableOfContent }: Required<MarkdownPageOptions> = {
+	const { tableOfContent, backToTop }: Required<MarkdownPageOptions> = {
 		...defaultMarkdownPageOptions,
 		...options
 	};
 	let output: string = '';
+
+	let backToTopLine: string | null = null;
+	if (tableOfContent && backToTop) {
+		backToTopLine = parseHeaderReference(backToTopTitle, tableOfContentsTitle);
+	} else if (backToTop) {
+		backToTopLine = parseHeaderReference(backToTopTitle, title);
+	}
 
 	const header = parseMarkdownHeader({
 		type: 'MarkdownHeader',
@@ -59,14 +69,15 @@ async function parseMarkdownFile({
 		output +=
 			parseMarkdownHeader({
 				type: 'MarkdownHeader',
-				title: 'Table of Contents',
+				title: tableOfContentsTitle,
 				size: 2
 			}) + NEW_LINE;
 		output += parseTableOfContent(items) + NEW_LINE + NEW_LINE;
 	}
 
 	if (items) {
-		const markdownItems = await Promise.all(items.map(parseMardownItem));
+		const parseItems = _.partial(parseMardownItem, _, backToTopLine);
+		const markdownItems = await Promise.all(items.map(parseItems));
 		output += markdownItems.join(NEW_LINE) + NEW_LINE;
 	}
 
@@ -74,34 +85,44 @@ async function parseMarkdownFile({
 	// return output;
 }
 
-async function parseMardownItem(item: MarkdownItem): Promise<string> {
+async function parseMardownItem(item: MarkdownItem, backToTop?: string): Promise<string> {
+	let result: string;
 	switch (item.type) {
 		case 'MarkdownSection':
-			return await parseMarkdownSection(item);
+			result = await parseMarkdownSection(item, backToTop);
 			break;
 		case 'MarkdownHeader':
-			return parseMarkdownHeader(item);
+			result = parseMarkdownHeader(item);
 			break;
 		case 'MarkdownTable':
-			return await parseMarkdownTable(item);
+			result = await parseMarkdownTable(item);
 			break;
 		case 'MarkdownPlainText':
-			return parseMarkdownPlainText(item);
+			result = parseMarkdownPlainText(item);
 			break;
 		case 'MarkdownList':
-			return parseMarkdownList(item);
+			result = parseMarkdownList(item);
 			break;
 		default:
 			const _exhaustiveCheck: never = item;
 			return _exhaustiveCheck;
 	}
+
+	if (backToTop) {
+		switch (item.type) {
+			case 'MarkdownTable':
+				result += NEW_LINE;
+				result += backToTop;
+		}
+	}
+
+	return result;
 }
 
-async function parseMarkdownSection({
-	title,
-	description,
-	items
-}: MarkdownSection): Promise<string> {
+async function parseMarkdownSection(
+	{ title, description, items }: MarkdownSection,
+	backToTop?: string
+): Promise<string> {
 	let output: string = '';
 	const header = parseMarkdownHeader({
 		type: 'MarkdownHeader',
@@ -115,7 +136,8 @@ async function parseMarkdownSection({
 		output += description + NEW_LINE;
 	}
 	if (items) {
-		const markdownItems = await Promise.all(items.map(parseMardownItem));
+		const parseItems = _.partial(parseMardownItem, _, backToTop);
+		const markdownItems = await Promise.all(items.map(parseItems));
 		output += markdownItems.join(NEW_LINE) + NEW_LINE;
 	}
 	return output;
@@ -151,7 +173,7 @@ async function parseMarkdownTable(table: MarkdownTable): Promise<string> {
 }
 
 function parseMarkdownPlainText(item: MarkdownPlainText): string {
-	return item.text + NEW_LINE;
+	return item.text;
 }
 
 function parseMarkdownList(item: MarkdownList, offset: number = 0): string {
@@ -179,6 +201,23 @@ function parseMarkdownListItem(item: MarkdownListItem, offset: number): string {
 	return output;
 }
 
+function isTableOfContent(item: MarkdownItem): boolean {
+	switch (item.type) {
+		case 'MarkdownSection':
+		case 'MarkdownHeader':
+		case 'MarkdownTable':
+			return true;
+			break;
+		case 'MarkdownPlainText':
+		case 'MarkdownList':
+			return false;
+			break;
+		default:
+			const _exhaustiveCheck: never = item;
+			return _exhaustiveCheck;
+	}
+}
+
 function parseTableOfContent(
 	item: MarkdownItem | MarkdownItem[],
 	offset: number = 0
@@ -186,7 +225,10 @@ function parseTableOfContent(
 	let output = '';
 
 	if (item instanceof Array) {
-		return item.map(_.partial(parseTableOfContent, _, offset)).join(NEW_LINE);
+		return item
+			.filter(isTableOfContent)
+			.map(_.partial(parseTableOfContent, _, offset))
+			.join(NEW_LINE);
 	} else {
 		switch (item.type) {
 			case 'MarkdownSection':

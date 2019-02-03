@@ -11,8 +11,8 @@ import {
 	programmingBookTable,
 	programmingLanguageTable,
 	programmingPrincipleTable,
-	udemyTable,
-	tedxTalkTable
+	tedxTalkTable,
+	udemyTable
 } from './table';
 // tslint:disable:max-line-length
 
@@ -23,6 +23,10 @@ export const readmeMarkdown: MarkdownPage = {
 [![Awesome](https://cdn.rawgit.com/sindresorhus/awesome/d7305f38d29fed78fa85652e3a63e154dd8e8829/media/badge.svg)](https://github.com/sindresorhus/awesome)
 
 😎 Curated list of awesome WhatTheFar`,
+	options: {
+		tableOfContent: true,
+		backToTop: true
+	},
 	items: [
 		// For debugging purpose
 		// {
