@@ -8,8 +8,8 @@ async function testTable() {
 	for (const value of allTable) {
 		console.log(
 			(await parseMarkdownTableFromCsvInput(
-				value.data.input,
-				value.data.options
+				value.tableData.input,
+				value.tableData.options
 			))[0]
 		);
 	}

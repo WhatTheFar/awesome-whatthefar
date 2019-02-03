@@ -1,4 +1,4 @@
-import { makeRepetitiveArray } from './utils';
+import { makeRepetitiveArray } from '../utils';
 
 export interface ColumnReference {
 	type: 'Reference';

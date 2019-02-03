@@ -1,8 +1,36 @@
 import { ParseError } from 'papaparse';
-import { CsvInput, parseCsvFromInput } from '../csv';
+import { CsvInput, parseCsvFromInput } from '../../csv';
+import { COLON, DASH, NEW_LINE, PIPE, SPACE } from '../constant';
+import { parseMarkdownHeader } from '../item/header';
+import { formatMarkdown } from '../utils';
+import { MD_TABLE_HEADER_SIZE } from './../constant';
+import { MarkdownTable } from './../types';
 import { Align, MarkdownAlign } from './align';
-import { COLON, DASH, NEW_LINE, PIPE, SPACE } from './constant';
-import { formatMarkdown } from './utils';
+
+export async function parseMarkdownTable(table: MarkdownTable): Promise<string> {
+	const [tableString, err] = await parseMarkdownTableFromCsvInput(
+		table.tableData.input,
+		table.tableData.options
+	);
+	if (err) {
+		console.error(table.title);
+		console.error(err);
+		process.exit();
+	}
+	const { title, description } = table;
+	const header = parseMarkdownHeader({
+		type: 'MarkdownHeader',
+		title,
+		size: MD_TABLE_HEADER_SIZE
+	});
+	return (
+		header +
+		NEW_LINE +
+		(description ? description + NEW_LINE : '') +
+		tableString +
+		NEW_LINE
+	);
+}
 
 export interface TableOptions {
 	align?: Align | Align[];
