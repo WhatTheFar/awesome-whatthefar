@@ -34,6 +34,7 @@
 | Email    | jakpat.m@gmail.com                                |
 | Github   | [WhatTheFar](https://github.com/WhatTheFar)       |
 | Linkedin | [Jakpat M.](https://www.linkedin.com/in/jakpatm/) |
+| Medium   | [Jakpat M.](https://medium.com/@jakpat.m)         |
 | Mobile   | 098-919-2919 (TH)                                 |
 
 [Back to Top](#table-of-contents)
