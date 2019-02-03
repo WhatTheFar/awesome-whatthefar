@@ -7,6 +7,7 @@
 ## Table of Contents
 
 -   [Contact](#contact)
+-   [Medium Stories](#medium-stories)
 -   [My Programming Skills](#my-programming-skills)
     -   [Programming Principle](#programming-principle)
     -   [Programming Language](#programming-language)
@@ -34,6 +35,16 @@
 | Github   | [WhatTheFar](https://github.com/WhatTheFar)       |
 | Linkedin | [Jakpat M.](https://www.linkedin.com/in/jakpatm/) |
 | Mobile   | 098-919-2919 (TH)                                 |
+
+[Back to Top](#table-of-contents)
+
+### Medium Stories
+
+| Title                                                                                                                      | Language |     Date     |
+| :------------------------------------------------------------------------------------------------------------------------- | :------: | :----------: |
+| [Best of Jakpat M. 2018](https://medium.com/@jakpat.m/best-of-jakpat-m-2018-d379a482826e)                                  |    TH    | Dec 31, 2018 |
+| [ทำไมคนถึง(ไม่)ใช้ Chula Popbus ด้วยแนวคิด Hooked Model](https://medium.com/thinc-org/hooked-chula-popbus-th-c7688bac200b) |    TH    | Nov 15, 2018 |
+| [การฝึกงานครั้งแรก จากมุมมองเด็กอายุ 19](https://medium.com/c0d1um/first-internship-th-e96805fd2686)                       |    TH    | Aug 18, 2018 |
 
 [Back to Top](#table-of-contents)
 
@@ -114,6 +125,8 @@
 ### iOS
 
 Sorry, I don't code iOS ;)
+
+[Back to Top](#table-of-contents)
 
 ### Cross-platform
 

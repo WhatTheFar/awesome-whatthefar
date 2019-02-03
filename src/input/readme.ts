@@ -38,6 +38,39 @@ export const readmeMarkdown: MarkdownPage = {
 		// },
 		contactTable,
 		{
+			type: 'MarkdownTable',
+			title: 'Medium Stories',
+			tableData: {
+				input: {
+					type: 'MemoryInput',
+					data: [
+						['Title', 'Language', 'Date', 'Reference'],
+						[
+							'Best of Jakpat M. 2018',
+							'TH',
+							'Dec 31, 2018',
+							'https://medium.com/@jakpat.m/best-of-jakpat-m-2018-d379a482826e'
+						],
+						[
+							'ทำไมคนถึง(ไม่)ใช้ Chula Popbus ด้วยแนวคิด Hooked Model',
+							'TH',
+							'Nov 15, 2018',
+							'https://medium.com/thinc-org/hooked-chula-popbus-th-c7688bac200b'
+						],
+						[
+							'การฝึกงานครั้งแรก จากมุมมองเด็กอายุ 19',
+							'TH',
+							'Aug 18, 2018',
+							'https://medium.com/c0d1um/first-internship-th-e96805fd2686'
+						]
+					]
+				},
+				options: {
+					align: ['left', 'center', 'center', { type: 'Reference', colunm: 0 }]
+				}
+			}
+		},
+		{
 			type: 'MarkdownSection',
 			title: 'My Programming Skills',
 			items: [
