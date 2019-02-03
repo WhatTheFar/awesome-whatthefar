@@ -26,6 +26,11 @@ const MD_LIST = '*';
 const tableOfContentsTitle = 'Table of Contents';
 const backToTopTitle = 'Back to Top';
 
+export interface MarkdownPageContext {
+	backToTop: boolean;
+	backToTopReference: string;
+}
+
 export async function generateMarkdownFile(
 	markdownPage: MarkdownPage,
 	filepath: string
@@ -47,11 +52,17 @@ async function parseMarkdownFile({
 	};
 	let output: string = '';
 
-	let backToTopLine: string | null = null;
-	if (tableOfContent && backToTop) {
-		backToTopLine = parseHeaderReference(backToTopTitle, tableOfContentsTitle);
-	} else if (backToTop) {
-		backToTopLine = parseHeaderReference(backToTopTitle, title);
+	let context: MarkdownPageContext;
+	if (tableOfContent) {
+		context = {
+			backToTop,
+			backToTopReference: parseHeaderReference(backToTopTitle, tableOfContentsTitle)
+		};
+	} else {
+		context = {
+			backToTop,
+			backToTopReference: parseHeaderReference(title, tableOfContentsTitle)
+		};
 	}
 
 	const header = parseMarkdownHeader({
@@ -76,7 +87,7 @@ async function parseMarkdownFile({
 	}
 
 	if (items) {
-		const parseItems = _.partial(parseMardownItem, _, backToTopLine);
+		const parseItems = _.partial(parseMardownItem, _, context);
 		const markdownItems = await Promise.all(items.map(parseItems));
 		output += markdownItems.join(NEW_LINE) + NEW_LINE;
 	}
@@ -85,11 +96,16 @@ async function parseMarkdownFile({
 	// return output;
 }
 
-async function parseMardownItem(item: MarkdownItem, backToTop?: string): Promise<string> {
+async function parseMardownItem(
+	item: MarkdownItem,
+	context: MarkdownPageContext
+): Promise<string> {
+	const { backToTop, backToTopReference } = context;
+
 	let result: string;
 	switch (item.type) {
 		case 'MarkdownSection':
-			result = await parseMarkdownSection(item, backToTop);
+			result = await parseMarkdownSection(item, context);
 			break;
 		case 'MarkdownHeader':
 			result = parseMarkdownHeader(item);
@@ -103,6 +119,9 @@ async function parseMardownItem(item: MarkdownItem, backToTop?: string): Promise
 		case 'MarkdownList':
 			result = parseMarkdownList(item);
 			break;
+		case 'MarkdownBackToTop':
+			result = backToTopReference;
+			break;
 		default:
 			const _exhaustiveCheck: never = item;
 			return _exhaustiveCheck;
@@ -112,7 +131,7 @@ async function parseMardownItem(item: MarkdownItem, backToTop?: string): Promise
 		switch (item.type) {
 			case 'MarkdownTable':
 				result += NEW_LINE;
-				result += backToTop;
+				result += backToTopReference;
 		}
 	}
 
@@ -121,7 +140,7 @@ async function parseMardownItem(item: MarkdownItem, backToTop?: string): Promise
 
 async function parseMarkdownSection(
 	{ title, description, items }: MarkdownSection,
-	backToTop?: string
+	context: MarkdownPageContext
 ): Promise<string> {
 	let output: string = '';
 	const header = parseMarkdownHeader({
@@ -136,7 +155,7 @@ async function parseMarkdownSection(
 		output += description + NEW_LINE;
 	}
 	if (items) {
-		const parseItems = _.partial(parseMardownItem, _, backToTop);
+		const parseItems = _.partial(parseMardownItem, _, context);
 		const markdownItems = await Promise.all(items.map(parseItems));
 		output += markdownItems.join(NEW_LINE) + NEW_LINE;
 	}
@@ -173,7 +192,7 @@ async function parseMarkdownTable(table: MarkdownTable): Promise<string> {
 }
 
 function parseMarkdownPlainText(item: MarkdownPlainText): string {
-	return item.text;
+	return item.text + NEW_LINE;
 }
 
 function parseMarkdownList(item: MarkdownList, offset: number = 0): string {
@@ -210,6 +229,7 @@ function isTableOfContent(item: MarkdownItem): boolean {
 			break;
 		case 'MarkdownPlainText':
 		case 'MarkdownList':
+		case 'MarkdownBackToTop':
 			return false;
 			break;
 		default:
@@ -251,6 +271,7 @@ function parseTableOfContent(
 				break;
 			case 'MarkdownList':
 			case 'MarkdownPlainText':
+			case 'MarkdownBackToTop':
 				break;
 			default:
 				const _exhaustiveCheck: never = item;

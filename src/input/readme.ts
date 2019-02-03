@@ -1,4 +1,4 @@
-import { MarkdownPage } from '../parser/markdown/types';
+import { BackToTopItem, MarkdownPage } from '../parser/markdown/types';
 import {
 	androidTable,
 	backendTable,
@@ -52,6 +52,7 @@ export const readmeMarkdown: MarkdownPage = {
 						androidTable,
 						{ type: 'MarkdownHeader', title: 'iOS', size: 3 },
 						{ type: 'MarkdownPlainText', text: "Sorry, I don't code iOS ;)" },
+						BackToTopItem,
 						{
 							type: 'MarkdownTable',
 							title: 'Cross-platform',

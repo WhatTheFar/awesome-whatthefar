@@ -24,7 +24,14 @@ export type MarkdownItem =
 	| MarkdownTable
 	| MarkdownHeader
 	| MarkdownPlainText
-	| MarkdownList;
+	| MarkdownList
+	| MarkdownBackToTop;
+
+export interface MarkdownBackToTop {
+	type: 'MarkdownBackToTop';
+}
+
+export const BackToTopItem: MarkdownBackToTop = { type: 'MarkdownBackToTop' };
 
 export interface MarkdownSection {
 	type: 'MarkdownSection';
