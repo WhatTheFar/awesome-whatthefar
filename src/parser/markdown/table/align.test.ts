@@ -1,4 +1,4 @@
-import { Align, AlignError, ValidAlign } from './align';
+import { Align, AlignError, ValidAlign } from '@src/parser/markdown/table/align';
 
 describe('Align', () => {
 	describe('validateAlign', () => {

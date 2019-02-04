@@ -1,10 +1,10 @@
+import { CsvInput, parseCsvFromInput } from '@parser/csv';
 import { ParseError } from 'papaparse';
-import { CsvInput, parseCsvFromInput } from '../../csv';
 import { COLON, DASH, NEW_LINE, PIPE, SPACE } from '../constant';
+import { MD_TABLE_HEADER_SIZE } from '../constant';
 import { parseMarkdownHeader } from '../item/header';
+import { MarkdownTable } from '../types';
 import { formatMarkdown } from '../utils';
-import { MD_TABLE_HEADER_SIZE } from './../constant';
-import { MarkdownTable } from './../types';
 import { Align, MarkdownAlign } from './align';
 
 export async function parseMarkdownTable(table: MarkdownTable): Promise<string> {

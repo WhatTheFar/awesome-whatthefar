@@ -1,3 +1,7 @@
+# Project
+src/generated
+
+# System
 lib-cov
 *.seed
 *.log
