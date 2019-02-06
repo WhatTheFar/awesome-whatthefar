@@ -25,7 +25,13 @@ export type MarkdownItem =
 	| MarkdownHeader
 	| MarkdownPlainText
 	| MarkdownList
-	| MarkdownBackToTop;
+	| MarkdownBackToTop
+	| MarkdownItemGroup;
+
+export interface MarkdownItemGroup {
+	type: 'MarkdownItemGroup';
+	items: MarkdownItem[];
+}
 
 export interface MarkdownBackToTop {
 	type: 'MarkdownBackToTop';

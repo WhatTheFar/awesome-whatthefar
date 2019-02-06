@@ -83,9 +83,17 @@ export const readmeMarkdown: MarkdownPage = {
 						frontendTable,
 						backendTable,
 						androidTable,
-						{ type: 'MarkdownHeader', title: 'iOS', size: 3 },
-						{ type: 'MarkdownPlainText', text: "Sorry, I don't code iOS ;)" },
-						BackToTopItem,
+						{
+							type: 'MarkdownItemGroup',
+							items: [
+								{ type: 'MarkdownHeader', title: 'iOS', size: 3 },
+								{
+									type: 'MarkdownPlainText',
+									text: "Sorry, I don't code iOS ;)"
+								},
+								BackToTopItem
+							]
+						},
 						{
 							type: 'MarkdownTable',
 							title: 'Cross-platform',
@@ -120,7 +128,7 @@ export const readmeMarkdown: MarkdownPage = {
 		},
 		{
 			type: 'MarkdownSection',
-			title: 'Self-learning List',
+			title: 'My Self-learning List',
 			items: [udemyTable, tedxTalkTable]
 		}
 	]

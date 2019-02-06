@@ -8,6 +8,7 @@ function isTableOfContent(item: MarkdownItem): boolean {
 		case 'MarkdownSection':
 		case 'MarkdownHeader':
 		case 'MarkdownTable':
+		case 'MarkdownItemGroup':
 			return true;
 			break;
 		case 'MarkdownPlainText':
@@ -51,6 +52,12 @@ export function parseTableOfContent(
 					MD_LIST +
 					TAB +
 					parseHeaderReference(item.title, item.title);
+				break;
+			case 'MarkdownItemGroup':
+				output += item.items
+					.filter(isTableOfContent)
+					.map(_.partial(parseTableOfContent, _, offset))
+					.join(NEW_LINE);
 				break;
 			case 'MarkdownList':
 			case 'MarkdownPlainText':
