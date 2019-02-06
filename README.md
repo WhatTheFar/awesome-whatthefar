@@ -23,7 +23,7 @@
     -   [Non-fiction Book](#non-fiction-book)
     -   [Thai Non-fiction Book](#thai-non-fiction-book)
     -   [Fiction Book](#fiction-book)
--   [Self-learning List](#self-learning-list)
+-   [My Self-learning List](#my-self-learning-list)
     -   [Udemy Course](#udemy-course)
     -   [TedxTalk](#tedxtalk)
 
@@ -86,6 +86,7 @@
 | Title   | Expertise Level |
 | :------ | :-------------: |
 | Angular |  Intermediate   |
+| Gatsy   |  Intermediate   |
 | React   |    Advanced     |
 | Vue.js  |    Beginner     |
 
@@ -172,6 +173,7 @@ Sorry, I don't code iOS ;)
 | Domain-Driven Design: Tackling Complexity in the Heart of Software                                                            | Eric J. Evans                                                       |      |
 | Domain-Specific Languages (Addison-Wesley Signature Series (Fowler))                                                          | Martin Fowler                                                       |      |
 | [Eloquent JavaScript: A Modern Introduction to Programming](https://eloquentjavascript.net/)                                  | Marijn Haverbeke                                                    |      |
+| Hands-On Machine Learning with Scikit-Learn and TensorFlow: Concepts, Tools, and Techniques to Build Intelligent Systems      | Aurélien Géron                                                      |      |
 | Implementing Domain-Driven Design                                                                                             | Vaughn Vernon                                                       |      |
 | [Learn Go with tests](https://github.com/basarat/typescript-book)                                                             | -                                                                   |  ✓   |
 | Patterns of Enterprise Application Architecture (Addison-Wesley Signature Series (Fowler))                                    | Martin Fowler                                                       |      |
@@ -239,25 +241,29 @@ Sorry, I don't code iOS ;)
 | The Phoenix Project: A Novel about IT, DevOps, and Helping Your Business Win                                    | Gene Kim, George Spafford, and Kevin Behr                |      |
 | The Power of Habit: Why We Do What We Do in Life and Business                                                   | Charles Duhigg                                           |      |
 | The Start-Up of You: Adapt to the Future, Invest in Yourself, and Transform Your Career                         | Reid Hoffman                                             |      |
-| The Subtle Art of Not Giving a F\*ck: A Counterintuitive Approach to Living a Good Life                         | Mark Manson                                              |      |
+| The Subtle Art of Not Giving a F\*ck: A Counterintuitive Approach to Living a Good Life                         | Mark Manson                                              |  ✓   |
 | To Sell Is Human: The Surprising Truth About Moving Others                                                      | Daniel H. Pink                                           |      |
 | Vivid Vision: A Remarkable Tool For Aligning Your Business Around a Shared Vision of the Future                 | Cameron Herold                                           |      |
 | What I Wish I Knew When I Was 20: A Crash Course on Making Your Place in the World                              | Tina Seelig                                              |      |
 | When: The Scientific Secrets of Perfect Timing                                                                  | Daniel H. Pink                                           |      |
 | Zero to One: Notes on Startups, or How to Build the Future                                                      | Blake Masters and Peter Thiel                            |  ✓   |
+| Data for the People: How to Make Our Post-Privacy Economy Work for You                                          | Andreas Weigend                                          |      |
+| Find Your Balance Point: Clarify Your Priorities, Simplify Your Life, and Achieve More                          | Brian Tracy and Christina Tracy Stein                    |      |
 
 [Back to Top](#table-of-contents)
 
 ### Thai Non-fiction Book
 
-| Book                                                  | Author                  | Done |
+| Content Shifu                                         | Author                  | Done |
 | :---------------------------------------------------- | :---------------------- | :--: |
 | BRANDiNG 4.0                                          | ปิยะชาติ อิศรภักดี      |      |
 | China 5.0: สีจิ้นผิง เศรษฐกิจยุคใหม่ และแผนการใหญ่ AI | อาร์ม ตั้งนิรันดร       |      |
+| INBOUND MARKETING การตลาดแบบแรงดึงดูด                 |                         |      |
 | The Disruptor                                         | รวิศ หาญอุตสาหะ         |  ✓   |
 | ที่...หัวมุมถนน                                       | รวิศ หาญอุตสาหะ         |      |
 | พัฒนาองค์กรและชีวิตด้วยแนวคิด OKRs                    | ดร. นภดล ร่มโพธิ์       |  ✓   |
 | พื้นฐานการออกแบบฐานข้อมูลเขิงสัมพันธ์                 | ดร. โปรดปราน บุณยพุกกณะ |      |
+| สิ่งสำคัญของชีวิต                                     | นิ้วกลม                 |      |
 
 [Back to Top](#table-of-contents)
 
@@ -269,7 +275,7 @@ Sorry, I don't code iOS ;)
 
 [Back to Top](#table-of-contents)
 
-## Self-learning List
+## My Self-learning List
 
 ### Udemy Course
 
