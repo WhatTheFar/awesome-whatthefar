@@ -6,7 +6,7 @@
 	"author": "WhatTheFar <jakpat.m@gmail.com>",
 	"license": "MIT",
 	"scripts": {
-		"awesome": "ts-node src/script/gen-readme.ts",
+		"awesome": "ts-node -r tsconfig-paths/register src/script/gen-readme.ts",
 		"build": "tsc -p tsconfig.build.json",
 		"start": "ts-node -r tsconfig-paths/register src/index.ts",
 		"start:dev": "nodemon",
