@@ -1,12 +1,11 @@
 import * as _ from 'lodash';
 import { parseMardownItem } from '.';
 import { MD_SECTION_HEADER_SIZE, NEW_LINE } from './../constant';
-import { MarkdownPageContext } from './../page';
-import { MarkdownSection } from './../types';
+import { MarkdownPageContext, MarkdownSection } from './../types';
 import { parseMarkdownHeader } from './header';
 
 export async function parseMarkdownSection(
-	{ title, description, items }: MarkdownSection,
+	{ title, description, items }: MarkdownSection<any>,
 	context: MarkdownPageContext
 ): Promise<string> {
 	let output: string = '';

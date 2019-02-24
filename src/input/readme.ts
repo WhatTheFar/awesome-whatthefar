@@ -1,4 +1,6 @@
 import { BackToTopItem, MarkdownPage } from '../parser/markdown/types';
+import { MarkdownPageReference } from './../parser/markdown/types';
+import { referencePage } from './reference';
 import {
 	androidTable,
 	backendTable,
@@ -16,8 +18,8 @@ import {
 } from './table';
 // tslint:disable:max-line-length
 
-export const readmeMarkdown: MarkdownPage = {
-	type: 'MarkdownPage',
+export const readmePage = MarkdownPage.create({
+	// type: 'MarkdownPage',
 	title: 'Awesome WhatTheFar',
 	description: `
 [![Awesome](https://cdn.rawgit.com/sindresorhus/awesome/d7305f38d29fed78fa85652e3a63e154dd8e8829/media/badge.svg)](https://github.com/sindresorhus/awesome)
@@ -27,9 +29,12 @@ export const readmeMarkdown: MarkdownPage = {
 		tableOfContent: true,
 		backToTop: true
 	},
+	reference: {
+		referencePage: new MarkdownPageReference(referencePage, 'content/reference.md')
+	},
 	items: [
 		// For debugging purpose
-		// {
+		// {s
 		// 	type: 'MarkdownList',
 		// 	list: [
 		// 		'FirstItem',
@@ -137,9 +142,9 @@ export const readmeMarkdown: MarkdownPage = {
 			items: [
 				{
 					type: 'MarkdownPlainText',
-					text: '[Here](reference.md)'
+					text: ctx => `[Click here](${ctx.pageReferences.referencePage})`
 				}
 			]
 		}
 	]
-};
+});

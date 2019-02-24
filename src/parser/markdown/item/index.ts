@@ -1,8 +1,7 @@
 import * as _ from 'lodash';
 import { parseMarkdownTable } from '../table';
 import { NEW_LINE } from './../constant';
-import { MarkdownPageContext } from './../page';
-import { MarkdownItem } from './../types';
+import { MarkdownItem, MarkdownPageContext } from './../types';
 import { parseMarkdownHeader } from './header';
 import { parseMarkdownList } from './list';
 import { parseMarkdownPlainText } from './plain-text';
@@ -31,7 +30,7 @@ export async function parseMardownItem(
 			result = await parseMarkdownTable(item);
 			break;
 		case 'MarkdownPlainText':
-			result = parseMarkdownPlainText(item);
+			result = parseMarkdownPlainText(item, context);
 			break;
 		case 'MarkdownList':
 			result = parseMarkdownList(item);

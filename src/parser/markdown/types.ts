@@ -1,13 +1,61 @@
 import { CsvInput } from '../csv';
 import { TableOptions } from './table';
+import { MarkdownPageReferenceDict } from './types';
+// tslint:disable:max-classes-per-file
 
-export interface MarkdownPage {
-	type: 'MarkdownPage';
-	title: string;
-	description?: string;
-	items?: MarkdownItem[];
-	options?: MarkdownPageOptions;
+export class MarkdownPageReference {
+	constructor(public page: MarkdownPage, public relativeFilePath: string) {}
+
+	public toString() {
+		return this.relativeFilePath;
+	}
 }
+
+export interface MarkdownPageReferenceDict {
+	[page: string]: MarkdownPageReference;
+}
+
+export interface MarkdownPageContext<
+	T extends MarkdownPageReferenceDict = MarkdownPageReferenceDict
+> {
+	backToTop: boolean;
+	backToTopReference: string;
+	pageReferences: T;
+}
+
+export class MarkdownPage<
+	T extends MarkdownPageReferenceDict = MarkdownPageReferenceDict
+> {
+	public static create<T extends MarkdownPageReferenceDict>(args: {
+		title: string;
+		description?: string;
+		items?: Array<MarkdownItem<MarkdownPageContext<T>>>;
+		options?: MarkdownPageOptions;
+		reference?: T;
+	}): MarkdownPage<T> {
+		const { title, description, items, options, reference } = args;
+		return new MarkdownPage(title, description, items, options, reference);
+	}
+
+	constructor(
+		public title: string,
+		public description?: string,
+		public items?: Array<MarkdownItem<MarkdownPageContext<T>>>,
+		public options?: MarkdownPageOptions,
+		public reference?: T
+	) {}
+}
+
+// export interface MarkdownPage<
+// 	T extends MarkdownPageReferenceDict = MarkdownPageReferenceDict
+// > {
+// 	type: 'MarkdownPage';
+// 	title: string;
+// 	description?: string;
+// 	items?: Array<MarkdownItem<MarkdownContext<T>>>;
+// 	options?: MarkdownPageOptions;
+// 	reference?: T;
+// }
 
 export interface MarkdownPageOptions {
 	tableOfContent?: boolean;
@@ -19,18 +67,22 @@ export const defaultMarkdownPageOptions: Required<MarkdownPageOptions> = {
 	backToTop: true
 };
 
-export type MarkdownItem =
-	| MarkdownSection
+export type MarkdownText<T extends MarkdownPageContext> =
+	| string
+	| ((context: T) => string);
+
+export type MarkdownItem<T extends MarkdownPageContext = MarkdownPageContext> =
+	| MarkdownSection<T>
 	| MarkdownTable
 	| MarkdownHeader
-	| MarkdownPlainText
+	| MarkdownPlainText<T>
 	| MarkdownList
 	| MarkdownBackToTop
-	| MarkdownItemGroup;
+	| MarkdownItemGroup<T>;
 
-export interface MarkdownItemGroup {
+export interface MarkdownItemGroup<T extends MarkdownPageContext> {
 	type: 'MarkdownItemGroup';
-	items: MarkdownItem[];
+	items: Array<MarkdownItem<T>>;
 }
 
 export interface MarkdownBackToTop {
@@ -39,11 +91,11 @@ export interface MarkdownBackToTop {
 
 export const BackToTopItem: MarkdownBackToTop = { type: 'MarkdownBackToTop' };
 
-export interface MarkdownSection {
+export interface MarkdownSection<T extends MarkdownPageContext> {
 	type: 'MarkdownSection';
 	title: string;
 	description?: string;
-	items?: MarkdownItem[];
+	items?: Array<MarkdownItem<T>>;
 }
 
 export interface MarkdownTable {
@@ -62,9 +114,9 @@ export interface MarkdownHeader {
 	size: number;
 }
 
-export interface MarkdownPlainText {
+export interface MarkdownPlainText<T extends MarkdownPageContext = MarkdownPageContext> {
 	type: 'MarkdownPlainText';
-	text: string;
+	text: MarkdownText<T>;
 }
 
 export interface MarkdownList {

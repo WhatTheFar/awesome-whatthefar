@@ -3,22 +3,28 @@ import { MD_PAGE_HEADER_SIZE, NEW_LINE } from './constant';
 import { parseMardownItem } from './item';
 import { parseMarkdownHeader } from './item/header';
 import { parseTableOfContent } from './table-of-content';
-import { defaultMarkdownPageOptions, MarkdownPage, MarkdownPageOptions } from './types';
+import {
+	defaultMarkdownPageOptions,
+	MarkdownPage,
+	MarkdownPageContext,
+	MarkdownPageOptions
+} from './types';
 import { formatMarkdown, parseHeaderReference } from './utils';
 
 const tableOfContentsTitle = 'Table of Contents';
 const backToTopTitle = 'Back to Top';
 
-export interface MarkdownPageContext {
-	backToTop: boolean;
-	backToTopReference: string;
-}
+// export interface MarkdownPageContext {
+// 	backToTop: boolean;
+// 	backToTopReference: string;
+// }
 
 export async function parseMarkdownPage({
 	title,
 	description,
 	items,
-	options
+	options,
+	reference
 }: MarkdownPage): Promise<string> {
 	const { tableOfContent, backToTop }: Required<MarkdownPageOptions> = {
 		...defaultMarkdownPageOptions,
@@ -27,13 +33,16 @@ export async function parseMarkdownPage({
 	let output: string = '';
 
 	let context: MarkdownPageContext;
+	const pageReferences = reference ? reference : {};
 	if (tableOfContent) {
 		context = {
+			pageReferences,
 			backToTop,
 			backToTopReference: parseHeaderReference(backToTopTitle, tableOfContentsTitle)
 		};
 	} else {
 		context = {
+			pageReferences,
 			backToTop,
 			backToTopReference: parseHeaderReference(title, tableOfContentsTitle)
 		};

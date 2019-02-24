@@ -1,7 +1,7 @@
 import { existsSync, mkdirSync } from 'fs';
 import * as _ from 'lodash';
 import { resolve } from 'path';
-import { readmeMarkdown } from './input/readme';
+import { readmePage } from './input/readme';
 import { referencePage } from './input/reference';
 import { generateMarkdownFile } from './parser/markdown';
 
@@ -21,8 +21,7 @@ const generatedDir = resolve(__dirname, 'generated');
 
 	const getGeneratedPath = _.partial(resolve, generatedDir, _);
 
-	await generateMarkdownFile(readmeMarkdown, getGeneratedPath('README.md'));
-	await generateMarkdownFile(referencePage, getGeneratedPath('reference.md'));
+	await generateMarkdownFile(readmePage, getGeneratedPath('README.md'));
 
 	console.timeEnd(label);
 })();

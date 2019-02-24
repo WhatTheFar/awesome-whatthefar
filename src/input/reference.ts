@@ -1,7 +1,8 @@
-import { MarkdownPage } from './../parser/markdown/types';
+import { MarkdownPageReference } from '@src/parser/markdown/types';
+import { MarkdownPage } from '../parser/markdown/types';
 
-export const referencePage: MarkdownPage = {
-	type: 'MarkdownPage',
+export const referencePage = MarkdownPage.create({
+	// type: 'MarkdownPage',
 	title: 'Reference',
 	description: '',
 	items: [
@@ -27,4 +28,18 @@ export const referencePage: MarkdownPage = {
 			}
 		}
 	]
-};
+});
+
+const test = MarkdownPage.create({
+	title: 'Reference',
+	description: '',
+	items: [
+		{
+			type: 'MarkdownPlainText',
+			text: ctx => `${ctx.pageReferences.referencePage}`
+		}
+	],
+	reference: {
+		referencePage: new MarkdownPageReference(referencePage, 'content/reference.md')
+	}
+});
