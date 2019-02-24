@@ -130,6 +130,16 @@ export const readmeMarkdown: MarkdownPage = {
 			type: 'MarkdownSection',
 			title: 'My Self-learning List',
 			items: [udemyTable, tedxTalkTable]
+		},
+		{
+			type: 'MarkdownSection',
+			title: 'My Reference',
+			items: [
+				{
+					type: 'MarkdownPlainText',
+					text: '[Here](reference.md)'
+				}
+			]
 		}
 	]
 };

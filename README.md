@@ -26,6 +26,7 @@
 -   [My Self-learning List](#my-self-learning-list)
     -   [Udemy Course](#udemy-course)
     -   [TedxTalk](#tedxtalk)
+-   [My Reference](#my-reference)
 
 ### Contact
 
@@ -206,10 +207,12 @@ Sorry, I don't code iOS ;)
 | Change by Design: How Design Thinking Transforms Organizations and Inspires Innovation                          | Tim Brown                                                |      |
 | Creative Confidence: Unleashing the Creative Potential Within Us All                                            | David Kelley and Tom Kelley                              |  ✓   |
 | Creativity, Inc.: Overcoming the Unseen Forces That Stand in the Way of True Inspiration                        | Amy Wallace and Edwin Catmull                            |      |
+| Data for the People: How to Make Our Post-Privacy Economy Work for You                                          | Andreas Weigend                                          |      |
 | Designing Your Life: How to Build a Well-lived, Joyful Life                                                     | Bill Burnett and Dave Evans                              |      |
 | Disciplined Entrepreneurship: 24 Steps to a Successful Startup                                                  | Bill Aulet                                               |  ✓   |
 | Drive: The Surprising Truth About What Motivates Us                                                             | Daniel H. Pink                                           |      |
 | Factfulness: Ten Reasons We're Wrong About the World--and Why Things Are Better Than You Think                  | Anna Rosling Rönnlund, Hans Rosling, and Ola Rosling     |      |
+| Find Your Balance Point: Clarify Your Priorities, Simplify Your Life, and Achieve More                          | Brian Tracy and Christina Tracy Stein                    |      |
 | Freakonomics: A Rogue Economist Explores the Hidden Side of Everything                                          | Stephen J. Dubner and Steven Levitt                      |  ✓   |
 | Gone Fishing with Buffett: A Young Man Learns Value Investing from a Mysterious Old Man                         | Sean Seah                                                |      |
 | Good to Great: Why Some Companies Make the Leap...and Others Don't                                              | James C. Collins                                         |      |
@@ -243,12 +246,11 @@ Sorry, I don't code iOS ;)
 | The Start-Up of You: Adapt to the Future, Invest in Yourself, and Transform Your Career                         | Reid Hoffman                                             |      |
 | The Subtle Art of Not Giving a F\*ck: A Counterintuitive Approach to Living a Good Life                         | Mark Manson                                              |  ✓   |
 | To Sell Is Human: The Surprising Truth About Moving Others                                                      | Daniel H. Pink                                           |      |
+| Tuesdays with Morrie                                                                                            | Mitch Albom                                              |      |
 | Vivid Vision: A Remarkable Tool For Aligning Your Business Around a Shared Vision of the Future                 | Cameron Herold                                           |      |
 | What I Wish I Knew When I Was 20: A Crash Course on Making Your Place in the World                              | Tina Seelig                                              |      |
 | When: The Scientific Secrets of Perfect Timing                                                                  | Daniel H. Pink                                           |      |
 | Zero to One: Notes on Startups, or How to Build the Future                                                      | Blake Masters and Peter Thiel                            |  ✓   |
-| Data for the People: How to Make Our Post-Privacy Economy Work for You                                          | Andreas Weigend                                          |      |
-| Find Your Balance Point: Clarify Your Priorities, Simplify Your Life, and Achieve More                          | Brian Tracy and Christina Tracy Stein                    |      |
 
 [Back to Top](#table-of-contents)
 
@@ -258,12 +260,13 @@ Sorry, I don't code iOS ;)
 | :---------------------------------------------------- | :---------------------- | :--: |
 | BRANDiNG 4.0                                          | ปิยะชาติ อิศรภักดี      |      |
 | China 5.0: สีจิ้นผิง เศรษฐกิจยุคใหม่ และแผนการใหญ่ AI | อาร์ม ตั้งนิรันดร       |      |
-| INBOUND MARKETING การตลาดแบบแรงดึงดูด                 |                         |      |
+| Homo Finishers สายพันธุ์เข้าเส้นชัย                   | นิ้วกลม                 |      |
+| INBOUND MARKETING การตลาดแบบแรงดึงดูด                 | Content Shifu           |      |
 | The Disruptor                                         | รวิศ หาญอุตสาหะ         |  ✓   |
 | ที่...หัวมุมถนน                                       | รวิศ หาญอุตสาหะ         |      |
 | พัฒนาองค์กรและชีวิตด้วยแนวคิด OKRs                    | ดร. นภดล ร่มโพธิ์       |  ✓   |
 | พื้นฐานการออกแบบฐานข้อมูลเขิงสัมพันธ์                 | ดร. โปรดปราน บุณยพุกกณะ |      |
-| สิ่งสำคัญของชีวิต                                     | นิ้วกลม                 |      |
+| สิ่งสำคัญของชีวิต                                     | นิ้วกลม                 |  ✓   |
 
 [Back to Top](#table-of-contents)
 
@@ -321,3 +324,7 @@ Sorry, I don't code iOS ;)
 | [อย่าให้รักเดียวเป็นเรื่องมหัศจรรย์](https://youtu.be/1pRtDpRJZdY)                             | NAPAPORN TRIVITWAREEGUNE |
 
 [Back to Top](#table-of-contents)
+
+## My Reference
+
+[Here](reference.md)
