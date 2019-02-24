@@ -18,13 +18,13 @@ export async function generateMarkdownFile<T extends MarkdownPageReferenceDict>(
 	for (const key in ref) {
 		if (ref.hasOwnProperty(key)) {
 			const value = ref[key];
-			const temp = await parseMarkdownPage(value.page);
-			const tempPath = resolve(filepath, '..', value.relativeFilePath);
-
-			mkdirpSync(resolve(tempPath, '..'));
-			writeFileSync(tempPath, temp);
+			await generateMarkdownFile(
+				value.page,
+				resolve(filepath, '..', value.relativeFilePath)
+			);
 		}
 	}
+	// TODO: do not parse and create markdown if it exits
 	const markdown = await parseMarkdownPage((markdownPage as unknown) as MarkdownPage);
 	mkdirpSync(resolve(filepath, '..'));
 	writeFileSync(filepath, markdown);

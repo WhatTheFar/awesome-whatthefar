@@ -1,10 +1,24 @@
 import { MarkdownPageReference } from '@src/parser/markdown/types';
 import { MarkdownPage } from '../parser/markdown/types';
 
+const anotherRefPage = MarkdownPage.create({
+	title: 'Another Reference',
+	description: 'For testing purpose',
+	items: [
+		{
+			type: 'MarkdownPlainText',
+			text: 'Just an another reference page'
+		}
+	]
+});
+
 export const referencePage = MarkdownPage.create({
 	// type: 'MarkdownPage',
 	title: 'Reference',
 	description: '',
+	reference: {
+		anotherRefPage: new MarkdownPageReference(anotherRefPage, 'another-ref.md')
+	},
 	items: [
 		{
 			type: 'MarkdownTable',
@@ -26,20 +40,16 @@ export const referencePage = MarkdownPage.create({
 					align: ['left', 'left', { type: 'Reference', colunm: 0 }]
 				}
 			}
+		},
+		{
+			type: 'MarkdownSection',
+			title: 'Another Reference',
+			items: [
+				{
+					type: 'MarkdownPlainText',
+					text: ctx => `[Click here](${ctx.pageReferences.anotherRefPage})`
+				}
+			]
 		}
 	]
-});
-
-const test = MarkdownPage.create({
-	title: 'Reference',
-	description: '',
-	items: [
-		{
-			type: 'MarkdownPlainText',
-			text: ctx => `${ctx.pageReferences.referencePage}`
-		}
-	],
-	reference: {
-		referencePage: new MarkdownPageReference(referencePage, 'content/reference.md')
-	}
 });

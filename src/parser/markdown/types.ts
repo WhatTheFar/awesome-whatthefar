@@ -3,8 +3,8 @@ import { TableOptions } from './table';
 import { MarkdownPageReferenceDict } from './types';
 // tslint:disable:max-classes-per-file
 
-export class MarkdownPageReference {
-	constructor(public page: MarkdownPage, public relativeFilePath: string) {}
+export class MarkdownPageReference<T extends MarkdownPageReferenceDict> {
+	constructor(public page: MarkdownPage<T>, public relativeFilePath: string) {}
 
 	public toString() {
 		return this.relativeFilePath;
@@ -12,7 +12,7 @@ export class MarkdownPageReference {
 }
 
 export interface MarkdownPageReferenceDict {
-	[page: string]: MarkdownPageReference;
+	[page: string]: MarkdownPageReference<any>;
 }
 
 export interface MarkdownPageContext<
