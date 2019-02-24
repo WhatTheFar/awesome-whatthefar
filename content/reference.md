@@ -11,7 +11,6 @@
 -   [Software Development](#software-development)
     -   [Design Pattern](#design-pattern)
 -   [Potato](#potato)
-
 -   [Another Reference](#another-reference)
 
 ## Bussiness

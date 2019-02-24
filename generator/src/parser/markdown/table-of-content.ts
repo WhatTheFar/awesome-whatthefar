@@ -42,7 +42,10 @@ export function parseTableOfContent(
 					TAB +
 					parseHeaderReference(item.title, item.title);
 				if (item.items) {
-					output += NEW_LINE + parseTableOfContent(item.items, ++offset);
+					const result = parseTableOfContent(item.items, ++offset);
+					if (result) {
+						output += NEW_LINE + result;
+					}
 				}
 				break;
 			case 'MarkdownHeader':
@@ -54,10 +57,7 @@ export function parseTableOfContent(
 					parseHeaderReference(item.title, item.title);
 				break;
 			case 'MarkdownItemGroup':
-				output += item.items
-					.filter(isTableOfContent)
-					.map(_.partial(parseTableOfContent, _, offset))
-					.join(NEW_LINE);
+				output += parseTableOfContent(item.items, offset);
 				break;
 			case 'MarkdownList':
 			case 'MarkdownPlainText':
