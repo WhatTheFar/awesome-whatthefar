@@ -143,7 +143,8 @@ export const readmePage = MarkdownPage.create({
 				{
 					type: 'MarkdownPlainText',
 					text: ctx => `[Click here](${ctx.pageReferences.referencePage})`
-				}
+				},
+				BackToTopItem
 			]
 		}
 	]
