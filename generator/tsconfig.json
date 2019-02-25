@@ -11,6 +11,7 @@
 		"baseUrl": "./src",
 		"paths": {
 			"@src/*": ["./*"],
+			"@input/*": ["./input/*"],
 			"@parser/*": ["./parser/*"]
 		}
 	},

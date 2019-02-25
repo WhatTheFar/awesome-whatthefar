@@ -1,5 +1,5 @@
 import { CsvInput } from '../csv';
-import { TableOptions } from './table';
+import { TableOptions } from './table/table';
 import { MarkdownPageReferenceDict } from './types';
 // tslint:disable:max-classes-per-file
 
