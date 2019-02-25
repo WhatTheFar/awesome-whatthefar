@@ -6,8 +6,9 @@
 
 ## Table of Contents
 
--   [Contact](#contact)
--   [Medium Stories](#medium-stories)
+-   [About me](#about-me)
+    -   [Contact](#contact)
+    -   [Medium Stories](#medium-stories)
 -   [My Programming Skills](#my-programming-skills)
     -   [Programming Principle](#programming-principle)
     -   [Programming Language](#programming-language)
@@ -27,6 +28,12 @@
     -   [Udemy Course](#udemy-course)
     -   [TedxTalk](#tedxtalk)
 -   [My Reference](#my-reference)
+
+## About me
+
+**Jakpat Mingmongkolmitr**
+
+> I am an enthusiastic Software Engineer and Developer, especially interested in Data Scientist. I enjoy learning new technologies and programming techniques to constantly develop my skills and grow professionally.
 
 ### Contact
 
