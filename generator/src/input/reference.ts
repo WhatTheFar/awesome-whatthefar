@@ -1,6 +1,8 @@
-import { MarkdownPageReference } from '@src/parser/markdown/types';
-import { MarkdownPage } from '../parser/markdown/types';
-import { BackToTopItem } from './../parser/markdown/types';
+import {
+	BackToTopItem,
+	MarkdownPage,
+	MarkdownPageReference
+} from '@parser/markdown/types';
 
 const anotherRefPage = MarkdownPage.create({
 	title: 'Another Reference',

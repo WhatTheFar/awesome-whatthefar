@@ -1,5 +1,8 @@
-import { BackToTopItem, MarkdownPage } from '../parser/markdown/types';
-import { MarkdownPageReference } from './../parser/markdown/types';
+import {
+	BackToTopItem,
+	MarkdownPage,
+	MarkdownPageReference
+} from '@parser/markdown/types';
 import { referencePage } from './reference';
 import {
 	androidTable,

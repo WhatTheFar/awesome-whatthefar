@@ -1,4 +1,4 @@
-import { MarkdownTable } from '../parser/markdown/types';
+import { MarkdownTable } from '@parser/markdown/types';
 
 const publishedId =
 	'2PACX-1vQ6FlZEwgS9hr8lly1EwA1vCK1qDlOkLoZD3ninNi6vZlA5e7DtFtzMoPyJeFbeYntOfcqqldNmRD0d';
