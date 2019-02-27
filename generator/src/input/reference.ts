@@ -26,7 +26,8 @@ export const referencePage = MarkdownPage.create({
 		{
 			type: 'MarkdownSection',
 			title: 'Bussiness',
-			description: 'There is nothing yet'
+			description: 'There is nothing yet',
+			items: [BackToTopItem]
 		},
 		{
 			type: 'MarkdownSection',

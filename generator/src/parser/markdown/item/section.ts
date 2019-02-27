@@ -18,7 +18,7 @@ export async function parseMarkdownSection(
 	output += header + NEW_LINE;
 
 	if (description) {
-		output += description + NEW_LINE;
+		output += description + NEW_LINE + NEW_LINE;
 	}
 	if (items) {
 		const parseItems = _.partial(parseMardownItem, _, context);
