@@ -15,12 +15,18 @@ export interface MarkdownPageReferenceDict {
 	[page: string]: MarkdownPageReference<any>;
 }
 
+interface Dict {
+	[key: string]: any;
+}
+
 export interface MarkdownPageContext<
 	T extends MarkdownPageReferenceDict = MarkdownPageReferenceDict
 > {
 	backToTop: boolean;
 	backToTopReference: string;
 	pageReferences: T;
+	state: Dict;
+	dispatch: (state: Dict) => void;
 }
 
 export class MarkdownPage<
@@ -66,11 +72,13 @@ export class MarkdownPage<
 export interface MarkdownPageOptions {
 	tableOfContent?: boolean;
 	backToTop?: boolean;
+	initialState?: Dict;
 }
 
 export const defaultMarkdownPageOptions: Required<MarkdownPageOptions> = {
 	tableOfContent: true,
-	backToTop: true
+	backToTop: true,
+	initialState: {}
 };
 
 export type MarkdownText<T extends MarkdownPageContext> =

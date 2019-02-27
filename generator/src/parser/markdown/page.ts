@@ -26,27 +26,29 @@ export async function parseMarkdownPage({
 	options,
 	reference
 }: MarkdownPage): Promise<string> {
-	const { tableOfContent, backToTop }: Required<MarkdownPageOptions> = {
+	const { tableOfContent, backToTop, initialState }: Required<MarkdownPageOptions> = {
 		...defaultMarkdownPageOptions,
 		...options
 	};
 	let output: string = '';
 
 	let context: MarkdownPageContext;
+	let backToTopReference: string;
 	const pageReferences = reference ? reference : {};
 	if (tableOfContent) {
-		context = {
-			pageReferences,
-			backToTop,
-			backToTopReference: parseHeaderReference(backToTopTitle, tableOfContentsTitle)
-		};
+		backToTopReference = parseHeaderReference(backToTopTitle, tableOfContentsTitle);
 	} else {
-		context = {
-			pageReferences,
-			backToTop,
-			backToTopReference: parseHeaderReference(title, tableOfContentsTitle)
-		};
+		backToTopReference = parseHeaderReference(title, tableOfContentsTitle);
 	}
+	context = {
+		backToTop,
+		backToTopReference,
+		pageReferences,
+		state: initialState,
+		dispatch: newState => {
+			context.state = { ...context.state, ...newState };
+		}
+	};
 
 	const header = parseMarkdownHeader({
 		type: 'MarkdownHeader',
