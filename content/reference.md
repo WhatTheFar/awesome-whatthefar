@@ -10,6 +10,10 @@
     -   [User Experience](#user-experience)
 -   [Software Development](#software-development)
     -   [Design Pattern](#design-pattern)
+-   [Productivity Tools](#productivity-tools)
+    -   [Personal Management](#personal-management)
+    -   [macOS](#macos)
+    -   [Google Chrome](#google-chrome)
 -   [Potato](#potato)
 -   [Another Reference](#another-reference)
 
@@ -55,6 +59,40 @@ There is nothing yet
 | Title                                                                  | Description              |
 | :--------------------------------------------------------------------- | :----------------------- |
 | [Design patterns ภาษาไทย](https://github.com/saladpuk/design-patterns) | เขียนดี มีรูปภาพ ภาษาไทย |
+
+[Back to Top](#table-of-contents)
+
+## Productivity Tools
+
+### Personal Management
+
+| Title                                                                   | Description                                                        |
+| :---------------------------------------------------------------------- | :----------------------------------------------------------------- |
+| [awesome-whatthefar](https://github.com/WhatTheFar/awesome-whatthefar/) | 😎 Curated list of awesome WhatTheFar                              |
+| [Google Calendar](https://www.google.com/calendar)                      | Time boxing tool                                                   |
+| [Notion](https://www.notion.so/)                                        | All-in-one workspace. Write, plan, collaborate, and get organized. |
+| [Spotify](https://www.spotify.com/)                                     | For listening music and podcast                                    |
+
+[Back to Top](#table-of-contents)
+
+### macOS
+
+| Title                                                                  | Description                                                                           |
+| :--------------------------------------------------------------------- | :------------------------------------------------------------------------------------ |
+| [Alfred](https://www.alfredapp.com/)                                   | A must-have productivity app for macOS                                                |
+| [iTerm2](https://www.iterm2.com/)                                      | Best replacement for Terminal                                                         |
+| [Fork](https://git-fork.com/)                                          | a fast and friendly git client for Mac and Windows                                    |
+| [Dropzone 3](https://aptonic.com/)                                     | move and copy files, launch applications, upload to many different services, and more |
+| [Gestimer](https://itunes.apple.com/th/app/gestimer/id990588172?mt=12) | Best timer for macOS                                                                  |
+
+[Back to Top](#table-of-contents)
+
+### Google Chrome
+
+| Title                                                                                                                       | Description                                                             |
+| :-------------------------------------------------------------------------------------------------------------------------- | :---------------------------------------------------------------------- |
+| [The Great Suspender](https://chrome.google.com/webstore/detail/the-great-suspender/klbibkeccnjlkjkiokjodocebajanakg?hl=en) | Make your computer run smoothly by suspending the tabs you aren't using |
+| [Vimium - The Hacker's Browser](https://github.com/philc/vimium)                                                            | Chrome extension for Vim user                                           |
 
 [Back to Top](#table-of-contents)
 

@@ -3,6 +3,7 @@ import {
 	MarkdownPage,
 	MarkdownPageReference
 } from '@parser/markdown/types';
+import { toolsSection } from './section/tools';
 
 const anotherRefPage = MarkdownPage.create({
 	title: 'Another Reference',
@@ -15,13 +16,17 @@ const anotherRefPage = MarkdownPage.create({
 	]
 });
 
+const reference = {
+	anotherRefPage: new MarkdownPageReference(anotherRefPage, 'another-ref.md')
+};
+
+export type ReferencePagePageReference = typeof reference;
+
 export const referencePage = MarkdownPage.create({
 	// type: 'MarkdownPage',
 	title: 'Reference',
 	description: '',
-	reference: {
-		anotherRefPage: new MarkdownPageReference(anotherRefPage, 'another-ref.md')
-	},
+	reference,
 	items: [
 		{
 			type: 'MarkdownSection',
@@ -136,6 +141,7 @@ export const referencePage = MarkdownPage.create({
 				}
 			]
 		},
+		toolsSection,
 		{
 			type: 'MarkdownSection',
 			title: 'Potato',

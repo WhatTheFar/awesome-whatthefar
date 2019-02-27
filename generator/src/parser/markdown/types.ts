@@ -34,15 +34,21 @@ export class MarkdownPage<
 		reference?: T;
 	}): MarkdownPage<T> {
 		const { title, description, items, options, reference } = args;
-		return new MarkdownPage(title, description, items, options, reference);
+		return new MarkdownPage(
+			title,
+			description || '',
+			reference || ({} as T),
+			items,
+			options
+		);
 	}
 
 	constructor(
 		public title: string,
-		public description?: string,
+		public description: string,
+		public reference: T,
 		public items?: Array<MarkdownItem<MarkdownPageContext<T>>>,
-		public options?: MarkdownPageOptions,
-		public reference?: T
+		public options?: MarkdownPageOptions
 	) {}
 }
 

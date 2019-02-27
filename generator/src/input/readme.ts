@@ -3,7 +3,7 @@ import {
 	MarkdownPage,
 	MarkdownPageReference
 } from '@parser/markdown/types';
-import { referencePage } from './reference';
+import { referencePage } from './reference/reference';
 import {
 	androidTable,
 	backendTable,
