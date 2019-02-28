@@ -7,7 +7,7 @@ export function pad(length: number, character: string = ' ') {
 }
 
 export function makeRepetitiveArray<T>(length: number, item: T): T[] {
-	return new Array<T>(length + 1).fill(item);
+	return new Array<T>(length).fill(item);
 }
 
 export function formatMarkdown(input: string): string {

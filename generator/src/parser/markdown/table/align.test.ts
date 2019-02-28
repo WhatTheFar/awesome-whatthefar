@@ -8,7 +8,7 @@ describe('Align', () => {
 
 			validAligns.forEach((v, i) => {
 				const [validated] = Align.validateAlign(v, length);
-				expect(validated).toEqual(new Array(length + 1).fill(v));
+				expect(validated).toEqual(new Array(length).fill(v));
 			});
 		});
 
