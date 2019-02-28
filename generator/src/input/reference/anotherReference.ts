@@ -20,7 +20,10 @@ export const anotherRefPage = MarkdownPage.create({
 		{
 			type: 'MarkdownPlainText',
 			text: ctx => {
-				ctx.dispatch({ temp: 'This is a temp value from earlier dispatch' });
+				ctx.dispatch({
+					...ctx.state,
+					temp: 'This is a temp value from earlier dispatch'
+				});
 				return 'state.temp is dispatched';
 			}
 		},

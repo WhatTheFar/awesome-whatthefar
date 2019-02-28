@@ -26,7 +26,7 @@ export interface MarkdownPageContext<
 	backToTopReference: string;
 	pageReferences: T;
 	state: Dict;
-	dispatch: (state: Dict) => void;
+	dispatch: (newState: Dict) => void;
 }
 
 export class MarkdownPage<
