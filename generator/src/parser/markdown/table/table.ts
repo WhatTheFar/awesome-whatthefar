@@ -6,6 +6,7 @@ import { parseMarkdownHeader } from '../item/header';
 import { MarkdownTable } from '../types';
 import { formatMarkdown } from '../utils';
 import { Align, MarkdownAlign } from './align';
+import { Mapper, TableDataMapper } from './mapper';
 
 export async function parseMarkdownTable(table: MarkdownTable): Promise<string> {
 	const [tableString, err] = await parseMarkdownTableFromCsvInput(
@@ -34,10 +35,12 @@ export async function parseMarkdownTable(table: MarkdownTable): Promise<string> 
 
 export interface TableOptions {
 	align?: Align | Align[];
+	mapper?: TableDataMapper | TableDataMapper[];
 }
 
 const defaultTableOptions: Required<TableOptions> = {
-	align: 'left'
+	align: 'left',
+	mapper: 'skip'
 };
 
 const DEFAULT_DELIMITER = SPACE + PIPE + SPACE;
@@ -96,7 +99,7 @@ export async function parseMarkdownTableFromData(
 	data: string[][],
 	options: TableOptions = defaultTableOptions
 ) {
-	const { align }: Required<TableOptions> = {
+	const { align, mapper }: Required<TableOptions> = {
 		...defaultTableOptions,
 		...options
 	};
@@ -111,6 +114,11 @@ export async function parseMarkdownTableFromData(
 	const [aligns, alignErr] = Align.validateAlign(align, columnSize);
 	if (alignErr) {
 		throw new Error(alignErr);
+	}
+
+	const [mappers, mapperErr] = Mapper.validateMapper(mapper, columnSize);
+	if (mapperErr) {
+		throw new Error(mapperErr);
 	}
 
 	const output = data.reduce((prev, row, rowIndex) => {
@@ -131,13 +139,26 @@ export async function parseMarkdownTableFromData(
 		if (rowIndex === 0) {
 			formattedRow = row;
 		} else {
-			formattedRow = row.map((value, i) => {
-				const refValue = referenceMappingTemp[i];
-				if (refValue) {
-					return `[${value}](${refValue})`;
-				}
-				return value;
-			});
+			formattedRow = row
+				.map((value, i) => {
+					const tempMapper = mappers[i];
+					if (tempMapper === 'skip') {
+						return value;
+					} else if (Mapper.isMapperFunction(tempMapper)) {
+						// TODO: add context into mapper arguments
+						return tempMapper(value, i, row);
+					} else {
+						const _exhaustiveCheck: never = tempMapper;
+						return _exhaustiveCheck;
+					}
+				})
+				.map((value, i) => {
+					const refValue = referenceMappingTemp[i];
+					if (refValue) {
+						return `[${value}](${refValue})`;
+					}
+					return value;
+				});
 		}
 
 		line +=

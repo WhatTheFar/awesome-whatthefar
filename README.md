@@ -203,61 +203,61 @@ Sorry, I don't code iOS ;)
 
 ### Non-fiction Book
 
-| Book                                                                                                            | Author                                                   | Done |
-| :-------------------------------------------------------------------------------------------------------------- | :------------------------------------------------------- | :--: |
-| 100 Tricks to Appear Smart in Meetings: How to Get By Without Even Trying                                       | Sarah Cooper                                             |  ✓   |
-| 21 Lessons for the 21st Century                                                                                 | Yuval Noah Harari                                        |      |
-| Algorithms to Live By: The Computer Science of Human Decisions                                                  | Brian Christian and Tom Griffiths                        |      |
-| Bad Blood: Secrets and Lies in a Silicon Valley Startup                                                         | John Carreyrou                                           |      |
-| Blitzscaling: The Lightning-Fast Path to Building Massively Valuable Companies                                  | Chris Yeh and Reid Hoffman                               |      |
-| Blue Ocean Shift: Beyond Competing - Proven Steps to Inspire Confidence and Seize New Growth                    | Renée Mauborgne and W. Chan Kim                          |      |
-| Change by Design: How Design Thinking Transforms Organizations and Inspires Innovation                          | Tim Brown                                                |      |
-| Creative Confidence: Unleashing the Creative Potential Within Us All                                            | David Kelley and Tom Kelley                              |  ✓   |
-| Creativity, Inc.: Overcoming the Unseen Forces That Stand in the Way of True Inspiration                        | Amy Wallace and Edwin Catmull                            |      |
-| Data for the People: How to Make Our Post-Privacy Economy Work for You                                          | Andreas Weigend                                          |      |
-| Designing Your Life: How to Build a Well-lived, Joyful Life                                                     | Bill Burnett and Dave Evans                              |      |
-| Disciplined Entrepreneurship: 24 Steps to a Successful Startup                                                  | Bill Aulet                                               |  ✓   |
-| Drive: The Surprising Truth About What Motivates Us                                                             | Daniel H. Pink                                           |      |
-| Factfulness: Ten Reasons We're Wrong About the World--and Why Things Are Better Than You Think                  | Anna Rosling Rönnlund, Hans Rosling, and Ola Rosling     |      |
-| Find Your Balance Point: Clarify Your Priorities, Simplify Your Life, and Achieve More                          | Brian Tracy and Christina Tracy Stein                    |      |
-| Freakonomics: A Rogue Economist Explores the Hidden Side of Everything                                          | Stephen J. Dubner and Steven Levitt                      |  ✓   |
-| Gone Fishing with Buffett: A Young Man Learns Value Investing from a Mysterious Old Man                         | Sean Seah                                                |      |
-| Good to Great: Why Some Companies Make the Leap...and Others Don't                                              | James C. Collins                                         |      |
-| Hit Refresh: The Quest to Rediscover Microsoft's Soul and Imagine a Better Future for Everyone                  | Satya Nadella                                            |  ✓   |
-| Homo Deus : A Brief History of Tomorrow                                                                         | Yuval Noah Harari                                        |      |
-| Hooked: How to Build Habit-Forming Products                                                                     | Nir Eyal                                                 |  ✓   |
-| How to Win Friends and Influence People: The Only Book You Need to Lead You to Success                          | Dale Carnegie                                            |  ✓   |
-| How will you measure your life?                                                                                 | Clayton M. Christensen, James Allworth, and Karen Dillon |  ✓   |
-| Make Time: How to Focus on What Matters Every Day                                                               | Jake Knapp and John Zeratsky                             |      |
-| Managing Oneself                                                                                                | Peter Drucker                                            |  ✓   |
-| Marketing 4.0 : Moving from Traditional to Digital                                                              | Philip Kotler                                            |      |
-| Measure What Matters                                                                                            | John Doerr                                               |      |
-| Nudge: Improving Decisions about Health, Wealth, and Happiness                                                  | Cass Sunstein and Richard Thaler                         |      |
-| Principles: Life and Work                                                                                       | Ray Dalio                                                |      |
-| Quiet Impact: How to be a Successful Introvert                                                                  | Sylvia C. Löhken                                         |      |
-| Quiet Power: The Secret Strengths of Introverts                                                                 | Erica Moroz, Gregory Mone, and Susan Cain                |      |
-| Radical Candor: Be a Kick-Ass Boss Without Losing Your Humanity                                                 | Kim Scott                                                |      |
-| Sapiens: A Brief History of Humankind                                                                           | Yuval Noah Harari                                        |  ✓   |
-| Sprint: How to Solve Big Problems and Test New Ideas in Just Five Days                                          | Jake Knapp                                               |  ✓   |
-| Start With Why: How Great Leaders Inspire Everyone to Take Action                                               | Simon Sinek                                              |      |
-| The 7 Habits of Highly Effective People: Powerful Lessons in Personal Change                                    | Stephen R. Covey                                         |      |
-| The First 20 Hours: How to Learn Anything ... Fast                                                              | Josh Kaufman                                             |  ✓   |
-| The Go-Giver: A Little Story about a Powerful Business Idea                                                     | Bob Burg                                                 |  ✓   |
-| The Hard Thing About Hard Things: Building a Business When There Are No Easy Answers                            | Ben Horowitz                                             |      |
-| The Headspace Guide to Meditation & Mindfulness                                                                 | Andy Puddicombe                                          |      |
-| The Intelligent Investor                                                                                        | Benjamin Graham                                          |      |
-| The Lean Startup: How Today's Entrepreneurs Use Continuous Innovation to Create Radically Successful Businesses | Eric Ries                                                |  ✓   |
-| The Order of Time                                                                                               | Carlo Rovelli                                            |      |
-| The Phoenix Project: A Novel about IT, DevOps, and Helping Your Business Win                                    | Gene Kim, George Spafford, and Kevin Behr                |      |
-| The Power of Habit: Why We Do What We Do in Life and Business                                                   | Charles Duhigg                                           |      |
-| The Start-Up of You: Adapt to the Future, Invest in Yourself, and Transform Your Career                         | Reid Hoffman                                             |      |
-| The Subtle Art of Not Giving a F\*ck: A Counterintuitive Approach to Living a Good Life                         | Mark Manson                                              |  ✓   |
-| To Sell Is Human: The Surprising Truth About Moving Others                                                      | Daniel H. Pink                                           |      |
-| Tuesdays with Morrie                                                                                            | Mitch Albom                                              |      |
-| Vivid Vision: A Remarkable Tool For Aligning Your Business Around a Shared Vision of the Future                 | Cameron Herold                                           |      |
-| What I Wish I Knew When I Was 20: A Crash Course on Making Your Place in the World                              | Tina Seelig                                              |      |
-| When: The Scientific Secrets of Perfect Timing                                                                  | Daniel H. Pink                                           |      |
-| Zero to One: Notes on Startups, or How to Build the Future                                                      | Blake Masters and Peter Thiel                            |  ✓   |
+| Book                                                                                                            | Author                                                   | Done |                       Note                        |
+| :-------------------------------------------------------------------------------------------------------------- | :------------------------------------------------------- | :--: | :-----------------------------------------------: |
+| 100 Tricks to Appear Smart in Meetings: How to Get By Without Even Trying                                       | Sarah Cooper                                             |  ✓   |                                                   |
+| 21 Lessons for the 21st Century                                                                                 | Yuval Noah Harari                                        |      |                                                   |
+| Algorithms to Live By: The Computer Science of Human Decisions                                                  | Brian Christian and Tom Griffiths                        |      |                                                   |
+| Bad Blood: Secrets and Lies in a Silicon Valley Startup                                                         | John Carreyrou                                           |      |                                                   |
+| Blitzscaling: The Lightning-Fast Path to Building Massively Valuable Companies                                  | Chris Yeh and Reid Hoffman                               |      |                                                   |
+| Blue Ocean Shift: Beyond Competing - Proven Steps to Inspire Confidence and Seize New Growth                    | Renée Mauborgne and W. Chan Kim                          |      |                                                   |
+| Change by Design: How Design Thinking Transforms Organizations and Inspires Innovation                          | Tim Brown                                                |      |                                                   |
+| Creative Confidence: Unleashing the Creative Potential Within Us All                                            | David Kelley and Tom Kelley                              |  ✓   |                                                   |
+| Creativity, Inc.: Overcoming the Unseen Forces That Stand in the Way of True Inspiration                        | Amy Wallace and Edwin Catmull                            |      |                                                   |
+| Data for the People: How to Make Our Post-Privacy Economy Work for You                                          | Andreas Weigend                                          |      |                                                   |
+| Designing Your Life: How to Build a Well-lived, Joyful Life                                                     | Bill Burnett and Dave Evans                              |      |                                                   |
+| Disciplined Entrepreneurship: 24 Steps to a Successful Startup                                                  | Bill Aulet                                               |  ✓   |                                                   |
+| Drive: The Surprising Truth About What Motivates Us                                                             | Daniel H. Pink                                           |  ✓   | [Click](content/book-note/drive-daniel-h-pink.md) |
+| Factfulness: Ten Reasons We're Wrong About the World--and Why Things Are Better Than You Think                  | Anna Rosling Rönnlund, Hans Rosling, and Ola Rosling     |      |                                                   |
+| Find Your Balance Point: Clarify Your Priorities, Simplify Your Life, and Achieve More                          | Brian Tracy and Christina Tracy Stein                    |      |                                                   |
+| Freakonomics: A Rogue Economist Explores the Hidden Side of Everything                                          | Stephen J. Dubner and Steven Levitt                      |  ✓   |                                                   |
+| Gone Fishing with Buffett: A Young Man Learns Value Investing from a Mysterious Old Man                         | Sean Seah                                                |      |                                                   |
+| Good to Great: Why Some Companies Make the Leap...and Others Don't                                              | James C. Collins                                         |      |                                                   |
+| Hit Refresh: The Quest to Rediscover Microsoft's Soul and Imagine a Better Future for Everyone                  | Satya Nadella                                            |  ✓   |                                                   |
+| Homo Deus : A Brief History of Tomorrow                                                                         | Yuval Noah Harari                                        |      |                                                   |
+| Hooked: How to Build Habit-Forming Products                                                                     | Nir Eyal                                                 |  ✓   |                                                   |
+| How to Win Friends and Influence People: The Only Book You Need to Lead You to Success                          | Dale Carnegie                                            |  ✓   |                                                   |
+| How will you measure your life?                                                                                 | Clayton M. Christensen, James Allworth, and Karen Dillon |  ✓   |                                                   |
+| Make Time: How to Focus on What Matters Every Day                                                               | Jake Knapp and John Zeratsky                             |      |                                                   |
+| Managing Oneself                                                                                                | Peter Drucker                                            |  ✓   |                                                   |
+| Marketing 4.0 : Moving from Traditional to Digital                                                              | Philip Kotler                                            |      |                                                   |
+| Measure What Matters                                                                                            | John Doerr                                               |      |                                                   |
+| Nudge: Improving Decisions about Health, Wealth, and Happiness                                                  | Cass Sunstein and Richard Thaler                         |      |                                                   |
+| Principles: Life and Work                                                                                       | Ray Dalio                                                |      |                                                   |
+| Quiet Impact: How to be a Successful Introvert                                                                  | Sylvia C. Löhken                                         |      |                                                   |
+| Quiet Power: The Secret Strengths of Introverts                                                                 | Erica Moroz, Gregory Mone, and Susan Cain                |      |                                                   |
+| Radical Candor: Be a Kick-Ass Boss Without Losing Your Humanity                                                 | Kim Scott                                                |      |                                                   |
+| Sapiens: A Brief History of Humankind                                                                           | Yuval Noah Harari                                        |  ✓   |                                                   |
+| Sprint: How to Solve Big Problems and Test New Ideas in Just Five Days                                          | Jake Knapp                                               |  ✓   |                                                   |
+| Start With Why: How Great Leaders Inspire Everyone to Take Action                                               | Simon Sinek                                              |      |                                                   |
+| The 7 Habits of Highly Effective People: Powerful Lessons in Personal Change                                    | Stephen R. Covey                                         |      |                                                   |
+| The First 20 Hours: How to Learn Anything ... Fast                                                              | Josh Kaufman                                             |  ✓   |                                                   |
+| The Go-Giver: A Little Story about a Powerful Business Idea                                                     | Bob Burg                                                 |  ✓   |                                                   |
+| The Hard Thing About Hard Things: Building a Business When There Are No Easy Answers                            | Ben Horowitz                                             |      |                                                   |
+| The Headspace Guide to Meditation & Mindfulness                                                                 | Andy Puddicombe                                          |      |                                                   |
+| The Intelligent Investor                                                                                        | Benjamin Graham                                          |      |                                                   |
+| The Lean Startup: How Today's Entrepreneurs Use Continuous Innovation to Create Radically Successful Businesses | Eric Ries                                                |  ✓   |                                                   |
+| The Order of Time                                                                                               | Carlo Rovelli                                            |      |                                                   |
+| The Phoenix Project: A Novel about IT, DevOps, and Helping Your Business Win                                    | Gene Kim, George Spafford, and Kevin Behr                |      |                                                   |
+| The Power of Habit: Why We Do What We Do in Life and Business                                                   | Charles Duhigg                                           |      |                                                   |
+| The Start-Up of You: Adapt to the Future, Invest in Yourself, and Transform Your Career                         | Reid Hoffman                                             |      |                                                   |
+| The Subtle Art of Not Giving a F\*ck: A Counterintuitive Approach to Living a Good Life                         | Mark Manson                                              |  ✓   |                                                   |
+| To Sell Is Human: The Surprising Truth About Moving Others                                                      | Daniel H. Pink                                           |      |                                                   |
+| Tuesdays with Morrie                                                                                            | Mitch Albom                                              |      |                                                   |
+| Vivid Vision: A Remarkable Tool For Aligning Your Business Around a Shared Vision of the Future                 | Cameron Herold                                           |      |                                                   |
+| What I Wish I Knew When I Was 20: A Crash Course on Making Your Place in the World                              | Tina Seelig                                              |      |                                                   |
+| When: The Scientific Secrets of Perfect Timing                                                                  | Daniel H. Pink                                           |      |                                                   |
+| Zero to One: Notes on Startups, or How to Build the Future                                                      | Blake Masters and Peter Thiel                            |  ✓   |                                                   |
 
 [Back to Top](#table-of-contents)
 
@@ -334,6 +334,6 @@ Sorry, I don't code iOS ;)
 
 ## My Reference
 
-[Click here](content/reference.md)
+[Click here](content/generated/reference.md)
 
 [Back to Top](#table-of-contents)

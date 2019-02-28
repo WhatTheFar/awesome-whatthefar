@@ -133,7 +133,19 @@ export const nonFictionBookTable: MarkdownTable = {
 			sheetId: '0'
 		},
 		options: {
-			align: ['left', 'left', 'center']
+			align: ['left', 'left', 'center', 'center'],
+			mapper: [
+				'skip',
+				'skip',
+				'skip',
+				(value, index, row) => {
+					if (value) {
+						return `[Click](content/book-note/${value}.md)`;
+					} else {
+						return '';
+					}
+				}
+			]
 		}
 	}
 };

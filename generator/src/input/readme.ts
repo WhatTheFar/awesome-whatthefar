@@ -33,7 +33,10 @@ export const readmePage = MarkdownPage.create({
 		backToTop: true
 	},
 	reference: {
-		referencePage: new MarkdownPageReference(referencePage, 'content/reference.md')
+		referencePage: new MarkdownPageReference(
+			referencePage,
+			'content/generated/reference.md'
+		)
 	},
 	items: [
 		// For debugging purpose
