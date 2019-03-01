@@ -1,12 +1,9 @@
-import {
-	BackToTopItem,
-	MarkdownPage,
-	MarkdownPageReference
-} from '@parser/markdown/types';
+import { BACK_TO_TOP, MarkdownPage, MarkdownPageReference } from '@parser/markdown/types';
 import { anotherRefPage } from './anotherReference';
 import { managementSection } from './section/management';
 import { productDevelopmentSection } from './section/product-development';
 import { toolsSection } from './section/productivity-tools';
+import { selfLearningSection } from './section/self-learning';
 import { softwareDevelopmentSection } from './section/software-development';
 
 const reference = {
@@ -25,18 +22,19 @@ export const referencePage = MarkdownPage.create({
 			type: 'MarkdownSection',
 			title: 'Bussiness',
 			description: 'There is nothing yet',
-			items: [BackToTopItem]
+			items: [BACK_TO_TOP]
 		},
 		managementSection,
 		productDevelopmentSection,
 		softwareDevelopmentSection,
+		selfLearningSection,
 		toolsSection,
 		{
 			type: 'MarkdownSection',
 			title: 'Potato',
 			description:
 				"![Sorry for the Long Post, here's a Potato](../asset/potato.jpg)",
-			items: [BackToTopItem]
+			items: [BACK_TO_TOP]
 		},
 		{
 			type: 'MarkdownSection',
@@ -46,7 +44,7 @@ export const referencePage = MarkdownPage.create({
 					type: 'MarkdownPlainText',
 					text: ctx => `[Click here](${ctx.pageReferences.anotherRefPage})`
 				},
-				BackToTopItem
+				BACK_TO_TOP
 			]
 		}
 	]

@@ -8,8 +8,12 @@
     -   [Human Resource](#human-resource)
 -   [Product Development](#product-development)
     -   [User Experience](#user-experience)
+    -   [Prototyping](#prototyping)
 -   [Software Development](#software-development)
     -   [Design Pattern](#design-pattern)
+-   [Self-Learning](#self-learning)
+    -   [Reading Resource](#reading-resource)
+    -   [Podcast](#podcast)
 -   [Productivity Tools](#productivity-tools)
     -   [Personal Management](#personal-management)
     -   [macOS](#macos)
@@ -35,9 +39,10 @@ There is nothing yet
 
 ### Human Resource
 
-| Title                                                                                                                                                                | Description             |
-| :------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :---------------------- |
-| [8 Bad Mistakes That Make Good Employees Leave](https://www.forbes.com/sites/travisbradberry/2016/09/07/8-bad-mistakes-that-make-good-employees-leave/#24fdfb1943b7) | จาก Mission to the moon |
+| Title                                                                                                                                                                         | Description                  |
+| :---------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :--------------------------- |
+| [8 Bad Mistakes That Make Good Employees Leave](https://www.forbes.com/sites/travisbradberry/2016/09/07/8-bad-mistakes-that-make-good-employees-leave/#24fdfb1943b7)          | แนะนำจาก Mission to the moon |
+| [How do you turn around the culture of a 130,000-person company? Ask Satya Nadella](https://qz.com/work/1539071/how-microsoft-ceo-satya-nadella-rebuilt-the-company-culture/) | แนะนำจาก Mission to the moon |
 
 [Back to Top](#table-of-contents)
 
@@ -52,6 +57,14 @@ There is nothing yet
 
 [Back to Top](#table-of-contents)
 
+### Prototyping
+
+| Title                                                                                                                                                                                                                                  | Description          |
+| :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :------------------- |
+| [Minimum Viable Product (MVP) and Design - Balancing Risk to Gain Reward](https://www.interaction-design.org/literature/article/minimum-viable-product-mvp-and-design-balancing-risk-to-gain-reward?utm_source=facebook&utm_medium=sm) | Good reading for MVP |
+
+[Back to Top](#table-of-contents)
+
 ## Software Development
 
 ### Design Pattern
@@ -59,6 +72,28 @@ There is nothing yet
 | Title                                                                  | Description              |
 | :--------------------------------------------------------------------- | :----------------------- |
 | [Design patterns ภาษาไทย](https://github.com/saladpuk/design-patterns) | เขียนดี มีรูปภาพ ภาษาไทย |
+
+[Back to Top](#table-of-contents)
+
+## Self-Learning
+
+### Reading Resource
+
+| Title                                                                      | Description                                    |
+| :------------------------------------------------------------------------- | :--------------------------------------------- |
+| [40+ Best Book Summary](https://designepiclife.com/book-summary-websites/) | “So many books, so little time.” — Frank Zappa |
+
+[Back to Top](#table-of-contents)
+
+### Podcast
+
+| Title                                                                               | Description                                            | Lang |
+| :---------------------------------------------------------------------------------- | :----------------------------------------------------- | :--: |
+| [Mission to the moon](https://soundcloud.com/missiontothemoon)                      | Batteries included                                     |  TH  |
+| [SUPER PRODUCTIVE](https://soundcloud.com/thestandardpodcast/sets/super-productive) | Productivity, Self-development, Work-life              |  TH  |
+| [แปดบรรทัดครึ่ง](https://soundcloud.com/user-643868388)                             | Kaweewut Temphuwapat - Creativity, Innovation, Culture |  TH  |
+| [Nopadol's Story](https://soundcloud.com/nopadol-rompho)                            | Nopadol Rompho - Measurement, OKRs, Book Review        |  TH  |
+| [THE STANDARD Podcast](https://soundcloud.com/thestandardpodcast)                   | Podcast god                                            |  TH  |
 
 [Back to Top](#table-of-contents)
 

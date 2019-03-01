@@ -103,7 +103,7 @@ export interface MarkdownBackToTop {
 	type: 'MarkdownBackToTop';
 }
 
-export const BackToTopItem: MarkdownBackToTop = { type: 'MarkdownBackToTop' };
+export const BACK_TO_TOP: MarkdownBackToTop = { type: 'MarkdownBackToTop' };
 
 export interface MarkdownSection<T extends MarkdownPageContext> {
 	type: 'MarkdownSection';

@@ -1,8 +1,4 @@
-import {
-	BackToTopItem,
-	MarkdownPage,
-	MarkdownPageReference
-} from '@parser/markdown/types';
+import { BACK_TO_TOP, MarkdownPage, MarkdownPageReference } from '@parser/markdown/types';
 import { referencePage } from './reference/reference';
 import {
 	androidTable,
@@ -119,7 +115,7 @@ export const readmePage = MarkdownPage.create({
 									type: 'MarkdownPlainText',
 									text: "Sorry, I don't code iOS ;)"
 								},
-								BackToTopItem
+								BACK_TO_TOP
 							]
 						},
 						{
@@ -167,7 +163,7 @@ export const readmePage = MarkdownPage.create({
 					type: 'MarkdownPlainText',
 					text: ctx => `[Click here](${ctx.pageReferences.referencePage})`
 				},
-				BackToTopItem
+				BACK_TO_TOP
 			]
 		}
 	]

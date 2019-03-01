@@ -38,9 +38,14 @@ export const managementSection: MarkdownSection<
 						['Title', 'Description', 'Reference'],
 						[
 							'8 Bad Mistakes That Make Good Employees Leave',
-							'จาก Mission to the moon',
+							'แนะนำจาก Mission to the moon',
 							// tslint:disable-next-line:max-line-length
 							'https://www.forbes.com/sites/travisbradberry/2016/09/07/8-bad-mistakes-that-make-good-employees-leave/#24fdfb1943b7'
+						],
+						[
+							'How do you turn around the culture of a 130,000-person company? Ask Satya Nadella',
+							'แนะนำจาก Mission to the moon',
+							'https://qz.com/work/1539071/how-microsoft-ceo-satya-nadella-rebuilt-the-company-culture/'
 						]
 					]
 				},
