@@ -1,8 +1,8 @@
 #!/bin/bash
 
-cd generator
+cd packages/generator
 yarn start
 cd ..
 
 rm -rf content/generated
-cp -r generator/src/generated/* .
+cp -r packages/generator/src/generated/* .

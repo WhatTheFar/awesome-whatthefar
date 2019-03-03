@@ -1,0 +1,12 @@
+{
+	"name": "@awesome/generator",
+	"version": "1.0.0",
+	"main": "index.ts",
+	"license": "MIT",
+	"scripts": {
+		"start": "ts-node src/index.ts"
+	},
+	"dependencies": {
+		"@awesome/parser": "^1.0.0"
+	}
+}
