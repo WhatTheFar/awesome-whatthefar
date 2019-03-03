@@ -2,7 +2,7 @@
 
 cd packages/generator
 yarn start
-cd ..
+cd ../..
 
 rm -rf content/generated
 cp -r packages/generator/src/generated/* .
