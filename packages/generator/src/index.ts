@@ -1,8 +1,8 @@
-import { readmePage } from './input/readme';
 import { generateMarkdownFile } from '@awesome/parser';
 import { existsSync, mkdirSync } from 'fs';
 import * as _ from 'lodash';
 import { resolve } from 'path';
+import { readmePage } from './input/readme';
 
 function mkdirpSync(dir: string) {
 	if (!existsSync(dir)) {

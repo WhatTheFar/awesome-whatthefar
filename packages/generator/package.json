@@ -4,7 +4,11 @@
 	"main": "index.ts",
 	"license": "MIT",
 	"scripts": {
-		"start": "ts-node src/index.ts"
+		"start": "ts-node src/index.ts",
+		"lint": "tslint -p tsconfig.json -c tslint.json",
+		"lint:fix": "tslint -p tsconfig.json -c tslint.json --fix",
+		"prettier": "prettier --config .prettierrc --write \"src/**/*.ts\" \"test/**/*.ts\"",
+		"format": "yarn prettier && yarn lint:fix"
 	},
 	"dependencies": {
 		"@awesome/parser": "^1.0.0"
