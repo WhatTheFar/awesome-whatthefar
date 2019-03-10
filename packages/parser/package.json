@@ -37,7 +37,7 @@
 		"@types/request": "2.48.1",
 		"@types/request-promise-native": "1.0.15",
 		"jest": "23.6.0",
-		"nodemon": "1.18.9",
+		"nodemon": "1.18.10",
 		"prettier": "1.15.3",
 		"prettierrc": "0.0.0",
 		"rimraf": "^2.6.3",
