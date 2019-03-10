@@ -4,10 +4,16 @@ import { MarkdownPageReferenceDict } from './types';
 // tslint:disable:max-classes-per-file
 
 export class MarkdownPageReference<T extends MarkdownPageReferenceDict> {
-	constructor(public page: MarkdownPage<T>, public relativeFilePath: string) {}
+	public relativePath?: string;
+	constructor(public page: MarkdownPage<T>) {}
 
-	public toString() {
-		return this.relativeFilePath;
+	public toString(): string {
+		if (!this.relativePath) {
+			const log = `${this.page.title} is refered outside page context.`;
+			console.log(log);
+			throw new Error(log);
+		}
+		return this.relativePath;
 	}
 }
 
@@ -19,9 +25,24 @@ interface Dict {
 	[key: string]: any;
 }
 
+export interface MarkdownContextHelper {
+	createMarkdownImage: (
+		altText: string,
+		relativeImageRef: string,
+		title?: string
+	) => string;
+
+	getRelativePathToPage: (anotherPath: string) => string;
+}
+
 export interface MarkdownPageContext<
 	T extends MarkdownPageReferenceDict = MarkdownPageReferenceDict
 > {
+	metaData: {
+		dirPath: string;
+		fileName: string;
+	};
+	helper: MarkdownContextHelper;
 	backToTop: boolean;
 	backToTopReference: string;
 	pageReferences: T;
@@ -35,14 +56,18 @@ export class MarkdownPage<
 	public static create<T extends MarkdownPageReferenceDict>(args: {
 		title: string;
 		description?: string;
+		dirPath: string;
+		fileName: string;
 		items?: Array<MarkdownItem<MarkdownPageContext<T>>>;
 		options?: MarkdownPageOptions;
 		reference?: T;
 	}): MarkdownPage<T> {
-		const { title, description, items, options, reference } = args;
+		const { title, description, dirPath, fileName, items, options, reference } = args;
 		return new MarkdownPage(
 			title,
 			description || '',
+			dirPath,
+			fileName,
 			reference || ({} as T),
 			items,
 			options
@@ -52,6 +77,8 @@ export class MarkdownPage<
 	constructor(
 		public title: string,
 		public description: string,
+		public dirPath: string,
+		public fileName: string,
 		public reference: T,
 		public items?: Array<MarkdownItem<MarkdownPageContext<T>>>,
 		public options?: MarkdownPageOptions

@@ -1,10 +1,13 @@
+import { existsSync } from 'fs';
 import * as _ from 'lodash';
+import { relative, resolve } from 'path';
 import { MD_PAGE_HEADER_SIZE, NEW_LINE } from './constant';
 import { parseMardownItem } from './item';
 import { parseMarkdownHeader } from './item/header';
 import { parseTableOfContent } from './table-of-content';
 import {
 	defaultMarkdownPageOptions,
+	MarkdownContextHelper,
 	MarkdownPage,
 	MarkdownPageContext,
 	MarkdownPageOptions
@@ -14,18 +17,27 @@ import { formatMarkdown, parseHeaderReference } from './utils';
 const tableOfContentsTitle = 'Table of Contents';
 const backToTopTitle = 'Back to Top';
 
-// export interface MarkdownPageContext {
-// 	backToTop: boolean;
-// 	backToTopReference: string;
-// }
+function createMarkdownContextHelper(page: MarkdownPage): MarkdownContextHelper {
+	const { dirPath } = page;
+	return {
+		createMarkdownImage: (
+			altText: string,
+			relativeImageRef: string,
+			title?: string
+		) => {
+			if (!existsSync(resolve(dirPath, relativeImageRef))) {
+				console.log(`${altText}: ${relativeImageRef} not found`);
+			}
+			return `![${altText}](${relativeImageRef}${title ? ` "${title}"` : ''})`;
+		},
 
-export async function parseMarkdownPage({
-	title,
-	description,
-	items,
-	options,
-	reference
-}: MarkdownPage): Promise<string> {
+		getRelativePathToPage: (anotherPath: string) => relative(dirPath, anotherPath)
+	};
+}
+
+export async function parseMarkdownPage(page: MarkdownPage): Promise<string> {
+	const { title, description, dirPath, fileName, items, options, reference } = page;
+
 	const { tableOfContent, backToTop, initialState }: Required<MarkdownPageOptions> = {
 		...defaultMarkdownPageOptions,
 		...options
@@ -40,7 +52,14 @@ export async function parseMarkdownPage({
 	} else {
 		backToTopReference = parseHeaderReference(title, tableOfContentsTitle);
 	}
+
+	// Create MarkdownPageContext
 	context = {
+		metaData: {
+			dirPath,
+			fileName
+		},
+		helper: createMarkdownContextHelper(page),
 		backToTop,
 		backToTopReference,
 		pageReferences,
@@ -49,6 +68,17 @@ export async function parseMarkdownPage({
 			context.state = { ...context.state, ...newState };
 		}
 	};
+
+	// Init PageReferences
+	for (const key in reference) {
+		if (reference.hasOwnProperty(key)) {
+			const element = reference[key];
+			element.relativePath = relative(
+				dirPath,
+				resolve(element.page.dirPath, element.page.fileName)
+			);
+		}
+	}
 
 	const header = parseMarkdownHeader({
 		type: 'MarkdownHeader',

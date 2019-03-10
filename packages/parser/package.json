@@ -9,7 +9,7 @@
 		"start": "ts-node src/index.ts",
 		"start:dev": "nodemon",
 		"start:debug": "nodemon --config nodemon-debug.json",
-		"prestart:prod": "rimraf dist && npm run build",
+		"prestart:prod": "rimraf lib && npm run build",
 		"start:prod": "node dist/index.js",
 		"test": "jest --verbose",
 		"test:watch": "jest --verbose --watch",

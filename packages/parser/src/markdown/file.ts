@@ -11,22 +11,21 @@ function mkdirpSync(dir: string) {
 }
 
 export async function generateMarkdownFile<T extends MarkdownPageReferenceDict>(
-	markdownPage: MarkdownPage<T>,
-	filepath: string
+	markdownPage: MarkdownPage<T>
 ): Promise<void> {
 	const ref = markdownPage.reference as MarkdownPageReferenceDict;
+	const { dirPath, fileName } = markdownPage;
+	const filepath = resolve(dirPath, fileName);
+
 	for (const key in ref) {
 		if (ref.hasOwnProperty(key)) {
 			const value = ref[key];
-			await generateMarkdownFile(
-				value.page,
-				resolve(filepath, '..', value.relativeFilePath)
-			);
+			await generateMarkdownFile(value.page);
 		}
 	}
 	// TODO: do not parse and create markdown if it exits
 	const markdown = await parseMarkdownPage((markdownPage as unknown) as MarkdownPage);
-	mkdirpSync(resolve(filepath, '..'));
+	mkdirpSync(dirPath);
 	writeFileSync(filepath, markdown);
 	return;
 }
