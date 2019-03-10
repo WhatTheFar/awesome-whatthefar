@@ -15,9 +15,9 @@
 		"format": "lerna run format"
 	},
 	"devDependencies": {
-		"lerna": "^3.13.1",
-		"nodemon": "^1.18.10",
-		"ts-node": "^8.0.3",
-		"typescript": "^3.3.3333"
+		"lerna": "3.13.1",
+		"nodemon": "1.18.10",
+		"ts-node": "8.0.3",
+		"typescript": "3.3.3333"
 	}
 }
