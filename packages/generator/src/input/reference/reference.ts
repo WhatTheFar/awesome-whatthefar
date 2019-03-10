@@ -1,5 +1,5 @@
 import { BACK_TO_TOP, MarkdownPage, MarkdownPageReference } from '@awesome/parser';
-import { GENERATED_CONTENT_DIR } from '../../constant';
+import { GENERATED_CONTENT_DIR, getAssetPath } from '../../directory';
 import { anotherRefPage } from './anotherReference';
 import { managementSection } from './section/management';
 import { productDevelopmentSection } from './section/product-development';
@@ -41,7 +41,7 @@ export const referencePage = MarkdownPage.create({
 					text: ctx =>
 						ctx.helper.createMarkdownImage(
 							"Sorry for the Long Post, here's a Potato",
-							'../asset/potato.jpg',
+							getAssetPath('potato.jpg'),
 							"Sorry for the Long Post, here's a Potato"
 						)
 				},

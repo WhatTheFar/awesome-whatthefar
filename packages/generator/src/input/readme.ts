@@ -1,5 +1,5 @@
 import { BACK_TO_TOP, MarkdownPage, MarkdownPageReference } from '@awesome/parser';
-import { GENERATED_ROOT_DIR } from './../constant';
+import { GENERATED_ROOT_DIR } from '../directory';
 import { referencePage } from './reference/reference';
 import {
 	androidTable,

@@ -1,5 +1,5 @@
 import { MarkdownPage } from '@awesome/parser';
-import { GENERATED_CONTENT_DIR } from './../../constant';
+import { GENERATED_CONTENT_DIR } from '../../directory';
 
 export const anotherRefPage = MarkdownPage.create({
 	title: 'Another Reference',
