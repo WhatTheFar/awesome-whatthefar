@@ -10,7 +10,7 @@
 		"packages/*"
 	],
 	"devDependencies": {
-		"lerna": "^3.13.1",
-		"typescript": "^3.3.3333"
+		"lerna": "3.13.1",
+		"typescript": "3.3.3333"
 	}
 }
