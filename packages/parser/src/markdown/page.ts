@@ -22,12 +22,13 @@ function createMarkdownContextHelper(page: MarkdownPage): MarkdownContextHelper 
 	return {
 		createMarkdownImage: (
 			altText: string,
-			relativeImageRef: string,
+			absoluteImagePath: string,
 			title?: string
 		) => {
-			if (!existsSync(resolve(dirPath, relativeImageRef))) {
-				console.log(`${altText}: ${relativeImageRef} not found`);
+			if (!existsSync(absoluteImagePath)) {
+				console.log(`${altText}: ${absoluteImagePath} not found`);
 			}
+			const relativeImageRef = relative(dirPath, absoluteImagePath);
 			return `![${altText}](${relativeImageRef}${title ? ` "${title}"` : ''})`;
 		},
 

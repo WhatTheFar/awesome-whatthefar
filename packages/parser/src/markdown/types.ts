@@ -28,7 +28,7 @@ interface Dict {
 export interface MarkdownContextHelper {
 	createMarkdownImage: (
 		altText: string,
-		relativeImageRef: string,
+		absoluteImagePath: string,
 		title?: string
 	) => string;
 
