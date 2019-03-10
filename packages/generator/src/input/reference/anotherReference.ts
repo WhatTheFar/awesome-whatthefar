@@ -1,4 +1,5 @@
 import { MarkdownPage } from '@awesome/parser';
+import { GENERATED_CONTENT_DIR } from './../../constant';
 
 export const anotherRefPage = MarkdownPage.create({
 	title: 'Another Reference',
@@ -8,6 +9,8 @@ export const anotherRefPage = MarkdownPage.create({
 			initial: 'This is an initial state value'
 		}
 	},
+	dirPath: GENERATED_CONTENT_DIR,
+	fileName: 'another-ref.md',
 	items: [
 		{
 			type: 'MarkdownPlainText',

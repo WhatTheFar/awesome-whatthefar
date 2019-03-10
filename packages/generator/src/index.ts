@@ -18,9 +18,9 @@ const generatedDir = resolve(__dirname, 'generated');
 
 	mkdirpSync(generatedDir);
 
-	const getGeneratedPath = _.partial(resolve, generatedDir, _);
+	// const getGeneratedPath = _.partial(resolve, generatedDir, _);
 
-	await generateMarkdownFile(readmePage, getGeneratedPath('README.md'));
+	await generateMarkdownFile(readmePage);
 
 	console.timeEnd(label);
 })();

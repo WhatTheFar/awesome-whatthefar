@@ -1,4 +1,5 @@
 import { BACK_TO_TOP, MarkdownPage, MarkdownPageReference } from '@awesome/parser';
+import { GENERATED_CONTENT_DIR } from '../../constant';
 import { anotherRefPage } from './anotherReference';
 import { managementSection } from './section/management';
 import { productDevelopmentSection } from './section/product-development';
@@ -7,7 +8,7 @@ import { selfLearningSection } from './section/self-learning';
 import { softwareDevelopmentSection } from './section/software-development';
 
 const reference = {
-	anotherRefPage: new MarkdownPageReference(anotherRefPage, 'another-ref.md')
+	anotherRefPage: new MarkdownPageReference(anotherRefPage)
 };
 
 export type ReferencePagePageReference = typeof reference;
@@ -17,6 +18,8 @@ export const referencePage = MarkdownPage.create({
 	title: 'Reference',
 	description: '',
 	reference,
+	dirPath: GENERATED_CONTENT_DIR,
+	fileName: 'reference.md',
 	items: [
 		{
 			type: 'MarkdownSection',
@@ -32,9 +35,18 @@ export const referencePage = MarkdownPage.create({
 		{
 			type: 'MarkdownSection',
 			title: 'Potato',
-			description:
-				"![Sorry for the Long Post, here's a Potato](../asset/potato.jpg)",
-			items: [BACK_TO_TOP]
+			items: [
+				{
+					type: 'MarkdownPlainText',
+					text: ctx =>
+						ctx.helper.createMarkdownImage(
+							"Sorry for the Long Post, here's a Potato",
+							'../asset/potato.jpg',
+							"Sorry for the Long Post, here's a Potato"
+						)
+				},
+				BACK_TO_TOP
+			]
 		},
 		{
 			type: 'MarkdownSection',

@@ -1,4 +1,5 @@
 import { BACK_TO_TOP, MarkdownPage, MarkdownPageReference } from '@awesome/parser';
+import { GENERATED_ROOT_DIR } from './../constant';
 import { referencePage } from './reference/reference';
 import {
 	androidTable,
@@ -24,15 +25,14 @@ export const readmePage = MarkdownPage.create({
 [![Awesome](https://cdn.rawgit.com/sindresorhus/awesome/d7305f38d29fed78fa85652e3a63e154dd8e8829/media/badge.svg)](https://github.com/sindresorhus/awesome)
 
 😎 Curated list of awesome WhatTheFar`,
+	dirPath: GENERATED_ROOT_DIR,
+	fileName: 'README.md',
 	options: {
 		tableOfContent: true,
 		backToTop: true
 	},
 	reference: {
-		referencePage: new MarkdownPageReference(
-			referencePage,
-			'content/generated/reference.md'
-		)
+		referencePage: new MarkdownPageReference(referencePage)
 	},
 	items: [
 		// For debugging purpose

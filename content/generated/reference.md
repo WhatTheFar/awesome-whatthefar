@@ -133,7 +133,7 @@ There is nothing yet
 
 ## Potato
 
-![Sorry for the Long Post, here's a Potato](../asset/potato.jpg)
+![Sorry for the Long Post, here's a Potato](../asset/potato.jpg "Sorry for the Long Post, here's a Potato")
 
 [Back to Top](#table-of-contents)
 
