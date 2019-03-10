@@ -1,0 +1,6 @@
+{
+	"watch": ["packages/generator", "content"],
+	"ext": "ts,md",
+	"ignore": ["content/generated", "packages/generator/src/**/*.spec.ts", "packages/generator/src/generated"],
+	"exec": "./awesome.sh"
+}

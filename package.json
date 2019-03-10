@@ -9,8 +9,14 @@
 	"workspaces": [
 		"packages/*"
 	],
+	"scripts": {
+		"awesome": "./awesome.sh",
+		"awesome:watch": "yarn nodemon",
+		"format": "lerna run format"
+	},
 	"devDependencies": {
-		"lerna": "3.13.1",
-		"typescript": "3.3.3333"
+		"lerna": "^3.13.1",
+		"nodemon": "^1.18.10",
+		"typescript": "^3.3.3333"
 	}
 }
