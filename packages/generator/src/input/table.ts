@@ -195,6 +195,26 @@ export const udemyTable: MarkdownTable = {
 	}
 };
 
+export const courseraTable: MarkdownTable = {
+	type: 'MarkdownTable',
+	title: 'Coursera',
+	tableData: {
+		input: {
+			type: 'GoogleSheetInput',
+			publishedId,
+			sheetId: '191270080'
+		},
+		options: {
+			align: [
+				'left',
+				'left',
+				{ type: 'Reference', colunm: 0 },
+				{ type: 'Reference', colunm: 1 }
+			]
+		}
+	}
+};
+
 export const tedxTalkTable: MarkdownTable = {
 	type: 'MarkdownTable',
 	title: 'TedxTalk',

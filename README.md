@@ -26,6 +26,7 @@
     -   [Fiction Book](#fiction-book)
 -   [My Self-learning List](#my-self-learning-list)
     -   [Udemy Course](#udemy-course)
+    -   [Coursera](#coursera)
     -   [TedxTalk](#tedxtalk)
 -   [My Reference](#my-reference)
 
@@ -301,6 +302,16 @@ Sorry, I don't code iOS ;)
 | [Node with React: Fullstack Web Development](https://www.udemy.com/node-with-react-fullstack-web-development/)                |
 | [The Complete Node.js Developer Course (2nd Edition)](https://www.udemy.com/the-complete-nodejs-developer-course-2/)          |
 | [The Complete React Web Developer Course (with Redux)](https://www.udemy.com/react-2nd-edition/)                              |
+
+[Back to Top](#table-of-contents)
+
+### Coursera
+
+| Course                                                                                                                                                | Instructor                                                       |
+| :---------------------------------------------------------------------------------------------------------------------------------------------------- | :--------------------------------------------------------------- |
+| [AI For Everyone](https://www.coursera.org/learn/ai-for-everyone)                                                                                     | [Andrew Ng](https://www.coursera.org/instructor/andrewng)        |
+| [Introduction to TensorFlow for Artificial Intelligence, Machine Learning, and Deep Learning](https://www.coursera.org/learn/introduction-tensorflow) | [Andrew Ng](https://www.coursera.org/instructor/andrewng)        |
+| [Machine Learning](https://www.coursera.org/learn/machine-learning/)                                                                                  | [Laurence Moroney](https://www.coursera.org/instructor/lmoroney) |
 
 [Back to Top](#table-of-contents)
 

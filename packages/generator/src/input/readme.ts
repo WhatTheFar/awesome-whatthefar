@@ -5,6 +5,7 @@ import {
 	androidTable,
 	backendTable,
 	contactTable,
+	courseraTable,
 	devOpsTable,
 	fictionBookTable,
 	frontendTable,
@@ -153,7 +154,7 @@ export const readmePage = MarkdownPage.create({
 		{
 			type: 'MarkdownSection',
 			title: 'My Self-learning List',
-			items: [udemyTable, tedxTalkTable]
+			items: [udemyTable, courseraTable, tedxTalkTable]
 		},
 		{
 			type: 'MarkdownSection',
