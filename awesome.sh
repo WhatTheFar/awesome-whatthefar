@@ -4,6 +4,7 @@ cd packages/generator
 rm -rf src/generated
 mkdir -p src/generated/content
 cp -r ../../content/* src/generated/content
+rm -rf src/generated/content/generated
 
 yarn start
 cd ../..
