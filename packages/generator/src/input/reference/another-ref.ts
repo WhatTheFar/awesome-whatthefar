@@ -14,7 +14,7 @@ export const anotherRefPage = MarkdownPage.create({
 	items: [
 		{
 			type: 'MarkdownPlainText',
-			text: 'Just an another reference page'
+			text: 'Just an another reference page for Testing'
 		},
 		{
 			type: 'MarkdownPlainText',
