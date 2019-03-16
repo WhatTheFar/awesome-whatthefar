@@ -4,7 +4,6 @@ import { anotherRefPage } from './another-ref';
 import { managementSection } from './section/management';
 import { productDevelopmentSection } from './section/product-development';
 import { toolsSection } from './section/productivity-tools';
-import { selfLearningSection } from './section/self-learning';
 import { softwareDevelopmentSection } from './section/software-development';
 
 const reference = {
@@ -30,7 +29,6 @@ export const referencePage = MarkdownPage.create({
 		managementSection,
 		productDevelopmentSection,
 		softwareDevelopmentSection,
-		selfLearningSection,
 		toolsSection,
 		{
 			type: 'MarkdownSection',
