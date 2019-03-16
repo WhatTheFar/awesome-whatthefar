@@ -1,6 +1,6 @@
 import { BACK_TO_TOP, MarkdownPage, MarkdownPageReference } from '@awesome/parser';
 import { GENERATED_CONTENT_DIR, getAssetPath } from '../../directory';
-import { anotherRefPage } from './anotherReference';
+import { anotherRefPage } from './another-ref';
 import { managementSection } from './section/management';
 import { productDevelopmentSection } from './section/product-development';
 import { toolsSection } from './section/productivity-tools';
