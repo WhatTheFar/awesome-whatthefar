@@ -13,6 +13,8 @@ export const ASSET_DIR = resolve(CONTENT_DIR, 'asset');
 
 export const BOOK_NOTE_DIR = resolve(CONTENT_DIR, 'book-note');
 
+export const PODCAST_NOTE_DIR = resolve(CONTENT_DIR, 'podcast-note');
+
 // Helper function
 
 export const getAssetPath = createPathAppendFunction(ASSET_DIR);
