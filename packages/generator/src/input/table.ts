@@ -215,6 +215,21 @@ export const courseraTable: MarkdownTable = {
 	}
 };
 
+export const udacityTable: MarkdownTable = {
+	type: 'MarkdownTable',
+	title: 'Udacity',
+	tableData: {
+		input: {
+			type: 'GoogleSheetInput',
+			publishedId,
+			sheetId: '1607382371'
+		},
+		options: {
+			align: ['left', 'left', { type: 'Reference', colunm: 0 }]
+		}
+	}
+};
+
 export const tedxTalkTable: MarkdownTable = {
 	type: 'MarkdownTable',
 	title: 'TedxTalk',
