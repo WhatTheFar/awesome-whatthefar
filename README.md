@@ -19,11 +19,13 @@
         -   [iOS](#ios)
         -   [Cross-platform](#cross-platform)
     -   [DevOps](#devops)
--   [My Reading List](#my-reading-list)
-    -   [Programming Book](#programming-book)
-    -   [Non-fiction Book](#non-fiction-book)
-    -   [Thai Non-fiction Book](#thai-non-fiction-book)
-    -   [Fiction Book](#fiction-book)
+-   [My Library](#my-library)
+    -   [Reading List](#reading-list)
+        -   [Programming Book](#programming-book)
+        -   [Non-fiction Book](#non-fiction-book)
+        -   [Thai Non-fiction Book](#thai-non-fiction-book)
+        -   [Fiction Book](#fiction-book)
+    -   [Podcast](#podcast)
 -   [My Self-learning List](#my-self-learning-list)
     -   [Udemy Course](#udemy-course)
     -   [Coursera](#coursera)
@@ -164,7 +166,9 @@ Sorry, I don't code iOS ;)
 
 [Back to Top](#table-of-contents)
 
-## My Reading List
+## My Library
+
+## Reading List
 
 ### Programming Book
 
@@ -285,6 +289,10 @@ Sorry, I don't code iOS ;)
 | มนุษย์ร้านสะดวกซื้อ (Konbini Ningen) | Murata Sayaka |  ✓   |
 
 [Back to Top](#table-of-contents)
+
+## Podcast
+
+[Click here](content/generated/podcast.md)
 
 ## My Self-learning List
 
