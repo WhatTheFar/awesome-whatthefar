@@ -27,7 +27,7 @@ export async function parseMardownItem(
 			result = parseMarkdownHeader(item);
 			break;
 		case 'MarkdownTable':
-			result = await parseMarkdownTable(item);
+			result = await parseMarkdownTable(item, context);
 			break;
 		case 'MarkdownPlainText':
 			result = parseMarkdownPlainText(item, context);

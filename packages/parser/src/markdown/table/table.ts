@@ -5,12 +5,17 @@ import { MD_TABLE_HEADER_SIZE } from '../constant';
 import { parseMarkdownHeader } from '../item/header';
 import { MarkdownTable } from '../types';
 import { formatMarkdown } from '../utils';
+import { MarkdownPageContext } from './../types';
 import { Align, MarkdownAlign } from './align';
 import { Mapper, TableDataMapper } from './mapper';
 
-export async function parseMarkdownTable(table: MarkdownTable): Promise<string> {
+export async function parseMarkdownTable(
+	table: MarkdownTable,
+	ctx: MarkdownPageContext
+): Promise<string> {
 	const [tableString, err] = await parseMarkdownTableFromCsvInput(
 		table.tableData.input,
+		ctx,
 		table.tableData.options
 	);
 	if (err) {
@@ -97,6 +102,7 @@ function validateTableData(data: string[][]): TableDataInfo {
 
 export async function parseMarkdownTableFromData(
 	data: string[][],
+	ctx: MarkdownPageContext,
 	options: TableOptions = defaultTableOptions
 ) {
 	const { align, mapper }: Required<TableOptions> = {
@@ -146,7 +152,7 @@ export async function parseMarkdownTableFromData(
 						return value;
 					} else if (Mapper.isMapperFunction(tempMapper)) {
 						// TODO: add context into mapper arguments
-						return tempMapper(value, i, row);
+						return tempMapper(value, i, row, ctx);
 					} else {
 						const _exhaustiveCheck: never = tempMapper;
 						return _exhaustiveCheck;
@@ -179,6 +185,7 @@ export async function parseMarkdownTableFromData(
 
 export async function parseMarkdownTableFromCsvInput(
 	input: CsvInput,
+	ctx: MarkdownPageContext,
 	options?: TableOptions
 ): Promise<[string, ParseError[]?]> {
 	const [data, errors] = await parseCsvFromInput(input);
@@ -186,5 +193,5 @@ export async function parseMarkdownTableFromCsvInput(
 		return ['', errors];
 	}
 
-	return [await parseMarkdownTableFromData(data, options)];
+	return [await parseMarkdownTableFromData(data, ctx, options)];
 }

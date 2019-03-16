@@ -1,11 +1,13 @@
 import { makeRepetitiveArray } from '../utils';
+import { MarkdownPageContext } from './../types';
 import { TableDataMapper, TableDataMapperFunction } from './mapper';
 export type TableDataMapper = TableDataMapperFunction | 'skip';
 
 export type TableDataMapperFunction = (
 	value: string,
 	index: number,
-	row: string[]
+	row: string[],
+	ctx: MarkdownPageContext
 ) => string;
 
 export type MapperError = 'Invalid Mapper';
