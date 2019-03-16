@@ -1,5 +1,6 @@
 import { BACK_TO_TOP, MarkdownPage, MarkdownPageReference } from '@awesome/parser';
 import { GENERATED_ROOT_DIR } from '../directory';
+import { podcastPage } from './podcast/podcast';
 import { referencePage } from './reference/reference';
 import {
 	androidTable,
@@ -33,7 +34,8 @@ export const readmePage = MarkdownPage.create({
 		backToTop: true
 	},
 	reference: {
-		referencePage: new MarkdownPageReference(referencePage)
+		referencePage: new MarkdownPageReference(referencePage),
+		podcastPage: new MarkdownPageReference(podcastPage)
 	},
 	items: [
 		// For debugging purpose
@@ -143,12 +145,28 @@ export const readmePage = MarkdownPage.create({
 		},
 		{
 			type: 'MarkdownSection',
-			title: 'My Reading List',
+			title: 'My Library',
 			items: [
-				programmingBookTable,
-				nonFictionBookTable,
-				nonFictionThaiBookTable,
-				fictionBookTable
+				{
+					type: 'MarkdownSection',
+					title: 'Reading List',
+					items: [
+						programmingBookTable,
+						nonFictionBookTable,
+						nonFictionThaiBookTable,
+						fictionBookTable
+					]
+				},
+				{
+					type: 'MarkdownSection',
+					title: 'Podcast',
+					items: [
+						{
+							type: 'MarkdownPlainText',
+							text: ctx => `[Click here](${ctx.pageReferences.podcastPage})`
+						}
+					]
+				}
 			]
 		},
 		{
