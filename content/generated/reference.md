@@ -11,9 +11,6 @@
     -   [Prototyping](#prototyping)
 -   [Software Development](#software-development)
     -   [Design Pattern](#design-pattern)
--   [Self-Learning](#self-learning)
-    -   [Reading Resource](#reading-resource)
-    -   [Podcast](#podcast)
 -   [Productivity Tools](#productivity-tools)
     -   [Personal Management](#personal-management)
     -   [macOS](#macos)
@@ -72,28 +69,6 @@ There is nothing yet
 | Title                                                                  | Description              |
 | :--------------------------------------------------------------------- | :----------------------- |
 | [Design patterns ภาษาไทย](https://github.com/saladpuk/design-patterns) | เขียนดี มีรูปภาพ ภาษาไทย |
-
-[Back to Top](#table-of-contents)
-
-## Self-Learning
-
-### Reading Resource
-
-| Title                                                                      | Description                                    |
-| :------------------------------------------------------------------------- | :--------------------------------------------- |
-| [40+ Best Book Summary](https://designepiclife.com/book-summary-websites/) | “So many books, so little time.” — Frank Zappa |
-
-[Back to Top](#table-of-contents)
-
-### Podcast
-
-| Title                                                                               | Description                                            | Lang |
-| :---------------------------------------------------------------------------------- | :----------------------------------------------------- | :--: |
-| [Mission to the moon](https://soundcloud.com/missiontothemoon)                      | Batteries included                                     |  TH  |
-| [SUPER PRODUCTIVE](https://soundcloud.com/thestandardpodcast/sets/super-productive) | Productivity, Self-development, Work-life              |  TH  |
-| [แปดบรรทัดครึ่ง](https://soundcloud.com/user-643868388)                             | Kaweewut Temphuwapat - Creativity, Innovation, Culture |  TH  |
-| [Nopadol's Story](https://soundcloud.com/nopadol-rompho)                            | Nopadol Rompho - Measurement, OKRs, Book Review        |  TH  |
-| [THE STANDARD Podcast](https://soundcloud.com/thestandardpodcast)                   | Podcast god                                            |  TH  |
 
 [Back to Top](#table-of-contents)
 
