@@ -1,0 +1,147 @@
+# Javascript Node CircleCI 2.0 configuration file
+#
+# Check https://circleci.com/docs/2.0/language-javascript/ for more details
+#
+version: 2.0
+jobs:
+  test:
+    docker:
+      - image: circleci/node:10
+    working_directory: ~/repo
+    steps:
+      - checkout
+
+      # Download and cache dependencies
+      - restore_cache:
+          keys:
+            - dependencies-v1.0-{{ .Branch }}-{{ checksum "package.json" }}
+            # fallback to using the latest cache if no exact match is found
+            - dependencies-v1.0-{{ .Branch }}
+            - dependencies-v1.0
+      - restore_cache:
+          keys:
+            - parser-dependencies-v1.0-{{ .Branch }}-{{ checksum "package.json" }}
+            # fallback to using the latest cache if no exact match is found
+            - parser-dependencies-v1.0-{{ .Branch }}}
+            - parser-dependencies-v1.0
+
+      - run:
+          name: Install Dependencies
+          command: yarn install
+
+      - run:
+          name: Running Test
+          command: yarn lerna run test
+
+      - save_cache:
+          paths:
+            - node_modules
+            - packages/generator/node_modules
+          key: dependencies-v1.0-{{ .Branch }}-{{ checksum "package.json" }}
+
+      - save_cache:
+          paths:
+            - packages/parser/node_modules
+          key: parser-dependencies-v1.0-{{ .Branch }}-{{ checksum "package.json" }}
+
+  build:
+    docker:
+      - image: circleci/node:10
+    working_directory: ~/repo
+    steps:
+      - checkout
+
+      # Download and cache dependencies
+      - restore_cache:
+          keys:
+            - dependencies-v1.0-{{ .Branch }}-{{ checksum "package.json" }}
+            # fallback to using the latest cache if no exact match is found
+            - dependencies-v1.0-{{ .Branch }}
+            - dependencies-v1.0
+      - restore_cache:
+          keys:
+            - parser-dependencies-v1.0-{{ .Branch }}-{{ checksum "package.json" }}
+            # fallback to using the latest cache if no exact match is found
+            - parser-dependencies-v1.0-{{ .Branch }}}
+            - parser-dependencies-v1.0
+
+      - run:
+          name: Build package
+          command: yarn lerna run build
+
+      - run:
+          name: Running Awesome Script
+          command: ./awesome.sh
+
+      - save_cache:
+          paths:
+            - node_modules
+            - packages/generator/node_modules
+          key: dependencies-v1.0-{{ .Branch }}-{{ checksum "package.json" }}
+
+      - save_cache:
+          paths:
+            - packages/parser/node_modules
+          key: parser-dependencies-v1.0-{{ .Branch }}-{{ checksum "package.json" }}
+
+      - persist_to_workspace:
+          root: ~/repo
+          paths:
+            - temp
+
+  deploy:
+    docker:
+      - image: circleci/node:10
+    working_directory: ~/repo
+    steps:
+      - checkout
+
+      - attach_workspace:
+          at: ~/repo
+
+      - run:
+          name: Checkout master branch
+          command: |
+            git checkout master; \
+            git fetch --all; \
+            git reset --hard origin/master;
+
+      - run:
+          name: Git reset HEAD
+          command: git reset --hard origin/master
+
+      - run:
+          name: Copying contents from workspace
+          command: rm -rf content && cp -r ./temp/* .
+
+      - run:
+          name: Add files to git
+          command: git add .
+
+      - run:
+          name: Set account's default identity
+          command: git config --global user.email "ichannel.jakpat@gmail.com" && git config --global user.name "WhatTheFar"
+
+      - run:
+          name: Amend git commit
+          command: git commit --amend -m "$(git log -1 --pretty=%B)"
+
+      - run:
+          name: Force push!!!
+          command: git push --force https://${GITHUB_PERSONAL_TOKEN}@github.com/whatthefar/awesome-whatthefar.git master
+
+workflows:
+  version: 2
+  build-and-deploy:
+    jobs:
+      - test:
+          filters:
+            branches:
+              only:
+                - dev
+      - build:
+          requires:
+            - test
+      - deploy:
+          requires:
+            - build
