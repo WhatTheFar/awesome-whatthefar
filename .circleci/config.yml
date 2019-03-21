@@ -4,7 +4,7 @@
 #
 version: 2.0
 jobs:
-  test:
+  test-and-build:
     docker:
       - image: circleci/node:10
     working_directory: ~/repo
@@ -33,38 +33,6 @@ jobs:
           name: Running Test
           command: yarn lerna run test
 
-      - save_cache:
-          paths:
-            - node_modules
-            - packages/generator/node_modules
-          key: dependencies-v1.0-{{ .Branch }}-{{ checksum "package.json" }}
-
-      - save_cache:
-          paths:
-            - packages/parser/node_modules
-          key: parser-dependencies-v1.0-{{ .Branch }}-{{ checksum "package.json" }}
-
-  build:
-    docker:
-      - image: circleci/node:10
-    working_directory: ~/repo
-    steps:
-      - checkout
-
-      # Download and cache dependencies
-      - restore_cache:
-          keys:
-            - dependencies-v1.0-{{ .Branch }}-{{ checksum "package.json" }}
-            # fallback to using the latest cache if no exact match is found
-            - dependencies-v1.0-{{ .Branch }}
-            - dependencies-v1.0
-      - restore_cache:
-          keys:
-            - parser-dependencies-v1.0-{{ .Branch }}-{{ checksum "package.json" }}
-            # fallback to using the latest cache if no exact match is found
-            - parser-dependencies-v1.0-{{ .Branch }}}
-            - parser-dependencies-v1.0
-
       - run:
           name: Build package
           command: yarn lerna run build
@@ -73,6 +41,11 @@ jobs:
           name: Running Awesome Script
           command: ./awesome.sh
 
+      - persist_to_workspace:
+          root: ~/repo
+          paths:
+            - temp
+
       - save_cache:
           paths:
             - node_modules
@@ -84,14 +57,10 @@ jobs:
             - packages/parser/node_modules
           key: parser-dependencies-v1.0-{{ .Branch }}-{{ checksum "package.json" }}
 
-      - persist_to_workspace:
-          root: ~/repo
-          paths:
-            - temp
-
   deploy:
     docker:
-      - image: circleci/node:10
+      - image: alpine/git
+        entrypoint: "/bin/sh"
     working_directory: ~/repo
     steps:
       - checkout
@@ -141,14 +110,12 @@ workflows:
               only:
                 - dev
     jobs:
-      - test:
+      - test-and-build:
           filters:
             branches:
               only:
                 - dev
-      - build:
-          requires:
-            - test
       - deploy:
           requires:
             - build
+
