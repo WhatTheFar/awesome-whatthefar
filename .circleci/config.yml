@@ -117,7 +117,7 @@ workflows:
                 - dev
       - deploy:
           requires:
-            - build
+            - test-and-build
 
   build-and-deploy:
     jobs:
@@ -128,4 +128,4 @@ workflows:
                 - dev
       - deploy:
           requires:
-            - build
+            - test-and-build
