@@ -101,7 +101,7 @@ jobs:
 
 workflows:
   version: 2
-  build-and-deploy:
+  auto-build-and-deploy:
     triggers:
       - schedule:
           cron: "0 0 * * *"
@@ -119,3 +119,13 @@ workflows:
           requires:
             - build
 
+  build-and-deploy:
+    jobs:
+      - test-and-build:
+          filters:
+            branches:
+              only:
+                - dev
+      - deploy:
+          requires:
+            - build
