@@ -12,6 +12,7 @@ import {
 	programmingLanguageTable,
 	programmingPrincipleTable,
 	tedxTalkTable,
+	udacityTable,
 	udemyTable
 } from '../table';
 import { getAssetPath } from './../../directory';
@@ -92,7 +93,7 @@ export const readmePage = MarkdownPage.create({
 		{
 			type: 'MarkdownSection',
 			title: 'My Self-learning List',
-			items: [udemyTable, courseraTable, tedxTalkTable]
+			items: [udemyTable, courseraTable, udacityTable, tedxTalkTable]
 		},
 		{
 			type: 'MarkdownSection',
