@@ -101,7 +101,7 @@ export const readmePage = MarkdownPage.create({
 			items: [
 				{
 					type: 'MarkdownPlainText',
-					text: ctx => `[Click here](${ctx.pageReferences.referencePage})`
+					text: ctx => `[Go to Reference page](${ctx.pageReferences.referencePage})`
 				},
 				BACK_TO_TOP
 			]

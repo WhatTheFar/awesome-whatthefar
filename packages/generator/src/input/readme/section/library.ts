@@ -1,4 +1,4 @@
-import { MarkdownPageContext, MarkdownSection } from '@awesome/parser';
+import { BACK_TO_TOP, MarkdownPageContext, MarkdownSection } from '@awesome/parser';
 import { ReadmePagePageReference } from '../readme';
 
 export const librarySection: MarkdownSection<
@@ -14,7 +14,8 @@ export const librarySection: MarkdownSection<
 				{
 					type: 'MarkdownPlainText',
 					text: ctx => `[Go to Books page](${ctx.pageReferences.bookPage})`
-				}
+				},
+				BACK_TO_TOP
 			]
 		},
 		{
@@ -24,7 +25,8 @@ export const librarySection: MarkdownSection<
 				{
 					type: 'MarkdownPlainText',
 					text: ctx => `[Go to Podcast page](${ctx.pageReferences.podcastPage})`
-				}
+				},
+				BACK_TO_TOP
 			]
 		}
 	]
