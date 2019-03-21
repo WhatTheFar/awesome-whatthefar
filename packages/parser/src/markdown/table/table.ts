@@ -134,37 +134,38 @@ export async function parseMarkdownTableFromData(
 			line += getMardownTableAlignmentRow(aligns, delimiter, start, end) + NEW_LINE;
 		}
 
-		const referenceMappingTemp: string[] = [];
-		aligns.forEach((value, index) => {
-			if (Align.isColumnReference(value)) {
-				referenceMappingTemp[value.colunm] = row[index];
-			}
-		});
-
 		let formattedRow: string[];
 		if (rowIndex === 0) {
 			formattedRow = row;
 		} else {
-			formattedRow = row
-				.map((value, i) => {
-					const tempMapper = mappers[i];
-					if (tempMapper === 'skip') {
-						return value;
-					} else if (Mapper.isMapperFunction(tempMapper)) {
-						// TODO: add context into mapper arguments
-						return tempMapper(value, i, row, ctx);
-					} else {
-						const _exhaustiveCheck: never = tempMapper;
-						return _exhaustiveCheck;
-					}
-				})
-				.map((value, i) => {
-					const refValue = referenceMappingTemp[i];
-					if (refValue) {
-						return `[${value}](${refValue})`;
-					}
+			formattedRow = row.map((value, i) => {
+				const tempMapper = mappers[i];
+				if (tempMapper === 'skip') {
 					return value;
-				});
+				} else if (Mapper.isMapperFunction(tempMapper)) {
+					// TODO: add context into mapper arguments
+					return tempMapper(value, i, row, ctx);
+				} else {
+					const _exhaustiveCheck: never = tempMapper;
+					return _exhaustiveCheck;
+				}
+			});
+
+			// Create tenp for column reference mapping
+			const referenceMappingTemp: string[] = [];
+			aligns.forEach((value, index) => {
+				if (Align.isColumnReference(value)) {
+					referenceMappingTemp[value.colunm] = formattedRow[index];
+				}
+			});
+
+			formattedRow = formattedRow.map((value, i) => {
+				const refValue = referenceMappingTemp[i];
+				if (refValue) {
+					return `[${value}](${refValue})`;
+				}
+				return value;
+			});
 		}
 
 		line +=
