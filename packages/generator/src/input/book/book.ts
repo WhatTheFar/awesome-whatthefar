@@ -31,6 +31,11 @@ export const bookPage = MarkdownPage.create({
 							'15 ofthe Best Time Management and Productivity Books of All Time',
 							'',
 							'https://www.entrepreneur.com/article/329378?utm_source=facebook&utm_medium=editorial&utm_content=entrepreneur-books&fbclid=IwAR1fVoKe8aAdS3I5J-pZedAiVV-UPsFfojpFiigofhDIop0rykKY-MWvnX4'
+						],
+						[
+							'BookDD',
+							'A youtube channel with great book summary contents',
+							'https://www.youtube.com/channel/UClaqefQhdRC7KnrASLE7J-g/'
 						]
 					]
 				},

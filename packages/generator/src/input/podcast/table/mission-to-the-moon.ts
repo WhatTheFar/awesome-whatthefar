@@ -5,6 +5,7 @@ import { PODCAST_NOTE_DIR } from './../../../directory';
 export const missionToTheMoonPodcastTable: MarkdownTable = {
 	type: 'MarkdownTable',
 	title: 'Mission to the moon',
+	description: 'Batteries included',
 	tableData: {
 		options: {
 			mapper: [
