@@ -3,21 +3,11 @@ import { GENERATED_ROOT_DIR } from '../../directory';
 import { bookPage } from '../book';
 import { podcastPage } from '../podcast';
 import { referencePage } from '../reference';
-import {
-	androidTable,
-	backendTable,
-	courseraTable,
-	devOpsTable,
-	frontendTable,
-	programmingLanguageTable,
-	programmingPrincipleTable,
-	tedxTalkTable,
-	udacityTable,
-	udemyTable
-} from '../table';
+import { courseraTable, tedxTalkTable, udacityTable, udemyTable } from '../table';
 import { getAssetPath } from './../../directory';
 import { aboutMeSection } from './section/about-me';
 import { librarySection } from './section/library';
+import { programmingSection } from './section/programming';
 // tslint:disable:max-line-length
 
 const reference = {
@@ -33,7 +23,10 @@ export const readmePage = MarkdownPage.create({
 	description: `
 [![Awesome](https://cdn.rawgit.com/sindresorhus/awesome/d7305f38d29fed78fa85652e3a63e154dd8e8829/media/badge.svg)](https://github.com/sindresorhus/awesome)
 
-😎 Curated list of awesome WhatTheFar`,
+😎 Curated list of awesome WhatTheFar
+
+> The source code of contents is located at [@awesome/generator](https://github.com/WhatTheFar/awesome-whatthefar/tree/dev/packages/generator), powered by [@awesome/parser](https://github.com/WhatTheFar/awesome-whatthefar/tree/dev/packages/parser)
+`,
 	dirPath: GENERATED_ROOT_DIR,
 	fileName: 'README.md',
 	options: {
@@ -43,52 +36,7 @@ export const readmePage = MarkdownPage.create({
 	reference,
 	items: [
 		aboutMeSection,
-		{
-			type: 'MarkdownSection',
-			title: 'My Programming Skills',
-			items: [
-				programmingPrincipleTable,
-				programmingLanguageTable,
-				{
-					type: 'MarkdownSection',
-					title: 'Developer',
-					items: [
-						frontendTable,
-						backendTable,
-						androidTable,
-						{
-							type: 'MarkdownItemGroup',
-							items: [
-								{ type: 'MarkdownHeader', title: 'iOS', size: 3 },
-								{
-									type: 'MarkdownPlainText',
-									text: "Sorry, I don't code iOS ;)"
-								},
-								BACK_TO_TOP
-							]
-						},
-						{
-							type: 'MarkdownTable',
-							title: 'Cross-platform',
-							tableData: {
-								input: {
-									type: 'MemoryInput',
-									data: [
-										['Title', 'Expertise Level'],
-										['React Native', 'Beginner'],
-										['Flutter', 'Beginner']
-									]
-								},
-								options: {
-									align: ['left', 'center']
-								}
-							}
-						}
-					]
-				},
-				devOpsTable
-			]
-		},
+		programmingSection,
 		librarySection,
 		{
 			type: 'MarkdownSection',
@@ -101,7 +49,8 @@ export const readmePage = MarkdownPage.create({
 			items: [
 				{
 					type: 'MarkdownPlainText',
-					text: ctx => `[Go to Reference page](${ctx.pageReferences.referencePage})`
+					text: ctx =>
+						`[Go to Reference page](${ctx.pageReferences.referencePage})`
 				},
 				BACK_TO_TOP
 			]
