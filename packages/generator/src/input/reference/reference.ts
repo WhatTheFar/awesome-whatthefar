@@ -1,5 +1,6 @@
 import { BACK_TO_TOP, MarkdownPage, MarkdownPageReference } from '@awesome/parser';
 import { GENERATED_CONTENT_DIR, getAssetPath } from '../../directory';
+import { potatoImage } from '../image';
 import { anotherRefPage } from './another-ref';
 import { managementSection } from './section/management';
 import { productDevelopmentSection } from './section/product-development';
@@ -33,18 +34,7 @@ export const referencePage = MarkdownPage.create({
 		{
 			type: 'MarkdownSection',
 			title: 'Potato',
-			items: [
-				{
-					type: 'MarkdownPlainText',
-					text: ctx =>
-						ctx.helper.createMarkdownImage(
-							"Sorry for the Long Post, here's a Potato",
-							getAssetPath('potato.jpg'),
-							"Sorry for the Long Post, here's a Potato"
-						)
-				},
-				BACK_TO_TOP
-			]
+			items: [potatoImage, BACK_TO_TOP]
 		},
 		{
 			type: 'MarkdownSection',

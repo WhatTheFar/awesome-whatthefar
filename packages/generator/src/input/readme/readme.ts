@@ -1,6 +1,7 @@
 import { BACK_TO_TOP, MarkdownPage, MarkdownPageReference } from '@awesome/parser';
 import { GENERATED_ROOT_DIR } from '../../directory';
 import { bookPage } from '../book';
+import { potatoImage } from '../image';
 import { podcastPage } from '../podcast';
 import { referencePage } from '../reference';
 import { courseraTable, tedxTalkTable, udacityTable, udemyTable } from '../table';
@@ -58,18 +59,7 @@ export const readmePage = MarkdownPage.create({
 		{
 			type: 'MarkdownSection',
 			title: 'Potato',
-			items: [
-				{
-					type: 'MarkdownPlainText',
-					text: ctx =>
-						ctx.helper.createMarkdownImage(
-							"Sorry for the Long Post, here's a Potato",
-							getAssetPath('potato.jpg'),
-							"Sorry for the Long Post, here's a Potato"
-						)
-				},
-				BACK_TO_TOP
-			]
+			items: [potatoImage, BACK_TO_TOP]
 		}
 	]
 });
