@@ -1,9 +1,9 @@
 import * as _ from 'lodash';
 import { MD_LIST, NEW_LINE, TAB } from './constant';
-import { MarkdownItem } from './types';
+import { MarkdownItem, MarkdownTableOfContents } from './types';
 import { pad, parseHeaderReference } from './utils';
 
-function isTableOfContent(item: MarkdownItem): boolean {
+function isTableOfContent(item: MarkdownItem): item is MarkdownTableOfContents {
 	switch (item.type) {
 		case 'MarkdownSection':
 		case 'MarkdownHeader':
@@ -14,6 +14,7 @@ function isTableOfContent(item: MarkdownItem): boolean {
 		case 'MarkdownPlainText':
 		case 'MarkdownList':
 		case 'MarkdownBackToTop':
+		case 'MarkdownImage':
 			return false;
 			break;
 		default:
@@ -23,7 +24,7 @@ function isTableOfContent(item: MarkdownItem): boolean {
 }
 
 export function parseTableOfContent(
-	item: MarkdownItem | MarkdownItem[],
+	item: MarkdownTableOfContents | MarkdownItem[],
 	offset: number = 0
 ): string {
 	let output = '';
@@ -58,10 +59,6 @@ export function parseTableOfContent(
 				break;
 			case 'MarkdownItemGroup':
 				output += parseTableOfContent(item.items, offset);
-				break;
-			case 'MarkdownList':
-			case 'MarkdownPlainText':
-			case 'MarkdownBackToTop':
 				break;
 			default:
 				const _exhaustiveCheck: never = item;

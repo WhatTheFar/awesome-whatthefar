@@ -1,4 +1,5 @@
 import { CsvInput } from '../csv';
+import { OmitStrict } from '../types';
 import { TableOptions } from './table/table';
 import { MarkdownPageReferenceDict } from './types';
 // tslint:disable:max-classes-per-file
@@ -116,10 +117,25 @@ export type MarkdownItem<T extends MarkdownPageContext = MarkdownPageContext> =
 	| MarkdownSection<T>
 	| MarkdownTable
 	| MarkdownHeader
+	| MarkdownItemGroup<T>
 	| MarkdownPlainText<T>
 	| MarkdownList
 	| MarkdownBackToTop
-	| MarkdownItemGroup<T>;
+	| MarkdownImage;
+
+export type MarkdownTableOfContents<
+	T extends MarkdownPageContext = MarkdownPageContext
+> = Extract<
+	MarkdownItem<T>,
+	MarkdownSection<T> | MarkdownTable | MarkdownHeader | MarkdownItemGroup<T>
+>;
+
+export interface MarkdownImage {
+	type: 'MarkdownImage';
+	altText: string;
+	path: string;
+	title?: string;
+}
 
 export interface MarkdownItemGroup<T extends MarkdownPageContext> {
 	type: 'MarkdownItemGroup';

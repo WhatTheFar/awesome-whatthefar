@@ -3,6 +3,7 @@ import { parseMarkdownTable } from '../table/table';
 import { NEW_LINE } from './../constant';
 import { MarkdownItem, MarkdownPageContext } from './../types';
 import { parseMarkdownHeader } from './header';
+import { parseMarkdownImage } from './image';
 import { parseMarkdownList } from './list';
 import { parseMarkdownPlainText } from './plain-text';
 import { parseMarkdownSection } from './section';
@@ -42,6 +43,9 @@ export async function parseMardownItem(
 			const parseItems = _.partial(parseMardownItem, _, context);
 			const markdownItems = await Promise.all(item.items.map(parseItems));
 			result = markdownItems.join(NEW_LINE) + NEW_LINE;
+			break;
+		case 'MarkdownImage':
+			result = parseMarkdownImage(item, context);
 			break;
 		default:
 			const _exhaustiveCheck: never = item;
