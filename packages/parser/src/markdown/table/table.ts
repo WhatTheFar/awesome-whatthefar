@@ -32,7 +32,7 @@ export async function parseMarkdownTable(
 	return (
 		header +
 		NEW_LINE +
-		(description ? description + NEW_LINE : '') +
+		(description ? description + NEW_LINE + NEW_LINE : '') +
 		tableString +
 		NEW_LINE
 	);
