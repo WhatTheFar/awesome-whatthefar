@@ -1,5 +1,5 @@
 import { MarkdownTable } from '@awesome/parser';
-import { PODCAST_NOTE_DIR } from '../../../directory';
+import { getPodcastNotePath } from '../../../directory';
 import { createFileRefDataMapperFunc } from '../../../util';
 import { createSoundCloundUrlDataMapperFunc } from './util';
 
@@ -11,7 +11,11 @@ export const eightAndAHalfLineTable: MarkdownTable = {
 			mapper: [
 				'skip',
 				'skip',
-				createFileRefDataMapperFunc('Note', PODCAST_NOTE_DIR, '.md'),
+				createFileRefDataMapperFunc(
+					'Note',
+					getPodcastNotePath('eight-and-a-half-line'),
+					'.md'
+				),
 				createSoundCloundUrlDataMapperFunc('user-643868388')
 			],
 			align: ['left', 'left', 'center', { type: 'Reference', colunm: 0 }]

@@ -20,3 +20,5 @@ export const PODCAST_NOTE_DIR = resolve(CONTENT_DIR, 'podcast-note');
 export const getAssetPath = createPathAppendFunction(ASSET_DIR);
 
 export const getBookNotePath = createPathAppendFunction(BOOK_NOTE_DIR);
+
+export const getPodcastNotePath = createPathAppendFunction(PODCAST_NOTE_DIR);
