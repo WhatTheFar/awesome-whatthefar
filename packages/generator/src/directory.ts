@@ -1,4 +1,11 @@
+import { existsSync, mkdirSync } from 'fs';
 import { resolve } from 'path';
+
+export function mkdirpSync(dir: string) {
+	if (!existsSync(dir)) {
+		mkdirSync(dir);
+	}
+}
 
 export const createPathAppendFunction = (path: string) => (...pathSegments: string[]) =>
 	resolve(path, ...pathSegments);
@@ -8,6 +15,8 @@ export const GENERATED_ROOT_DIR = resolve(__dirname, 'generated');
 export const CONTENT_DIR = resolve(GENERATED_ROOT_DIR, 'content');
 
 export const GENERATED_CONTENT_DIR = resolve(CONTENT_DIR, 'generated');
+
+export const GENERATED_PODCAST_NOTE_DIR = resolve(GENERATED_CONTENT_DIR, 'podcast-note');
 
 export const ASSET_DIR = resolve(CONTENT_DIR, 'asset');
 
@@ -22,3 +31,7 @@ export const getAssetPath = createPathAppendFunction(ASSET_DIR);
 export const getBookNotePath = createPathAppendFunction(BOOK_NOTE_DIR);
 
 export const getPodcastNotePath = createPathAppendFunction(PODCAST_NOTE_DIR);
+
+export const getGeneratedPodcastNotePath = createPathAppendFunction(
+	GENERATED_PODCAST_NOTE_DIR
+);

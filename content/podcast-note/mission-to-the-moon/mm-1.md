@@ -1,3 +1,8 @@
+---
+title: EP.1 - 7 เทคนิคที่ช่วยให้ธุรกิจไม่ล่มสลาย
+description: ''
+reference: https://soundcloud.com/missiontothemoon/ep1
+---
 # EP.1 - 7 เทคนิคที่ช่วยให้ธุรกิจไม่ล่มสลาย
 
 1. รู้ทันคู่แข่ง
