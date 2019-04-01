@@ -71,13 +71,9 @@ jobs:
       - run:
           name: Checkout master branch
           command: |
-            git checkout master; \
-            git fetch --all; \
-            git reset --hard origin/master;
-
-      - run:
-          name: Git reset HEAD
-          command: git reset --hard origin/master
+            git checkout master
+            git fetch --all
+            git reset --hard origin/master
 
       - run:
           name: Copying contents from workspace
@@ -110,11 +106,7 @@ workflows:
               only:
                 - dev
     jobs:
-      - test-and-build:
-          filters:
-            branches:
-              only:
-                - dev
+      - test-and-build
       - deploy:
           requires:
             - test-and-build
