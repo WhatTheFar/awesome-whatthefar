@@ -1,5 +1,10 @@
 import { MarkdownPage } from '@awesome/parser';
-import { fictionBookTable, nonFictionBookTable, nonFictionThaiBookTable } from '../table';
+import {
+	fictionBookTable,
+	nonFictionBookTable,
+	nonFictionThaiBookTable,
+	readedNonFictionBookTable
+} from '../table';
 import { GENERATED_CONTENT_DIR } from './../../directory';
 import { programmingBookTable } from './../table';
 // tslint:disable:max-line-length
@@ -49,6 +54,7 @@ export const bookPage = MarkdownPage.create({
 			title: 'Reading List',
 			items: [
 				programmingBookTable,
+				readedNonFictionBookTable,
 				nonFictionBookTable,
 				nonFictionThaiBookTable,
 				fictionBookTable

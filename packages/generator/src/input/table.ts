@@ -150,6 +150,34 @@ export const nonFictionBookTable: MarkdownTable = {
 	}
 };
 
+export const readedNonFictionBookTable: MarkdownTable = {
+	type: 'MarkdownTable',
+	title: 'Readed Non-fiction Book',
+	tableData: {
+		input: {
+			type: 'GoogleSheetInput',
+			publishedId,
+			sheetId: '0'
+		},
+		options: {
+			align: ['left', 'left', 'center', 'center'],
+			mapper: [
+				'skip',
+				'skip',
+				'skip',
+				(value, index, row) => {
+					if (value) {
+						return `[Click](content/book-note/${value}.md)`;
+					} else {
+						return '';
+					}
+				}
+			],
+			filter: (row, rowIndex, ctx) => !!row[2]
+		}
+	}
+};
+
 export const nonFictionThaiBookTable: MarkdownTable = {
 	type: 'MarkdownTable',
 	title: 'Thai Non-fiction Book',
