@@ -1,12 +1,12 @@
 import { ParseError } from 'papaparse';
 import { CsvInput, parseCsvFromInput } from '../../csv';
-import { COLON, DASH, NEW_LINE, PIPE, SPACE } from '../constant';
-import { MD_TABLE_HEADER_SIZE } from '../constant';
+import { COLON, DASH, MD_TABLE_HEADER_SIZE, NEW_LINE, PIPE, SPACE } from '../constant';
 import { parseMarkdownHeader } from '../item/header';
 import { MarkdownTable } from '../types';
 import { formatMarkdown } from '../utils';
 import { MarkdownPageContext } from './../types';
 import { Align, MarkdownAlign } from './align';
+import { Filter, TableDataFilter } from './filter';
 import { Mapper, TableDataMapper } from './mapper';
 
 export async function parseMarkdownTable(
@@ -41,11 +41,13 @@ export async function parseMarkdownTable(
 export interface TableOptions {
 	align?: Align | Align[];
 	mapper?: TableDataMapper | TableDataMapper[];
+	filter?: TableDataFilter;
 }
 
 const defaultTableOptions: Required<TableOptions> = {
 	align: 'left',
-	mapper: 'skip'
+	mapper: 'skip',
+	filter: 'skip'
 };
 
 const DEFAULT_DELIMITER = SPACE + PIPE + SPACE;
@@ -105,7 +107,7 @@ export async function parseMarkdownTableFromData(
 	ctx: MarkdownPageContext,
 	options: TableOptions = defaultTableOptions
 ) {
-	const { align, mapper }: Required<TableOptions> = {
+	const { align, mapper, filter }: Required<TableOptions> = {
 		...defaultTableOptions,
 		...options
 	};
@@ -138,12 +140,19 @@ export async function parseMarkdownTableFromData(
 		if (rowIndex === 0) {
 			formattedRow = row;
 		} else {
+			if (Filter.isFilterFunction(filter)) {
+				const isSkipped = !filter(row, rowIndex, ctx);
+				if (isSkipped) {
+					// return prev + line, to skip this row
+					return prev + line;
+				}
+			}
+
 			formattedRow = row.map((value, i) => {
 				const tempMapper = mappers[i];
 				if (tempMapper === 'skip') {
 					return value;
 				} else if (Mapper.isMapperFunction(tempMapper)) {
-					// TODO: add context into mapper arguments
 					return tempMapper(value, i, row, ctx);
 				} else {
 					const _exhaustiveCheck: never = tempMapper;

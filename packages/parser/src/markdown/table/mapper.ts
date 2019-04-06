@@ -1,6 +1,6 @@
 import { makeRepetitiveArray } from '../utils';
 import { MarkdownPageContext } from './../types';
-import { TableDataMapper, TableDataMapperFunction } from './mapper';
+
 export type TableDataMapper = TableDataMapperFunction | 'skip';
 
 export type TableDataMapperFunction = (
