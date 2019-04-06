@@ -282,8 +282,12 @@ export const allTable = [
 	androidTable,
 	devOpsTable,
 	programmingBookTable,
+	readedNonFictionBookTable,
 	nonFictionBookTable,
 	nonFictionThaiBookTable,
 	fictionBookTable,
-	udemyTable
+	udemyTable,
+	courseraTable,
+	udacityTable,
+	tedxTalkTable
 ];
