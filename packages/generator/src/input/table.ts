@@ -1,4 +1,6 @@
 import { MarkdownTable } from '@awesome/parser';
+import { BOOK_NOTE_DIR } from '../directory';
+import { createFileRefDataMapperFunc } from '../util';
 
 const publishedId =
 	'2PACX-1vQ6FlZEwgS9hr8lly1EwA1vCK1qDlOkLoZD3ninNi6vZlA5e7DtFtzMoPyJeFbeYntOfcqqldNmRD0d';
@@ -138,13 +140,7 @@ export const nonFictionBookTable: MarkdownTable = {
 				'skip',
 				'skip',
 				'skip',
-				(value, index, row) => {
-					if (value) {
-						return `[Click](content/book-note/${value}.md)`;
-					} else {
-						return '';
-					}
-				}
+				createFileRefDataMapperFunc('Click', BOOK_NOTE_DIR, '.md')
 			]
 		}
 	}
@@ -165,13 +161,7 @@ export const readedNonFictionBookTable: MarkdownTable = {
 				'skip',
 				'skip',
 				'skip',
-				(value, index, row) => {
-					if (value) {
-						return `[Click](content/book-note/${value}.md)`;
-					} else {
-						return '';
-					}
-				}
+				createFileRefDataMapperFunc('Click', BOOK_NOTE_DIR, '.md')
 			],
 			filter: (row, rowIndex, ctx) => !!row[2]
 		}
