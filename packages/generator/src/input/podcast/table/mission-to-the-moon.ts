@@ -1,7 +1,5 @@
 import { MarkdownTable } from '@awesome/parser';
-import {
-	createFileRefDataMapperFunc,
-} from '../../../util';
+import { createFileRefDataMapperFunc } from '../../../util';
 import { getGeneratedPodcastNotePath, getPodcastNotePath } from './../../../directory';
 import { createPodcastNoteTableDataFormMarkdownFrontMatter } from './util';
 
