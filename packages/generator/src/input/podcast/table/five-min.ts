@@ -1,6 +1,15 @@
 import { MarkdownTable } from '@awesome/parser';
 import { createFileRefDataMapperFunc } from '../../../util';
-import { PODCAST_NOTE_DIR } from './../../../directory';
+import {
+	getGeneratedPodcastNotePath,
+	getPodcastNotePath,
+	PODCAST_NOTE_DIR
+} from './../../../directory';
+import { createPodcastNoteTableDataFormMarkdownFrontMatter } from './util';
+
+const podcastName = 'five-min';
+const podcastDirPath = getPodcastNotePath(podcastName);
+const generatedPodcastDirPath = getGeneratedPodcastNotePath(podcastName);
 
 export const fiveMinPodcastTable: MarkdownTable = {
 	type: 'MarkdownTable',
@@ -17,21 +26,26 @@ export const fiveMinPodcastTable: MarkdownTable = {
 		},
 		input: {
 			type: 'MemoryInput',
-			data: [
-				['Title', 'Description', 'Note', 'Reference'],
-				[
-					'EP 21 Dunning–Kruger Effect',
-					'',
-					'',
-					'https://soundcloud.com/missiontothemoon/5-minutes-ep-21-dunningkruger-effect'
-				],
-				[
-					'EP 16 Theseus Paradox',
-					'',
-					'',
-					'https://soundcloud.com/missiontothemoon/5-minutes-ep-16-theseus-paradox'
-				]
-			]
+			data: createPodcastNoteTableDataFormMarkdownFrontMatter({
+				markdownDir: podcastDirPath,
+				generatedDir: generatedPodcastDirPath,
+				tableHeaders: ['Title', 'Description', 'Note', 'Reference']
+			})
+			// data: [
+			// 	['Title', 'Description', 'Note', 'Reference'],
+			// 	[
+			// 		'EP 21 Dunning–Kruger Effect',
+			// 		'',
+			// 		'',
+			// 		'https://soundcloud.com/missiontothemoon/5-minutes-ep-21-dunningkruger-effect'
+			// 	],
+			// 	[
+			// 		'EP 16 Theseus Paradox',
+			// 		'',
+			// 		'',
+			// 		'https://soundcloud.com/missiontothemoon/5-minutes-ep-16-theseus-paradox'
+			// 	]
+			// ]
 		}
 	}
 };
