@@ -13,7 +13,7 @@ function create16PersonalitiesTestMarkdown(filename: string): MarkdownItem[] {
 		{
 			type: 'MarkdownHeader',
 			title: filename,
-			size: 2
+			size: 3
 		},
 		{
 			type: 'MarkdownImage',
@@ -48,7 +48,7 @@ export const myersBriggsPage = MarkdownPage.create({
 			text: `
 The Myers–Briggs Type Indicator (MBTI) is an introspective self-report questionnaire with the purpose of indicating differing psychological preferences in how people perceive the world around them and make decisions.
 
-Reference: https://en.wikipedia.org/wiki/Myers%E2%80%93Briggs_Type_Indicator
+Reference: [Myers–Briggs Type Indicator](https://en.wikipedia.org/wiki/Myers%E2%80%93Briggs_Type_Indicator)
 `
 		},
 		{
