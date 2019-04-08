@@ -24,6 +24,8 @@ export const BOOK_NOTE_DIR = resolve(CONTENT_DIR, 'book-note');
 
 export const PODCAST_NOTE_DIR = resolve(CONTENT_DIR, 'podcast-note');
 
+export const MYERS_BRIGGS_DIR = resolve(CONTENT_DIR, 'myers-briggs');
+
 // Helper function
 
 export const getAssetPath = createPathAppendFunction(ASSET_DIR);
