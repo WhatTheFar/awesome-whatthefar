@@ -8,7 +8,7 @@ export const podcastBookmarkSection: MarkdownSection<
 	MarkdownPageContext<PodcastPagePageReference>
 > = {
 	type: 'MarkdownSection',
-	title: 'Podcast Bookmark',
+	title: 'Bookmark',
 	description: 'My bookmarked podcasts and additional notes',
 	items: [missionToTheMoonPodcastTable, fiveMinPodcastTable, eightAndAHalfLineTable]
 };

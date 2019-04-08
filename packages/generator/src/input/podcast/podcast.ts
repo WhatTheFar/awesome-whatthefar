@@ -8,7 +8,7 @@ const reference = {};
 export type PodcastPagePageReference = typeof reference;
 
 export const podcastPage = MarkdownPage.create({
-	title: 'Podcast',
+	title: 'Podcast Library',
 	reference,
 	dirPath: GENERATED_CONTENT_DIR,
 	fileName: 'podcast.md',

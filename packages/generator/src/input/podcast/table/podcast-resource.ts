@@ -2,7 +2,7 @@ import { MarkdownTable } from '@awesome/parser';
 
 export const podcastResourceTable: MarkdownTable = {
 	type: 'MarkdownTable',
-	title: 'Podcast Resource',
+	title: 'Listening Resource',
 	tableData: {
 		options: {
 			align: ['left', 'left', 'center', { type: 'Reference', colunm: 0 }]
