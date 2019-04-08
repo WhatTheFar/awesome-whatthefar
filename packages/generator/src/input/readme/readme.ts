@@ -5,7 +5,7 @@ import { potatoImage } from '../image';
 import { podcastPage } from '../podcast';
 import { referencePage } from '../reference';
 import { courseraTable, tedxTalkTable, udacityTable, udemyTable } from '../table';
-import { getAssetPath } from './../../directory';
+import { myersBriggsPage } from './../myers-briggs/myers-briggs';
 import { aboutMeSection } from './section/about-me';
 import { librarySection } from './section/library';
 import { programmingSection } from './section/programming';
@@ -14,7 +14,8 @@ import { programmingSection } from './section/programming';
 const reference = {
 	referencePage: new MarkdownPageReference(referencePage),
 	podcastPage: new MarkdownPageReference(podcastPage),
-	bookPage: new MarkdownPageReference(bookPage)
+	bookPage: new MarkdownPageReference(bookPage),
+	myersBriggs: new MarkdownPageReference(myersBriggsPage)
 };
 
 export type ReadmePagePageReference = typeof reference;

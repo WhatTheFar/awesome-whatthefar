@@ -1,4 +1,4 @@
-import { MarkdownPageContext, MarkdownSection } from '@awesome/parser';
+import { BACK_TO_TOP, MarkdownPageContext, MarkdownSection } from '@awesome/parser';
 import { contactTable } from '../../table';
 import { ReadmePagePageReference } from '../readme';
 
@@ -48,6 +48,16 @@ export const aboutMeSection: MarkdownSection<
 					align: ['left', 'center', 'center', { type: 'Reference', colunm: 0 }]
 				}
 			}
-		}
+		},
+		{
+			type: 'MarkdownHeader',
+			title: 'Myers-Brigg',
+			size: 3
+		},
+		{
+			type: 'MarkdownPlainText',
+			text: ctx => `[Go to Myers-Brigg page](${ctx.pageReferences.myersBriggs})`
+		},
+		BACK_TO_TOP
 	]
 };
