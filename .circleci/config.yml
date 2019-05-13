@@ -39,7 +39,7 @@ jobs:
 
       - run:
           name: Running Awesome Script
-          command: ./awesome.sh
+          command: ./awesome.sh --copy --force --path temp
 
       - persist_to_workspace:
           root: ~/repo
