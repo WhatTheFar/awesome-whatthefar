@@ -1,15 +1,7 @@
 #!/bin/bash
 
-cd packages/generator
-rm -rf src/generated
-mkdir -p src/generated/content
-cp -r ../../content/* src/generated/content
-rm -rf src/generated/content/generated
-
-yarn start
-cd ../..
-
 outpath="temp"
+# outpath=${BASEPATH%%/}/outpath
 
 while [[ "$1" =~ ^- && ! "$1" == "--" ]]; do case $1 in
     -c | --copy )
@@ -28,11 +20,31 @@ esac; shift; done
 if [[ "$1" == '--' ]]; then shift; fi
 
 
+if [[ -n "$copy" ]] && [[ ! -d "$outpath" ]] && [[ -e "$outpath" ]]; then
+    echo
+    echo "'$outpath' is not a directory, can't continue"
+    echo "Exit"
+    exit
+fi
+
+
+echo "Starting generator ..."
+cd packages/generator
+rm -rf src/generated
+mkdir -p src/generated/content
+cp -r ../../content/* src/generated/content
+rm -rf src/generated/content/generated
+
+yarn start
+cd ../..
+echo "  -> Done"
+
+
 if [[ -n "$copy" ]]; then
     echo
 
     if [[ -d "$outpath" ]] && [[ -z "$force" ]]; then
-        echo -n "Directory '$outpath' is already exists, delete and continue? [y/n]: "
+        echo "Directory '$outpath' is already exists, delete and continue? [y/n]: "
         read ans
         case "$ans" in
             y | Y | yes)
