@@ -10,11 +10,11 @@ export function mkdirpSync(dir: string) {
 export const createPathAppendFunction = (path: string) => (...pathSegments: string[]) =>
 	resolve(path, ...pathSegments);
 
-export const GENERATED_ROOT_DIR = resolve(__dirname, 'generated');
+export const GENERATED_ROOT_DIR = resolve(__dirname, '..', 'generated');
 
 export const CONTENT_DIR = resolve(GENERATED_ROOT_DIR, 'content');
 
-export const GENERATED_CONTENT_DIR = resolve(CONTENT_DIR, 'generated');
+export const GENERATED_CONTENT_DIR = resolve(GENERATED_ROOT_DIR, 'generated');
 
 export const GENERATED_PODCAST_NOTE_DIR = resolve(GENERATED_CONTENT_DIR, 'podcast-note');
 

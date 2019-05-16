@@ -30,10 +30,9 @@ fi
 
 echo "Starting generator ..."
 cd packages/generator
-rm -rf src/generated
-mkdir -p src/generated/content
-cp -r ../../content/* src/generated/content
-rm -rf src/generated/content/generated
+rm -rf generated
+mkdir -p generated/content
+cp -r ../../content/* generated/content
 
 yarn start
 cd ../..
@@ -59,8 +58,10 @@ if [[ -n "$copy" ]]; then
     echo "Copying generated contents to $outpath ..."
     rm -rf $outpath
     mkdir -p $outpath
-    cp -r packages/generator/src/generated/README.md $outpath
-    cp -r packages/generator/src/generated/content $outpath/content
+    cp -r packages/generator/generated/* $outpath
+    # cp -r packages/generator/generated/README.md $outpath
+    # cp -r packages/generator/generated/content $outpath/content
+    # cp -r packages/generator/generated/generated $outpath/generated
     echo '  -> Done'
 fi
 
