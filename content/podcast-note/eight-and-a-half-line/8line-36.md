@@ -1,5 +1,5 @@
 ---
-title: 'แปดบรรทัดครึ่ง EP36 - 5 เทคนิค ขายของได้แบบอัตโนมัติ #1'
+title: 'EP36 - 5 เทคนิค ขายของได้แบบอัตโนมัติ #1'
 description: 'Marketing: Social Proof และ Scarcity ช่วยคุณได้ยังไง'
 reference: 'https://soundcloud.com/user-643868388/ep36-5-1'
 ---

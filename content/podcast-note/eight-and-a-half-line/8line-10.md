@@ -1,5 +1,5 @@
 ---
-title: แปดบรรทัดครึ่ง EP10 - ที่บริษัท Google เขาเลือกคนยังไง
+title: EP10 - ที่บริษัท Google เขาเลือกคนยังไง
 description: 'ทำไมเราถึงต้องเลือกคนเก่งมาทำงาน'
 reference: 'https://soundcloud.com/user-643868388/ep10-google'
 ---

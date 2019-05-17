@@ -1,5 +1,5 @@
 ---
-title: แปดบรรทัดครึ่ง EP92 - Ux ในแบบของ Steve Jobs
+title: EP92 - Ux ในแบบของ Steve Jobs
 description: ทำไม สตีฟ จ็อบส์ ถึงเกลียดรีโมททีวีเข้าไส้
 reference: https://soundcloud.com/user-643868388/ep92-ux-steve-jobs
 ---
