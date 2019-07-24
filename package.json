@@ -12,6 +12,7 @@
 	"scripts": {
 		"awesome": "./awesome.sh",
 		"awesome:watch": "yarn nodemon",
+		"build": "lerna run build",
 		"format": "lerna run format"
 	},
 	"devDependencies": {
