@@ -25,6 +25,12 @@ export const aboutMeSection: MarkdownSection<
 					data: [
 						['Title', 'Language', 'Date', 'Reference'],
 						[
+							'How will you measure the Internship?',
+							'TH',
+							'Jul 9, 2019',
+							'https://medium.com/@jakpat.m/how-will-you-measure-the-internship-th-16ca5a1bf0f1'
+						],
+						[
 							'Best of Jakpat M. 2018',
 							'TH',
 							'Dec 31, 2018',
