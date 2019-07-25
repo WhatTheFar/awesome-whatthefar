@@ -60,7 +60,7 @@ export const frontendTable: MarkdownTable = {
 			sheetId: '1468357893'
 		},
 		options: {
-			align: ['left', 'center']
+			align: ['left', 'center', 'skip']
 		}
 	}
 };
@@ -75,7 +75,7 @@ export const backendTable: MarkdownTable = {
 			sheetId: '435690626'
 		},
 		options: {
-			align: ['left', 'center']
+			align: ['left', 'center', 'skip']
 		}
 	}
 };
@@ -90,7 +90,22 @@ export const androidTable: MarkdownTable = {
 			sheetId: '1737119903'
 		},
 		options: {
-			align: ['left', 'center']
+			align: ['left', 'center', 'skip']
+		}
+	}
+};
+
+export const microservicesTable: MarkdownTable = {
+	type: 'MarkdownTable',
+	title: 'Microservices',
+	tableData: {
+		input: {
+			type: 'GoogleSheetInput',
+			publishedId,
+			sheetId: '1363613515'
+		},
+		options: {
+			align: ['left', 'center', 'skip']
 		}
 	}
 };
@@ -105,7 +120,7 @@ export const devOpsTable: MarkdownTable = {
 			sheetId: '1917160232'
 		},
 		options: {
-			align: ['left', 'center']
+			align: ['left', 'center', 'skip']
 		}
 	}
 };

@@ -5,7 +5,8 @@ import {
 	devOpsTable,
 	frontendTable,
 	programmingLanguageTable,
-	programmingPrincipleTable
+	programmingPrincipleTable,
+	microservicesTable
 } from '../../table';
 import { ReadmePagePageReference } from '../readme';
 
@@ -22,8 +23,8 @@ export const programmingSection: MarkdownSection<
 			title: 'Developer',
 			items: [
 				frontendTable,
-				backendTable,
 				androidTable,
+				backendTable,
 				{
 					type: 'MarkdownItemGroup',
 					items: [
@@ -54,6 +55,7 @@ export const programmingSection: MarkdownSection<
 				}
 			]
 		},
+		microservicesTable,
 		devOpsTable
 	]
 };
