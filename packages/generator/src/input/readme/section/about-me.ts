@@ -25,6 +25,12 @@ export const aboutMeSection: MarkdownSection<
 					data: [
 						['Title', 'Language', 'Date', 'Reference'],
 						[
+							'ความหมายของชีวิต 2019',
+							'TH',
+							'Nov 30, 2019',
+							'https://medium.com/@jakpat.m/meaning-of-life-2019-th-2acb37700fca'
+						],
+						[
 							'How will you measure the Internship?',
 							'TH',
 							'Jul 9, 2019',
