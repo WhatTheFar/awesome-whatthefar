@@ -25,6 +25,12 @@ export const aboutMeSection: MarkdownSection<
 					data: [
 						['Title', 'Language', 'Date', 'Reference'],
 						[
+							'การศึกษาและเงื่อนไข',
+							'TH',
+							'May 16, 2020',
+							'https://medium.com/@jakpat.m/education-and-conditions-th-a6f24bd2258a'
+						],
+						[
 							'ความหมายของชีวิต 2019',
 							'TH',
 							'Nov 30, 2019',
