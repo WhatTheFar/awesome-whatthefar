@@ -239,11 +239,19 @@ export const courseraTable: MarkdownTable = {
 		},
 		options: {
 			align: [
+				// Course
 				'left',
+				// Instructor
 				'left',
+				// Done
+				'center',
+				// Course Ref
 				{ type: 'Reference', colunm: 0 },
+				// Instructor Ref
 				{ type: 'Reference', colunm: 1 }
-			]
+			],
+			// Check whether the courses are done or on-going
+			filter: (row, _rowIndex, _ctx) => !!row[2]
 		}
 	}
 };
