@@ -5,6 +5,7 @@
 	"typings": "lib/index.d.ts",
 	"license": "MIT",
 	"scripts": {
+		"prebuild": "rm -rf lib",
 		"build": "tsc -p tsconfig.build.json",
 		"start": "ts-node src/index.ts",
 		"start:dev": "nodemon",
