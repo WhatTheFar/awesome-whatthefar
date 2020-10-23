@@ -178,7 +178,7 @@ export const readedNonFictionBookTable: MarkdownTable = {
 				'skip',
 				createFileRefDataMapperFunc('Click', BOOK_NOTE_DIR, '.md')
 			],
-			filter: (row, rowIndex, ctx) => !!row[2]
+			filter: (row, _rowIndex, _ctx) => !!row[2]
 		}
 	}
 };
