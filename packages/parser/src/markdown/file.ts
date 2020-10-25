@@ -17,6 +17,7 @@ export async function generateMarkdownFile<T extends MarkdownPageReferenceDict>(
 	const { dirPath, fileName } = markdownPage;
 	const filepath = resolve(dirPath, fileName);
 
+	// TODO: prevent circular dependency and infinite recursion
 	for (const key in ref) {
 		if (ref.hasOwnProperty(key)) {
 			const value = ref[key];
