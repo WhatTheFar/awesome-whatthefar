@@ -17,7 +17,9 @@ import { formatMarkdown, parseHeaderReference } from './utils';
 const tableOfContentsTitle = 'Table of Contents';
 const backToTopTitle = 'Back to Top';
 
-function createMarkdownContextHelper(page: MarkdownPage): MarkdownContextHelper {
+function createMarkdownContextHelper(
+	page: Pick<MarkdownPage, 'dirPath'>
+): MarkdownContextHelper {
 	const { dirPath } = page;
 	return {
 		createMarkdownImage: (
@@ -36,14 +38,15 @@ function createMarkdownContextHelper(page: MarkdownPage): MarkdownContextHelper 
 	};
 }
 
-export async function parseMarkdownPage(page: MarkdownPage): Promise<string> {
-	const { title, description, dirPath, fileName, items, options, reference } = page;
+export function createMarkdownContext(
+	page: Pick<MarkdownPage, 'dirPath' | 'fileName' | 'options' | 'reference'>
+): MarkdownPageContext {
+	const { dirPath, fileName, options, reference } = page;
 
 	const { tableOfContent, backToTop, initialState }: Required<MarkdownPageOptions> = {
 		...defaultMarkdownPageOptions,
 		...options
 	};
-	let output: string = '';
 
 	let context: MarkdownPageContext;
 	let backToTopReference: string;
@@ -51,7 +54,8 @@ export async function parseMarkdownPage(page: MarkdownPage): Promise<string> {
 	if (tableOfContent) {
 		backToTopReference = parseHeaderReference(backToTopTitle, tableOfContentsTitle);
 	} else {
-		backToTopReference = parseHeaderReference(title, tableOfContentsTitle);
+		// TODO: reference markdown root header (#)
+		backToTopReference = parseHeaderReference(backToTopTitle, tableOfContentsTitle);
 	}
 
 	// Create MarkdownPageContext
@@ -81,13 +85,27 @@ export async function parseMarkdownPage(page: MarkdownPage): Promise<string> {
 		}
 	}
 
-	const header = parseMarkdownHeader({
+	return context;
+}
+
+export async function parseMarkdownPage(page: MarkdownPage): Promise<string> {
+	const { title, description, dirPath, fileName, items, options, reference } = page;
+
+	const { tableOfContent }: Required<MarkdownPageOptions> = {
+		...defaultMarkdownPageOptions,
+		...options
+	};
+	let output: string = '';
+
+	const context: MarkdownPageContext = createMarkdownContext(page);
+
+	const titleMD = parseMarkdownHeader({
 		type: 'MarkdownHeader',
 		title,
 		size: MD_PAGE_HEADER_SIZE
 	});
 
-	output += header + NEW_LINE;
+	output += titleMD + NEW_LINE;
 	if (description) {
 		output += description + NEW_LINE;
 	}
