@@ -22,6 +22,11 @@ export function convertToKebabCase(input: string): string {
 }
 
 export function parseHeaderReference(text: string, headerToBeRefered: string): string {
-	const ref = MD_HEADER + headerToBeRefered.replace(/[\s_]+/g, '-').toLowerCase();
+	const ref =
+		MD_HEADER +
+		headerToBeRefered
+			.replace(/[\s_]+/g, '-')
+			.replace(/[//]+/g, '')
+			.toLowerCase();
 	return `[${text}](${ref})`;
 }
