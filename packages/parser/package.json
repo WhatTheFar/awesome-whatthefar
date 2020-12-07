@@ -1,11 +1,11 @@
 {
 	"name": "@awesome-whatthefar/parser",
-	"version": "0.0.2",
+	"version": "0.0.3",
 	"main": "lib/index.js",
 	"typings": "lib/index.d.ts",
 	"license": "MIT",
 	"scripts": {
-        "prepublish": "yarn build",
+		"prepublish": "yarn build",
 		"prebuild": "rm -rf lib",
 		"build": "tsc -p tsconfig.build.json",
 		"start": "ts-node src/index.ts",
