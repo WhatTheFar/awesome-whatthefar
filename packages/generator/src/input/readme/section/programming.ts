@@ -4,7 +4,7 @@ import {
 	MarkdownSection,
 	MarkdownTable,
 	parseCsvFromInput
-} from '@awesome/parser';
+} from '@awesome-whatthefar/parser';
 import { publishedId } from '../../table';
 import { ReadmePagePageReference } from '../readme';
 

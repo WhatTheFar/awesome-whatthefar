@@ -1,4 +1,4 @@
-import { BACK_TO_TOP, MarkdownPage, MarkdownPageReference } from '@awesome/parser';
+import { BACK_TO_TOP, MarkdownPage, MarkdownPageReference } from '@awesome-whatthefar/parser';
 import { GENERATED_CONTENT_DIR, getAssetPath } from '../../directory';
 import { potatoImage } from '../image';
 import { anotherRefPage } from './another-ref';

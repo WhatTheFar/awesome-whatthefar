@@ -1,4 +1,4 @@
-import { MarkdownPageContext, MarkdownSection } from '@awesome/parser';
+import { MarkdownPageContext, MarkdownSection } from '@awesome-whatthefar/parser';
 import { PodcastPagePageReference } from './../podcast';
 import { eightAndAHalfLineTable } from './../table/eight-and-a-half-line';
 import { fiveMinPodcastTable } from './../table/five-min';

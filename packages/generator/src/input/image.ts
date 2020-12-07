@@ -1,4 +1,4 @@
-import { MarkdownImage } from '@awesome/parser';
+import { MarkdownImage } from '@awesome-whatthefar/parser';
 import { getAssetPath } from './../directory';
 
 export const potatoImage: MarkdownImage = {

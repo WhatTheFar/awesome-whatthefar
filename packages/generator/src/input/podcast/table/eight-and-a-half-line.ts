@@ -1,4 +1,4 @@
-import { MarkdownTable } from '@awesome/parser';
+import { MarkdownTable } from '@awesome-whatthefar/parser';
 import { getGeneratedPodcastNotePath, getPodcastNotePath } from '../../../directory';
 import { createFileRefDataMapperFunc } from '../../../util';
 import { createPodcastNoteTableDataFormMarkdownFrontMatter } from './util';

@@ -1,4 +1,4 @@
-import { MarkdownPage } from '@awesome/parser';
+import { MarkdownPage } from '@awesome-whatthefar/parser';
 import {
 	fictionBookTable,
 	nonFictionBookTable,

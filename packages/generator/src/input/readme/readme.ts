@@ -1,4 +1,4 @@
-import { BACK_TO_TOP, MarkdownPage, MarkdownPageReference } from '@awesome/parser';
+import { BACK_TO_TOP, MarkdownPage, MarkdownPageReference } from '@awesome-whatthefar/parser';
 import { GENERATED_ROOT_DIR } from '../../directory';
 import { bookPage } from '../book';
 import { potatoImage } from '../image';
@@ -28,7 +28,7 @@ export async function createReadmePage() {
 
 😎 Curated list of awesome WhatTheFar
 
-> The source code of contents is located at [@awesome/generator](https://github.com/WhatTheFar/awesome-whatthefar/tree/dev/packages/generator), powered by [@awesome/parser](https://github.com/WhatTheFar/awesome-whatthefar/tree/dev/packages/parser)
+> The source code of contents is located at [@awesome-whatthefar/generator](https://github.com/WhatTheFar/awesome-whatthefar/tree/dev/packages/generator), powered by [@awesome-whatthefar/parser](https://github.com/WhatTheFar/awesome-whatthefar/tree/dev/packages/parser)
 `,
 		dirPath: GENERATED_ROOT_DIR,
 		fileName: 'README.md',

@@ -1,4 +1,4 @@
-import { TableDataMapperFunction } from '@awesome/parser/lib/markdown/table/mapper';
+import { TableDataMapperFunction } from '@awesome-whatthefar/parser/lib/markdown/table/mapper';
 import frontmatter from 'front-matter';
 import { existsSync, readFileSync, writeFileSync } from 'fs';
 import * as glob from 'glob';

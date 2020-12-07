@@ -1,4 +1,4 @@
-import { MarkdownTable } from '@awesome/parser';
+import { MarkdownTable } from '@awesome-whatthefar/parser';
 import { BOOK_NOTE_DIR } from '../directory';
 import { createFileRefDataMapperFunc } from '../util';
 

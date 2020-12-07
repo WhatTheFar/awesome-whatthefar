@@ -1,4 +1,4 @@
-import { MarkdownTable } from '@awesome/parser';
+import { MarkdownTable } from '@awesome-whatthefar/parser';
 
 export const podcastResourceTable: MarkdownTable = {
 	type: 'MarkdownTable',

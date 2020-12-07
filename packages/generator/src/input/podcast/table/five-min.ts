@@ -1,4 +1,4 @@
-import { MarkdownTable } from '@awesome/parser';
+import { MarkdownTable } from '@awesome-whatthefar/parser';
 import { createFileRefDataMapperFunc } from '../../../util';
 import {
 	getGeneratedPodcastNotePath,

@@ -1,4 +1,4 @@
-import { BACK_TO_TOP, MarkdownPageContext, MarkdownSection } from '@awesome/parser';
+import { BACK_TO_TOP, MarkdownPageContext, MarkdownSection } from '@awesome-whatthefar/parser';
 import { ReadmePagePageReference } from '../readme';
 
 export const librarySection: MarkdownSection<

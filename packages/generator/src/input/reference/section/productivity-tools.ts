@@ -1,4 +1,4 @@
-import { MarkdownPageContext, MarkdownSection } from '@awesome/parser';
+import { MarkdownPageContext, MarkdownSection } from '@awesome-whatthefar/parser';
 import { ReferencePagePageReference } from '../reference';
 
 export const toolsSection: MarkdownSection<
