@@ -5,6 +5,7 @@
 	"repository": "git@github.com:WhatTheFar/awesome-whatthefar.git",
 	"author": "WhatTheFar <jakpat.m@gmail.com>",
 	"license": "MIT",
+	"private": true,
 	"workspaces": [
 		"packages/*"
 	],
