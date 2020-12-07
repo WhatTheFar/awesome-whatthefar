@@ -12,7 +12,8 @@
 		"awesome": "./awesome.sh",
 		"awesome:watch": "yarn nodemon",
 		"build": "lerna run build",
-		"format": "lerna run format"
+		"format": "lerna run format",
+		"publish": "lerna publish"
 	},
 	"devDependencies": {
 		"lerna": "3.13.1",
