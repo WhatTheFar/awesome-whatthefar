@@ -43,5 +43,8 @@
 		"rimraf": "2.6.3",
 		"ts-jest": "24.0.0",
 		"tslint": "5.14.0"
+	},
+	"publishConfig": {
+		"access": "public"
 	}
 }
