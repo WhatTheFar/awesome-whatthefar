@@ -1,9 +1,24 @@
-import * as path from 'path';
-import { MarkdownPlainText, MarkdownText } from '../markdown';
-import { renderMarkdown } from './renderer';
 import * as fs from 'fs';
+import * as path from 'path';
+import { MarkdownPlainText } from '../markdown';
+import { renderMarkdown, sanitizeKey } from './renderer';
 
 describe('Renderer', () => {
+	describe('sanitizeKey(key)', () => {
+		test.each`
+			key                         | sanitized
+			${'CI/CD'}                  | ${'ci-cd'}
+			${'Configuration Language'} | ${'configuration-language'}
+		`(
+			'sanitizeKey($key) should return',
+			({ key, sanitized }: { key: string; sanitized: string }) => {
+				const received: string = sanitizeKey(key);
+
+				expect(received).toBe(sanitized);
+			}
+		);
+	});
+
 	describe('renderMarkdown(file, map)', () => {
 		test('render simple template, should pass', async () => {
 			const FIXTURE_DIR = path.resolve(__dirname, 'fixture');

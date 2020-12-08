@@ -17,6 +17,10 @@ export interface RenderMap {
 	[name: string]: MarkdownItem[];
 }
 
+export function sanitizeKey(key: string): string {
+	return key.toLowerCase().replace(/[ \/]/g, '-');
+}
+
 export async function renderMarkdown(file: MarkdownFile, map: RenderMap) {
 	const { sourceFilePath, dirPath, fileName } = file;
 	const filepath = resolve(dirPath, fileName);
@@ -30,10 +34,12 @@ export async function renderMarkdown(file: MarkdownFile, map: RenderMap) {
 		if (map.hasOwnProperty(name)) {
 			const items = map[name];
 
-			const startComment = `<!--START_SECTION:awesome:${name}-->`;
-			const endComment = `<!--END_SECTION:awesome:${name}-->`;
+			const sanitizedKey = sanitizeKey(name);
+
+			const startComment = `<!--START_SECTION:awesome:${sanitizedKey}-->`;
+			const endComment = `<!--END_SECTION:awesome:${sanitizedKey}-->`;
 			const re = new RegExp(`${startComment}[\\s\\S]+${endComment}`);
-			// const re = new RegExp(startComment + '[\\s\\S]+' + endComment);
+
 			if (!re.test(rawMD)) {
 				continue;
 			}
