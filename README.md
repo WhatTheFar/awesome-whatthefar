@@ -18,3 +18,19 @@ Generate `awesome-whatthefar` :
 ```bash
 $ ./awesome.sh --copy
 ```
+
+## Library
+
+Libraries are located at `packages/*`.
+
+- [@awesome-whatthefar/parser](packages/generator/README.md) - A generic library for templating data into an awesome list
+- [@awesome-whatthefar/generator](packages/parser/README.md) - Source code that generate `awesome-whatthefar`
+
+### Publish Libraries
+
+Publish all libraries to `npm`.
+
+```bash
+$ yarn install
+$ yarn run publish
+```
