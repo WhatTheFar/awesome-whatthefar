@@ -18,7 +18,10 @@ export interface RenderMap {
 }
 
 export function sanitizeKey(key: string): string {
-	return key.toLowerCase().replace(/[ \/]/g, '-');
+	return key
+		.toLowerCase()
+		.replace(/[ \/]/g, '-')
+		.replace(/[\[\]]/g, '');
 }
 
 export async function renderMarkdown(file: MarkdownFile, map: RenderMap) {

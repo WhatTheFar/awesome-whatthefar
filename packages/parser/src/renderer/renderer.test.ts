@@ -9,6 +9,7 @@ describe('Renderer', () => {
 			key                         | sanitized
 			${'CI/CD'}                  | ${'ci-cd'}
 			${'Configuration Language'} | ${'configuration-language'}
+			${'[Ingress Controller]'}   | ${'ingress-controller'}
 		`(
 			'sanitizeKey($key) should return',
 			({ key, sanitized }: { key: string; sanitized: string }) => {
