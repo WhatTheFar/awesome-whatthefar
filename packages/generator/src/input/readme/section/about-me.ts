@@ -1,4 +1,8 @@
-import { BACK_TO_TOP, MarkdownPageContext, MarkdownSection } from '@awesome-whatthefar/parser';
+import {
+	BACK_TO_TOP,
+	MarkdownPageContext,
+	MarkdownSection
+} from '@awesome-whatthefar/parser';
 import { contactTable } from '../../table';
 import { ReadmePagePageReference } from '../readme';
 

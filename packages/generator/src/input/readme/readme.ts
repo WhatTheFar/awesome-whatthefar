@@ -1,4 +1,8 @@
-import { BACK_TO_TOP, MarkdownPage, MarkdownPageReference } from '@awesome-whatthefar/parser';
+import {
+	BACK_TO_TOP,
+	MarkdownPage,
+	MarkdownPageReference
+} from '@awesome-whatthefar/parser';
 import { GENERATED_ROOT_DIR } from '../../directory';
 import { bookPage } from '../book';
 import { potatoImage } from '../image';
