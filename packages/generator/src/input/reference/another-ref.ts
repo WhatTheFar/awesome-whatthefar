@@ -6,33 +6,33 @@ export const anotherRefPage = MarkdownPage.create({
 	description: 'For testing purpose',
 	options: {
 		initialState: {
-			initial: 'This is an initial state value'
-		}
+			initial: 'This is an initial state value',
+		},
 	},
 	dirPath: GENERATED_CONTENT_DIR,
 	fileName: 'another-ref.md',
 	items: [
 		{
 			type: 'MarkdownPlainText',
-			text: 'Just an another reference page for Testing'
+			text: 'Just an another reference page for Testing',
 		},
 		{
 			type: 'MarkdownPlainText',
-			text: ctx => `state.initial: ${ctx.state.initial}`
+			text: (ctx) => `state.initial: ${ctx.state.initial}`,
 		},
 		{
 			type: 'MarkdownPlainText',
-			text: ctx => {
+			text: (ctx) => {
 				ctx.dispatch({
 					...ctx.state,
-					temp: 'This is a temp value from earlier dispatch'
+					temp: 'This is a temp value from earlier dispatch',
 				});
 				return 'state.temp is dispatched';
-			}
+			},
 		},
 		{
 			type: 'MarkdownPlainText',
-			text: ctx => `state.temp: ${ctx.state.temp}`
-		}
-	]
+			text: (ctx) => `state.temp: ${ctx.state.temp}`,
+		},
+	],
 });

@@ -12,5 +12,5 @@ export const podcastPage = MarkdownPage.create({
 	reference,
 	dirPath: GENERATED_CONTENT_DIR,
 	fileName: 'podcast.md',
-	items: [podcastResourceTable, podcastBookmarkSection]
+	items: [podcastResourceTable, podcastBookmarkSection],
 });

@@ -1,7 +1,7 @@
 import {
 	BACK_TO_TOP,
 	MarkdownPage,
-	MarkdownPageReference
+	MarkdownPageReference,
 } from '@awesome-whatthefar/parser';
 import { GENERATED_CONTENT_DIR, getAssetPath } from '../../directory';
 import { potatoImage } from '../image';
@@ -12,7 +12,7 @@ import { toolsSection } from './section/productivity-tools';
 import { softwareDevelopmentSection } from './section/software-development';
 
 const reference = {
-	anotherRefPage: new MarkdownPageReference(anotherRefPage)
+	anotherRefPage: new MarkdownPageReference(anotherRefPage),
 };
 
 export type ReferencePagePageReference = typeof reference;
@@ -29,7 +29,7 @@ export const referencePage = MarkdownPage.create({
 			type: 'MarkdownSection',
 			title: 'Bussiness',
 			description: 'There is nothing yet',
-			items: [BACK_TO_TOP]
+			items: [BACK_TO_TOP],
 		},
 		managementSection,
 		productDevelopmentSection,
@@ -38,7 +38,7 @@ export const referencePage = MarkdownPage.create({
 		{
 			type: 'MarkdownSection',
 			title: 'Potato',
-			items: [potatoImage, BACK_TO_TOP]
+			items: [potatoImage, BACK_TO_TOP],
 		},
 		{
 			type: 'MarkdownSection',
@@ -46,10 +46,10 @@ export const referencePage = MarkdownPage.create({
 			items: [
 				{
 					type: 'MarkdownPlainText',
-					text: ctx => `[Click here](${ctx.pageReferences.anotherRefPage})`
+					text: (ctx) => `[Click here](${ctx.pageReferences.anotherRefPage})`,
 				},
-				BACK_TO_TOP
-			]
-		}
-	]
+				BACK_TO_TOP,
+			],
+		},
+	],
 });

@@ -23,8 +23,8 @@ export function createPodcastNoteTableDataFormMarkdownFrontMatter(options: {
 
 	const data = generateMarkdownWithoutFronMatter<PodcastFrontMatter>({
 		globPath: markdownDir + '/*',
-		generatedDir
-	}).map(content => {
+		generatedDir,
+	}).map((content) => {
 		const { title, description, reference } = content.attributes as any;
 		const { basename, body } = content;
 

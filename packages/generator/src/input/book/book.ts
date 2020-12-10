@@ -3,7 +3,7 @@ import {
 	fictionBookTable,
 	nonFictionBookTable,
 	nonFictionThaiBookTable,
-	readedNonFictionBookTable
+	readedNonFictionBookTable,
 } from '../table';
 import { GENERATED_CONTENT_DIR } from './../../directory';
 import { programmingBookTable } from './../table';
@@ -30,24 +30,24 @@ export const bookPage = MarkdownPage.create({
 						[
 							'40+ Best Book Summary',
 							'“So many books, so little time.” — Frank Zappa',
-							'https://designepiclife.com/book-summary-websites/'
+							'https://designepiclife.com/book-summary-websites/',
 						],
 						[
 							'15 ofthe Best Time Management and Productivity Books of All Time',
 							'',
-							'https://www.entrepreneur.com/article/329378?utm_source=facebook&utm_medium=editorial&utm_content=entrepreneur-books&fbclid=IwAR1fVoKe8aAdS3I5J-pZedAiVV-UPsFfojpFiigofhDIop0rykKY-MWvnX4'
+							'https://www.entrepreneur.com/article/329378?utm_source=facebook&utm_medium=editorial&utm_content=entrepreneur-books&fbclid=IwAR1fVoKe8aAdS3I5J-pZedAiVV-UPsFfojpFiigofhDIop0rykKY-MWvnX4',
 						],
 						[
 							'BookDD',
 							'A youtube channel with great book summary contents',
-							'https://www.youtube.com/channel/UClaqefQhdRC7KnrASLE7J-g/'
-						]
-					]
+							'https://www.youtube.com/channel/UClaqefQhdRC7KnrASLE7J-g/',
+						],
+					],
 				},
 				options: {
-					align: ['left', 'left', { type: 'Reference', colunm: 0 }]
-				}
-			}
+					align: ['left', 'left', { type: 'Reference', colunm: 0 }],
+				},
+			},
 		},
 		{
 			type: 'MarkdownSection',
@@ -57,8 +57,8 @@ export const bookPage = MarkdownPage.create({
 				readedNonFictionBookTable,
 				nonFictionBookTable,
 				nonFictionThaiBookTable,
-				fictionBookTable
-			]
-		}
-	]
+				fictionBookTable,
+			],
+		},
+	],
 });

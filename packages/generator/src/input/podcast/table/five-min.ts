@@ -3,7 +3,7 @@ import { createFileRefDataMapperFunc } from '../../../util';
 import {
 	getGeneratedPodcastNotePath,
 	getPodcastNotePath,
-	PODCAST_NOTE_DIR
+	PODCAST_NOTE_DIR,
 } from './../../../directory';
 import { createPodcastNoteTableDataFormMarkdownFrontMatter } from './util';
 
@@ -20,17 +20,17 @@ export const fiveMinPodcastTable: MarkdownTable = {
 				'skip',
 				'skip',
 				createFileRefDataMapperFunc('Note', PODCAST_NOTE_DIR, '.md'),
-				'skip'
+				'skip',
 			],
-			align: ['left', 'left', 'center', { type: 'Reference', colunm: 0 }]
+			align: ['left', 'left', 'center', { type: 'Reference', colunm: 0 }],
 		},
 		input: {
 			type: 'MemoryInput',
 			data: createPodcastNoteTableDataFormMarkdownFrontMatter({
 				markdownDir: podcastDirPath,
 				generatedDir: generatedPodcastDirPath,
-				tableHeaders: ['Title', 'Description', 'Note', 'Reference']
-			})
+				tableHeaders: ['Title', 'Description', 'Note', 'Reference'],
+			}),
 			// data: [
 			// 	['Title', 'Description', 'Note', 'Reference'],
 			// 	[
@@ -46,6 +46,6 @@ export const fiveMinPodcastTable: MarkdownTable = {
 			// 		'https://soundcloud.com/missiontothemoon/5-minutes-ep-16-theseus-paradox'
 			// 	]
 			// ]
-		}
-	}
+		},
+	},
 };

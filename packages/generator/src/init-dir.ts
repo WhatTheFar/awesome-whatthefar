@@ -1,7 +1,7 @@
 import {
 	GENERATED_CONTENT_DIR,
 	GENERATED_PODCAST_NOTE_DIR,
-	mkdirpSync
+	mkdirpSync,
 } from './directory';
 
 mkdirpSync(GENERATED_CONTENT_DIR);

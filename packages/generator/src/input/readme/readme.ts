@@ -1,7 +1,7 @@
 import {
 	BACK_TO_TOP,
 	MarkdownPage,
-	MarkdownPageReference
+	MarkdownPageReference,
 } from '@awesome-whatthefar/parser';
 import { GENERATED_ROOT_DIR } from '../../directory';
 import { bookPage } from '../book';
@@ -19,7 +19,7 @@ const reference = {
 	referencePage: new MarkdownPageReference(referencePage),
 	podcastPage: new MarkdownPageReference(podcastPage),
 	bookPage: new MarkdownPageReference(bookPage),
-	myersBriggs: new MarkdownPageReference(myersBriggsPage)
+	myersBriggs: new MarkdownPageReference(myersBriggsPage),
 };
 
 export type ReadmePagePageReference = typeof reference;
@@ -38,7 +38,7 @@ export async function createReadmePage() {
 		fileName: 'README.md',
 		options: {
 			tableOfContent: true,
-			backToTop: true
+			backToTop: true,
 		},
 		reference,
 		items: [
@@ -48,7 +48,7 @@ export async function createReadmePage() {
 			{
 				type: 'MarkdownSection',
 				title: 'My Self-learning List',
-				items: [udemyTable, courseraTable, udacityTable, tedxTalkTable]
+				items: [udemyTable, courseraTable, udacityTable, tedxTalkTable],
 			},
 			{
 				type: 'MarkdownSection',
@@ -56,18 +56,18 @@ export async function createReadmePage() {
 				items: [
 					{
 						type: 'MarkdownPlainText',
-						text: ctx =>
-							`[Go to Reference page](${ctx.pageReferences.referencePage})`
+						text: (ctx) =>
+							`[Go to Reference page](${ctx.pageReferences.referencePage})`,
 					},
-					BACK_TO_TOP
-				]
+					BACK_TO_TOP,
+				],
 			},
 			{
 				type: 'MarkdownSection',
 				title: 'Potato',
-				items: [potatoImage, BACK_TO_TOP]
-			}
-		]
+				items: [potatoImage, BACK_TO_TOP],
+			},
+		],
 	});
 
 	return readmePage;

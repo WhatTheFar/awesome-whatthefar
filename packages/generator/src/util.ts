@@ -18,7 +18,7 @@ export function getMarkdownWithFrontMatter<T extends {}>(options: {
 	const { globPath } = options;
 
 	const filePaths = glob.sync(globPath);
-	const contents: Array<MarkdownContent<T>> = filePaths.map(filePath => {
+	const contents: Array<MarkdownContent<T>> = filePaths.map((filePath) => {
 		const file = readFileSync(filePath, 'utf8');
 		const content = frontmatter<T>(file);
 		return { basename: filePath.split(/.*[\/|\\]/)[1], ...content };
@@ -36,7 +36,7 @@ export function generateMarkdownWithoutFronMatter<T extends {}>(options: {
 	const contents = getMarkdownWithFrontMatter<T>({ globPath });
 
 	mkdirpSync(generatedDir);
-	contents.forEach(v => {
+	contents.forEach((v) => {
 		const { basename, body } = v;
 		writeFileSync(generatedDir + '/' + basename, body);
 	});

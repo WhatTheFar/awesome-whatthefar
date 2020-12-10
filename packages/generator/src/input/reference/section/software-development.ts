@@ -19,14 +19,14 @@ export const softwareDevelopmentSection: MarkdownSection<
 							'Design patterns ภาษาไทย',
 							'เขียนดี มีรูปภาพ ภาษาไทย',
 							// tslint:disable-next-line:max-line-length
-							'https://github.com/saladpuk/design-patterns'
-						]
-					]
+							'https://github.com/saladpuk/design-patterns',
+						],
+					],
 				},
 				options: {
-					align: ['left', 'left', { type: 'Reference', colunm: 0 }]
-				}
-			}
-		}
-	]
+					align: ['left', 'left', { type: 'Reference', colunm: 0 }],
+				},
+			},
+		},
+	],
 };

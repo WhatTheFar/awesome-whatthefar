@@ -10,5 +10,5 @@ export const podcastBookmarkSection: MarkdownSection<
 	type: 'MarkdownSection',
 	title: 'Bookmark',
 	description: 'My bookmarked podcasts and additional notes',
-	items: [missionToTheMoonPodcastTable, fiveMinPodcastTable, eightAndAHalfLineTable]
+	items: [missionToTheMoonPodcastTable, fiveMinPodcastTable, eightAndAHalfLineTable],
 };

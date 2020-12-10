@@ -1,7 +1,7 @@
 import {
 	BACK_TO_TOP,
 	MarkdownPageContext,
-	MarkdownSection
+	MarkdownSection,
 } from '@awesome-whatthefar/parser';
 import { ReadmePagePageReference } from '../readme';
 
@@ -17,10 +17,10 @@ export const librarySection: MarkdownSection<
 			items: [
 				{
 					type: 'MarkdownPlainText',
-					text: ctx => `[Go to Books page](${ctx.pageReferences.bookPage})`
+					text: (ctx) => `[Go to Books page](${ctx.pageReferences.bookPage})`,
 				},
-				BACK_TO_TOP
-			]
+				BACK_TO_TOP,
+			],
 		},
 		{
 			type: 'MarkdownSection',
@@ -28,10 +28,11 @@ export const librarySection: MarkdownSection<
 			items: [
 				{
 					type: 'MarkdownPlainText',
-					text: ctx => `[Go to Podcast page](${ctx.pageReferences.podcastPage})`
+					text: (ctx) =>
+						`[Go to Podcast page](${ctx.pageReferences.podcastPage})`,
 				},
-				BACK_TO_TOP
-			]
-		}
-	]
+				BACK_TO_TOP,
+			],
+		},
+	],
 };

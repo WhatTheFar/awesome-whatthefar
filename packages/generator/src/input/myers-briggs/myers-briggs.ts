@@ -13,13 +13,13 @@ function create16PersonalitiesTestMarkdown(filename: string): MarkdownItem[] {
 		{
 			type: 'MarkdownHeader',
 			title: filename,
-			size: 3
+			size: 3,
 		},
 		{
 			type: 'MarkdownImage',
 			altText: filename,
-			path: get16PersonalitiesTestPath(filename + '.png')
-		}
+			path: get16PersonalitiesTestPath(filename + '.png'),
+		},
 	];
 }
 const personalitiesTestDate: string[] = ['2019-01-29', '2018-09-22'];
@@ -34,14 +34,14 @@ export const myersBriggsPage = MarkdownPage.create({
 	fileName: 'myers-briggs.md',
 	options: {
 		tableOfContent: true,
-		backToTop: true
+		backToTop: true,
 	},
 	reference,
 	items: [
 		{
 			type: 'MarkdownHeader',
 			title: 'What is Myers-Briggs Type Indicator?',
-			size: 2
+			size: 2,
 		},
 		{
 			type: 'MarkdownPlainText',
@@ -49,12 +49,12 @@ export const myersBriggsPage = MarkdownPage.create({
 The Myers–Briggs Type Indicator (MBTI) is an introspective self-report questionnaire with the purpose of indicating differing psychological preferences in how people perceive the world around them and make decisions.
 
 Reference: [Myers–Briggs Type Indicator](https://en.wikipedia.org/wiki/Myers%E2%80%93Briggs_Type_Indicator)
-`
+`,
 		},
 		{
 			type: 'MarkdownImage',
 			altText: 'Myers-Briggs',
-			path: get1MyersBriggsPath('MyersBriggsTypes.png')
+			path: get1MyersBriggsPath('MyersBriggsTypes.png'),
 		},
 		{
 			type: 'MarkdownSection',
@@ -64,8 +64,8 @@ Reference: [Myers–Briggs Type Indicator](https://en.wikipedia.org/wiki/Myers%E
 			items: [
 				...personalitiesTestDate
 					.map(create16PersonalitiesTestMarkdown)
-					.reduce((a, b) => a.concat(b), [])
-			]
-		}
-	]
+					.reduce((a, b) => a.concat(b), []),
+			],
+		},
+	],
 });

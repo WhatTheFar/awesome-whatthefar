@@ -17,17 +17,17 @@ export const missionToTheMoonPodcastTable: MarkdownTable = {
 				'skip',
 				'skip',
 				createFileRefDataMapperFunc('Note', generatedPodcastDirPath),
-				'skip'
+				'skip',
 			],
-			align: ['left', 'left', 'center', { type: 'Reference', colunm: 0 }]
+			align: ['left', 'left', 'center', { type: 'Reference', colunm: 0 }],
 		},
 		input: {
 			type: 'MemoryInput',
 			data: createPodcastNoteTableDataFormMarkdownFrontMatter({
 				markdownDir: podcastDirPath,
 				generatedDir: generatedPodcastDirPath,
-				tableHeaders: ['Title', 'Description', 'Note', 'Reference']
-			})
+				tableHeaders: ['Title', 'Description', 'Note', 'Reference'],
+			}),
 			// data: [
 			// 	['Title', 'Description', 'Note', 'Reference'],
 			// 	[
@@ -55,6 +55,6 @@ export const missionToTheMoonPodcastTable: MarkdownTable = {
 			// 		'https://soundcloud.com/missiontothemoon/ep1'
 			// 	]
 			// ]
-		}
-	}
+		},
+	},
 };

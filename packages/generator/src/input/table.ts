@@ -12,12 +12,12 @@ export const contactTable: MarkdownTable = {
 		input: {
 			type: 'GoogleSheetInput',
 			publishedId,
-			sheetId: '1478469204'
+			sheetId: '1478469204',
 		},
 		options: {
-			align: ['left', 'left', { type: 'Reference', colunm: 1 }]
-		}
-	}
+			align: ['left', 'left', { type: 'Reference', colunm: 1 }],
+		},
+	},
 };
 
 export const programmingPrincipleTable: MarkdownTable = {
@@ -27,12 +27,12 @@ export const programmingPrincipleTable: MarkdownTable = {
 		input: {
 			type: 'GoogleSheetInput',
 			publishedId,
-			sheetId: '1715428770'
+			sheetId: '1715428770',
 		},
 		options: {
-			align: ['left', 'center']
-		}
-	}
+			align: ['left', 'center'],
+		},
+	},
 };
 
 export const programmingLanguageTable: MarkdownTable = {
@@ -42,12 +42,12 @@ export const programmingLanguageTable: MarkdownTable = {
 		input: {
 			type: 'GoogleSheetInput',
 			publishedId,
-			sheetId: '795659014'
+			sheetId: '795659014',
 		},
 		options: {
-			align: ['left', 'center']
-		}
-	}
+			align: ['left', 'center'],
+		},
+	},
 };
 
 export const frontendTable: MarkdownTable = {
@@ -57,12 +57,12 @@ export const frontendTable: MarkdownTable = {
 		input: {
 			type: 'GoogleSheetInput',
 			publishedId,
-			sheetId: '1468357893'
+			sheetId: '1468357893',
 		},
 		options: {
-			align: ['left', 'center', 'skip']
-		}
-	}
+			align: ['left', 'center', 'skip'],
+		},
+	},
 };
 
 export const backendTable: MarkdownTable = {
@@ -72,12 +72,12 @@ export const backendTable: MarkdownTable = {
 		input: {
 			type: 'GoogleSheetInput',
 			publishedId,
-			sheetId: '435690626'
+			sheetId: '435690626',
 		},
 		options: {
-			align: ['left', 'center', 'skip']
-		}
-	}
+			align: ['left', 'center', 'skip'],
+		},
+	},
 };
 
 export const androidTable: MarkdownTable = {
@@ -87,12 +87,12 @@ export const androidTable: MarkdownTable = {
 		input: {
 			type: 'GoogleSheetInput',
 			publishedId,
-			sheetId: '1737119903'
+			sheetId: '1737119903',
 		},
 		options: {
-			align: ['left', 'center', 'skip']
-		}
-	}
+			align: ['left', 'center', 'skip'],
+		},
+	},
 };
 
 export const microservicesTable: MarkdownTable = {
@@ -102,12 +102,12 @@ export const microservicesTable: MarkdownTable = {
 		input: {
 			type: 'GoogleSheetInput',
 			publishedId,
-			sheetId: '1363613515'
+			sheetId: '1363613515',
 		},
 		options: {
-			align: ['left', 'center', 'skip']
-		}
-	}
+			align: ['left', 'center', 'skip'],
+		},
+	},
 };
 
 export const devOpsTable: MarkdownTable = {
@@ -117,12 +117,12 @@ export const devOpsTable: MarkdownTable = {
 		input: {
 			type: 'GoogleSheetInput',
 			publishedId,
-			sheetId: '1917160232'
+			sheetId: '1917160232',
 		},
 		options: {
-			align: ['left', 'center', 'skip']
-		}
-	}
+			align: ['left', 'center', 'skip'],
+		},
+	},
 };
 
 export const programmingBookTable: MarkdownTable = {
@@ -132,12 +132,12 @@ export const programmingBookTable: MarkdownTable = {
 		input: {
 			type: 'GoogleSheetInput',
 			publishedId,
-			sheetId: '538544451'
+			sheetId: '538544451',
 		},
 		options: {
-			align: ['left', 'left', 'center', { type: 'Reference', colunm: 0 }]
-		}
-	}
+			align: ['left', 'left', 'center', { type: 'Reference', colunm: 0 }],
+		},
+	},
 };
 
 export const nonFictionBookTable: MarkdownTable = {
@@ -147,7 +147,7 @@ export const nonFictionBookTable: MarkdownTable = {
 		input: {
 			type: 'GoogleSheetInput',
 			publishedId,
-			sheetId: '0'
+			sheetId: '0',
 		},
 		options: {
 			align: ['left', 'left', 'center', 'center'],
@@ -155,10 +155,10 @@ export const nonFictionBookTable: MarkdownTable = {
 				'skip',
 				'skip',
 				'skip',
-				createFileRefDataMapperFunc('Click', BOOK_NOTE_DIR, '.md')
-			]
-		}
-	}
+				createFileRefDataMapperFunc('Click', BOOK_NOTE_DIR, '.md'),
+			],
+		},
+	},
 };
 
 export const readedNonFictionBookTable: MarkdownTable = {
@@ -168,7 +168,7 @@ export const readedNonFictionBookTable: MarkdownTable = {
 		input: {
 			type: 'GoogleSheetInput',
 			publishedId,
-			sheetId: '0'
+			sheetId: '0',
 		},
 		options: {
 			align: ['left', 'left', 'center', 'center'],
@@ -176,11 +176,11 @@ export const readedNonFictionBookTable: MarkdownTable = {
 				'skip',
 				'skip',
 				'skip',
-				createFileRefDataMapperFunc('Click', BOOK_NOTE_DIR, '.md')
+				createFileRefDataMapperFunc('Click', BOOK_NOTE_DIR, '.md'),
 			],
-			filter: (row, _rowIndex, _ctx) => !!row[2]
-		}
-	}
+			filter: (row, _rowIndex, _ctx) => !!row[2],
+		},
+	},
 };
 
 export const nonFictionThaiBookTable: MarkdownTable = {
@@ -190,12 +190,12 @@ export const nonFictionThaiBookTable: MarkdownTable = {
 		input: {
 			type: 'GoogleSheetInput',
 			publishedId,
-			sheetId: '39977999'
+			sheetId: '39977999',
 		},
 		options: {
-			align: ['left', 'left', 'center']
-		}
-	}
+			align: ['left', 'left', 'center'],
+		},
+	},
 };
 
 export const fictionBookTable: MarkdownTable = {
@@ -205,12 +205,12 @@ export const fictionBookTable: MarkdownTable = {
 		input: {
 			type: 'GoogleSheetInput',
 			publishedId,
-			sheetId: '1637954035'
+			sheetId: '1637954035',
 		},
 		options: {
-			align: ['left', 'left', 'center']
-		}
-	}
+			align: ['left', 'left', 'center'],
+		},
+	},
 };
 
 export const udemyTable: MarkdownTable = {
@@ -220,12 +220,12 @@ export const udemyTable: MarkdownTable = {
 		input: {
 			type: 'GoogleSheetInput',
 			publishedId,
-			sheetId: '1341593173'
+			sheetId: '1341593173',
 		},
 		options: {
-			align: ['left', { type: 'Reference', colunm: 0 }]
-		}
-	}
+			align: ['left', { type: 'Reference', colunm: 0 }],
+		},
+	},
 };
 
 export const courseraTable: MarkdownTable = {
@@ -235,7 +235,7 @@ export const courseraTable: MarkdownTable = {
 		input: {
 			type: 'GoogleSheetInput',
 			publishedId,
-			sheetId: '191270080'
+			sheetId: '191270080',
 		},
 		options: {
 			align: [
@@ -248,12 +248,12 @@ export const courseraTable: MarkdownTable = {
 				// Course Ref
 				{ type: 'Reference', colunm: 0 },
 				// Instructor Ref
-				{ type: 'Reference', colunm: 1 }
+				{ type: 'Reference', colunm: 1 },
 			],
 			// Check whether the courses are done or on-going
-			filter: (row, _rowIndex, _ctx) => !!row[2]
-		}
-	}
+			filter: (row, _rowIndex, _ctx) => !!row[2],
+		},
+	},
 };
 
 export const udacityTable: MarkdownTable = {
@@ -263,12 +263,12 @@ export const udacityTable: MarkdownTable = {
 		input: {
 			type: 'GoogleSheetInput',
 			publishedId,
-			sheetId: '1607382371'
+			sheetId: '1607382371',
 		},
 		options: {
-			align: ['left', 'left', { type: 'Reference', colunm: 0 }]
-		}
-	}
+			align: ['left', 'left', { type: 'Reference', colunm: 0 }],
+		},
+	},
 };
 
 export const tedxTalkTable: MarkdownTable = {
@@ -278,12 +278,12 @@ export const tedxTalkTable: MarkdownTable = {
 		input: {
 			type: 'GoogleSheetInput',
 			publishedId,
-			sheetId: '1207299647'
+			sheetId: '1207299647',
 		},
 		options: {
-			align: ['left', 'left', { type: 'Reference', colunm: 0 }, 'skip']
-		}
-	}
+			align: ['left', 'left', { type: 'Reference', colunm: 0 }, 'skip'],
+		},
+	},
 };
 
 export const allTable = [
@@ -302,5 +302,5 @@ export const allTable = [
 	udemyTable,
 	courseraTable,
 	udacityTable,
-	tedxTalkTable
+	tedxTalkTable,
 ];
