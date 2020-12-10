@@ -24,7 +24,30 @@ export function sanitizeKey(key: string): string {
 		.replace(/[\[\]]/g, '');
 }
 
-export async function renderMarkdown(file: MarkdownFile, map: RenderMap) {
+export interface RenderOptions {
+	verbose: boolean;
+}
+
+const defaultOptions: RenderOptions = {
+	verbose: false
+};
+
+export async function renderMarkdown(
+	file: MarkdownFile,
+	map: RenderMap,
+	opts?: Partial<RenderOptions>
+) {
+	const { verbose }: RenderOptions = {
+		...defaultOptions,
+		...opts
+	};
+
+	const logVerbose = (text: string) => {
+		if (verbose === true) {
+			console.log(text);
+		}
+	};
+
 	const { sourceFilePath, dirPath, fileName } = file;
 	const filepath = resolve(dirPath, fileName);
 
@@ -44,6 +67,7 @@ export async function renderMarkdown(file: MarkdownFile, map: RenderMap) {
 			const re = new RegExp(`${startComment}[\\s\\S]+${endComment}`);
 
 			if (!re.test(rawMD)) {
+				logVerbose(`Key '${sanitizedKey}' does not exists`);
 				continue;
 			}
 
