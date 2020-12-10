@@ -17,10 +17,10 @@
 		"publish": "lerna publish"
 	},
 	"devDependencies": {
-		"lerna": "3.13.1",
-		"nodemon": "1.18.10",
-		"ts-node": "8.0.3",
-		"typescript": "3.3.3333"
+		"lerna": "^3.22.1",
+		"nodemon": "^2.0.6",
+		"ts-node": "^9.1.1",
+		"typescript": "^4.1.2"
 	},
 	"volta": {
 		"node": "12.19.0",
