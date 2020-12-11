@@ -113,7 +113,7 @@ export async function generateDevSection(): Promise<MarkdownItem[]> {
 	return items;
 }
 
-export function categoryFrom(other: string): string {
+export function categoryFrom(other: string): [string, string] {
 	const re = /^(?<cat>[\w\/ ]*)?(?:\[(?<sub>[\w\/ ]*)\])?$/;
 	const match = other.match(re);
 	if (match == null) {
@@ -123,7 +123,7 @@ export function categoryFrom(other: string): string {
 		// this should not happen
 		throw new Error(`Can not get category from ${other}`);
 	}
-	return match.groups.cat ?? '';
+	return [match.groups.cat ?? '', match.groups.sub ?? ''];
 }
 
 export async function generateDevOpsSection(): Promise<MarkdownItem[]> {
@@ -160,7 +160,10 @@ export async function generateDevOpsSection(): Promise<MarkdownItem[]> {
 				categories.push(
 					...e[OTHERS].split(',')
 						.map((s) => {
-							const category = categoryFrom(s.trim());
+							// TODO: support subcategory
+							const [category, {} /* subcetegoy */] = categoryFrom(
+								s.trim()
+							);
 							if (category === '') {
 								return null;
 							}
