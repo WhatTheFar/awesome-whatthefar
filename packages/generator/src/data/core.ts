@@ -7,7 +7,7 @@ export abstract class DataByCategory<T, C> {
 	public push(category: C, row: T): void {
 		const key = this.keyFor(category);
 		const rows: T[] | undefined = this.data[key];
-		if (rows !== undefined) {
+		if (rows === undefined) {
 			this.data[key] = [];
 		}
 		this.data[key].push(row);
