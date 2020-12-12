@@ -10,13 +10,11 @@ function isTableOfContent(item: MarkdownItem): item is MarkdownTableOfContents {
 		case 'MarkdownTable':
 		case 'MarkdownItemGroup':
 			return true;
-			break;
 		case 'MarkdownPlainText':
 		case 'MarkdownList':
 		case 'MarkdownBackToTop':
 		case 'MarkdownImage':
 			return false;
-			break;
 		default:
 			const _exhaustiveCheck: never = item;
 			return _exhaustiveCheck;
