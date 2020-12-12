@@ -24,7 +24,8 @@ export interface DevOpsData {
 
 export class DevOpsDataByCategory extends DataByCategory<DevOpsData, [string, string]> {
 	public categoryFor(key: string): [string, string] {
-		return categoryFrom(key);
+		// TODO: handle error
+		return key.split('.') as [string, string];
 	}
 
 	public keyFor(category: [string, string]): string {
