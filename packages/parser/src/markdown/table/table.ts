@@ -24,14 +24,16 @@ export async function parseMarkdownTable(
 		process.exit();
 	}
 	const { title, description } = table;
-	const header = parseMarkdownHeader({
-		type: 'MarkdownHeader',
-		title,
-		size: MD_TABLE_HEADER_SIZE
-	});
+	const header =
+		title !== undefined
+			? parseMarkdownHeader({
+					type: 'MarkdownHeader',
+					title,
+					size: MD_TABLE_HEADER_SIZE
+			  })
+			: undefined;
 	return (
-		header +
-		NEW_LINE +
+		(header !== undefined ? header + NEW_LINE : '') +
 		(description ? description + NEW_LINE + NEW_LINE : '') +
 		tableString +
 		NEW_LINE

@@ -155,7 +155,7 @@ export interface MarkdownSection<T extends MarkdownPageContext> {
 
 export interface MarkdownTable {
 	type: 'MarkdownTable';
-	title: string;
+	title?: string;
 	description?: string;
 	tableData: {
 		input: CsvInput;

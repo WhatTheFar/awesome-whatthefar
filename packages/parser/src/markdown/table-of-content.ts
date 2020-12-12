@@ -51,11 +51,13 @@ export function parseTableOfContent(
 				break;
 			case 'MarkdownHeader':
 			case 'MarkdownTable':
-				output +=
-					pad(offset, TAB) +
-					MD_LIST +
-					TAB +
-					parseHeaderReference(item.title, item.title);
+				if (item.title !== undefined) {
+					output +=
+						pad(offset, TAB) +
+						MD_LIST +
+						TAB +
+						parseHeaderReference(item.title, item.title);
+				}
 				break;
 			case 'MarkdownItemGroup':
 				output += parseTableOfContent(item.items, offset);
