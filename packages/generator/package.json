@@ -1,6 +1,6 @@
 {
 	"name": "@awesome-whatthefar/generator",
-	"version": "0.0.5",
+	"version": "0.0.6",
 	"main": "index.ts",
 	"license": "MIT",
 	"private": true,
@@ -16,7 +16,7 @@
 		"format": "yarn prettier && yarn lint:fix"
 	},
 	"dependencies": {
-		"@awesome-whatthefar/parser": "^0.0.5",
+		"@awesome-whatthefar/parser": "^0.0.6",
 		"@types/glob": "^7.1.1",
 		"front-matter": "^3.0.1",
 		"glob": "^7.1.3"
