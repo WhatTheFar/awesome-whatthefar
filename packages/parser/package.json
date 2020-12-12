@@ -6,7 +6,7 @@
 	"license": "MIT",
 	"scripts": {
 		"prepublish": "yarn build",
-		"prebuild": "rm -rf lib",
+		"prebuild": "rm -rf lib && rm tsconfig.build.tsbuildinfo",
 		"build": "tsc -p tsconfig.build.json",
 		"start": "ts-node src/index.ts",
 		"start:dev": "nodemon",
