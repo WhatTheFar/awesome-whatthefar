@@ -2,17 +2,25 @@ import { ParseError } from 'papaparse';
 import { CsvInput, parseCsvFromInput } from '../../csv';
 import { COLON, DASH, MD_TABLE_HEADER_SIZE, NEW_LINE, PIPE, SPACE } from '../constant';
 import { parseMarkdownHeader } from '../item/header';
-import { MarkdownTable } from '../types';
+import { MarkdownTable, MarkdownTableOptions } from '../types';
 import { formatMarkdown } from '../utils';
 import { MarkdownPageContext } from './../types';
 import { Align, MarkdownAlign } from './align';
 import { Filter, TableDataFilter } from './filter';
 import { Mapper, TableDataMapper } from './mapper';
 
+const defaultMarkdownTableOptions: Required<MarkdownTableOptions> = {
+	titleSize: MD_TABLE_HEADER_SIZE
+};
+
 export async function parseMarkdownTable(
 	table: MarkdownTable,
 	ctx: MarkdownPageContext
 ): Promise<string> {
+	const optsRequired: Required<MarkdownTableOptions> = {
+		...table.options,
+		...defaultMarkdownTableOptions
+	};
 	const [tableString, err] = await parseMarkdownTableFromCsvInput(
 		table.tableData.input,
 		ctx,
@@ -29,7 +37,7 @@ export async function parseMarkdownTable(
 			? parseMarkdownHeader({
 					type: 'MarkdownHeader',
 					title,
-					size: MD_TABLE_HEADER_SIZE
+					size: optsRequired.titleSize
 			  })
 			: undefined;
 	return (

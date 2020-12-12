@@ -153,6 +153,10 @@ export interface MarkdownSection<T extends MarkdownPageContext> {
 	items?: Array<MarkdownItem<T>>;
 }
 
+export interface MarkdownTableOptions {
+	titleSize?: number;
+}
+
 export interface MarkdownTable {
 	type: 'MarkdownTable';
 	title?: string;
@@ -161,6 +165,7 @@ export interface MarkdownTable {
 		input: CsvInput;
 		options?: TableOptions;
 	};
+	options?: MarkdownTableOptions;
 }
 
 export interface MarkdownHeader {
