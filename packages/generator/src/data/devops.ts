@@ -15,7 +15,7 @@ export function categoryFrom(other: string): [string, string] {
 	return [match.groups.cat ?? '', match.groups.sub ?? ''];
 }
 
-interface DevOpsData {
+export interface DevOpsData {
 	title: string;
 	description: string;
 	expertise: string;
