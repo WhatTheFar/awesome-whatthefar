@@ -1,5 +1,5 @@
 import { parse, ParseError } from 'papaparse';
-import * as rp from 'request-promise-native';
+import rp from 'request-promise-native';
 
 export interface MemoryInput {
 	type: 'MemoryInput';

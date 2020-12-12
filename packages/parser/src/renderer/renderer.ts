@@ -1,5 +1,6 @@
 import * as fs from 'fs';
 import _ = require('lodash');
+import toc from 'markdown-toc';
 import { resolve } from 'path';
 import { NEW_LINE } from '../markdown/constant';
 import { parseMardownItem } from '../markdown/item';
@@ -7,6 +8,8 @@ import { createMarkdownContext } from '../markdown/page';
 import { MarkdownItem, MarkdownPage } from '../markdown/types';
 import { formatMarkdown } from '../markdown/utils';
 import { OmitStrict } from '../types';
+
+const TABLE_OF_CONTENTS_KEY = 'table-of-contents';
 
 export interface MarkdownFile
 	extends OmitStrict<MarkdownPage, 'title' | 'description' | 'items'> {
@@ -26,10 +29,12 @@ export function sanitizeKey(key: string): string {
 
 export interface RenderOptions {
 	verbose: boolean;
+	tableOfContents: boolean;
 }
 
 const defaultOptions: RenderOptions = {
-	verbose: false
+	verbose: false,
+	tableOfContents: false
 };
 
 export async function renderMarkdown(
@@ -37,7 +42,7 @@ export async function renderMarkdown(
 	map: RenderMap,
 	opts?: Partial<RenderOptions>
 ) {
-	const { verbose }: RenderOptions = {
+	const { verbose, tableOfContents }: RenderOptions = {
 		...defaultOptions,
 		...opts
 	};
@@ -80,6 +85,31 @@ export async function renderMarkdown(
 				`${startComment}
 ${content}
 ${endComment}`
+			);
+		}
+	}
+
+	// Render table of contents
+	if (tableOfContents === true) {
+		const tocContent = toc(md, { firsth1: false }).content;
+
+		const startToc = `<!--START_SECTION:awesome:${TABLE_OF_CONTENTS_KEY}-->`;
+		const endToc = `<!--END_SECTION:awesome:${TABLE_OF_CONTENTS_KEY}-->`;
+
+		const re = new RegExp(`${startToc}[\\s\\S]+${endToc}`);
+
+		if (!re.test(rawMD)) {
+			logVerbose(`Key '${TABLE_OF_CONTENTS_KEY}' does not exists`);
+		} else {
+			md = md.replace(
+				re,
+				`${startToc}
+
+## Table of Contents
+
+${tocContent}
+
+${endToc}`
 			);
 		}
 	}

@@ -55,5 +55,43 @@ New content
 <!--END_SECTION:awesome:simple-->
 `);
 		});
+
+		test('render toc template, should pass', async () => {
+			const FIXTURE_DIR = path.resolve(__dirname, 'fixture');
+
+			const fileName = 'toc.rendered.md';
+			const sourceFilePath = path.resolve(FIXTURE_DIR, 'toc.md');
+
+			await renderMarkdown(
+				{
+					fileName,
+					dirPath: FIXTURE_DIR,
+					sourceFilePath,
+					reference: {}
+				},
+				{},
+				{ tableOfContents: true }
+			);
+
+			const result = fs
+				.readFileSync(path.resolve(FIXTURE_DIR, fileName))
+				.toString();
+
+			expect(result).toBe(`# Awesome
+
+<!--START_SECTION:awesome:table-of-contents-->
+
+## Table of Contents
+
+-   [Section 1](#section-1)
+-   [Section 2](#section-2)
+
+<!--END_SECTION:awesome:table-of-contents-->
+
+## Section 1
+
+## Section 2
+`);
+		});
 	});
 });
