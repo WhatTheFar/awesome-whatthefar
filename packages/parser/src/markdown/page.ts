@@ -1,5 +1,5 @@
 import { existsSync } from 'fs';
-import * as _ from 'lodash';
+import _ from 'lodash';
 import { relative, resolve } from 'path';
 import { MD_PAGE_HEADER_SIZE, NEW_LINE } from './constant';
 import { parseMardownItem } from './item';

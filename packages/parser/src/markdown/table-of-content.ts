@@ -1,4 +1,4 @@
-import * as _ from 'lodash';
+import _ from 'lodash';
 import { MD_LIST, NEW_LINE, TAB } from './constant';
 import { MarkdownItem, MarkdownTableOfContents } from './types';
 import { pad, parseHeaderReference } from './utils';

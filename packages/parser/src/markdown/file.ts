@@ -1,5 +1,5 @@
 import { existsSync, mkdirSync, writeFileSync } from 'fs';
-import * as _ from 'lodash';
+import _ from 'lodash';
 import { resolve } from 'path';
 import { parseMarkdownPage } from './page';
 import { MarkdownPage, MarkdownPageReferenceDict } from './types';

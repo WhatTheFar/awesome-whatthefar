@@ -1,4 +1,4 @@
-import * as _ from 'lodash';
+import _ from 'lodash';
 import { parseMarkdownTable } from '../table/table';
 import { NEW_LINE } from './../constant';
 import { MarkdownItem, MarkdownPageContext } from './../types';

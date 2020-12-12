@@ -1,4 +1,4 @@
-import * as _ from 'lodash';
+import _ from 'lodash';
 import { pad } from '../utils';
 import { MD_LIST, NEW_LINE, TAB } from './../constant';
 import { MarkdownList, MarkdownListItem } from './../types';

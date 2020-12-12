@@ -1,4 +1,4 @@
-import * as _ from 'lodash';
+import _ from 'lodash';
 import { parseMardownItem } from '.';
 import { MD_SECTION_HEADER_SIZE, NEW_LINE } from './../constant';
 import { MarkdownPageContext, MarkdownSection } from './../types';
