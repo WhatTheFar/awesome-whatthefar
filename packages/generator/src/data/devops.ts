@@ -70,7 +70,12 @@ async function getDevOpsData(): Promise<DevOpsDataByCategory> {
 		const categories: Array<[string, string]> = [[e[CATEGORY], e[SUBCATEGORY]]];
 
 		if (e[OTHERS] !== '') {
-			categories.push(...e[OTHERS].split(',').map((s) => categoryFrom(s.trim())));
+			categories.push(
+				...e[OTHERS].split(',').map((s) => {
+					const [cat, sub] = categoryFrom(s.trim());
+					return [cat === '' ? e[CATEGORY] : cat, sub] as [string, string];
+				})
+			);
 		}
 
 		categories.forEach((c) => {
