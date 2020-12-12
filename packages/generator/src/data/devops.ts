@@ -6,11 +6,11 @@ export function categoryFrom(other: string): [string, string] {
 	const re = /^(?<cat>[\w\/ ]*)?(?:\[(?<sub>[\w\/ ]*)\])?$/;
 	const match = other.match(re);
 	if (match == null) {
-		throw new Error(`Can not get category from ${other}`);
+		throw new Error(`Can't get category from '${other}'`);
 	}
 	if (match.groups === undefined) {
 		// this should not happen
-		throw new Error(`Can not get category from ${other}`);
+		throw new Error(`Can't get category from '${other}'`);
 	}
 	return [match.groups.cat ?? '', match.groups.sub ?? ''];
 }
