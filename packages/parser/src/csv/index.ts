@@ -1,5 +1,5 @@
+import axios from 'axios';
 import { parse, ParseError } from 'papaparse';
-import rp from 'request-promise-native';
 
 export interface MemoryInput {
 	type: 'MemoryInput';
@@ -53,7 +53,8 @@ export async function parseCsvFromInput(
 			csvInput = input.filePath;
 			break;
 		case 'GoogleSheetInput':
-			csvInput = await rp(parseGoogleSheetUrl(input));
+			const resp = await axios.get<string>(parseGoogleSheetUrl(input));
+			csvInput = resp.data;
 			break;
 		case 'MemoryInput':
 			return [input.data];
