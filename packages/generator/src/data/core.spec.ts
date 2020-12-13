@@ -12,11 +12,11 @@ describe('class DataByCategory', () => {
 			}
 		}
 
-		const instance = new SimpleDataByCategory({
-			first: ['1'],
-			second: ['1', '2'],
-			third: ['1', '2', '3'],
-		});
+		const instance = new SimpleDataByCategory([
+			['first', ['1']],
+			['second', ['1', '2']],
+			['third', ['1', '2', '3']],
+		]);
 
 		describe('When forEach() is called', () => {
 			test('Then all rows must be called with fn()', () => {
