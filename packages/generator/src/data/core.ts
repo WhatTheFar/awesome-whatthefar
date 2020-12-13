@@ -1,20 +1,51 @@
 export abstract class DataByCategory<T, C> {
-	constructor(private data: { [key: string]: T[] } = {}) {}
-
-	public abstract categoryFor(key: string): C;
-	public abstract keyFor(category: C): string;
+	constructor(public data: Array<[string, T[]]> = []) {}
 
 	public push(category: C, row: T): void {
 		const key = this.keyFor(category);
-		const rows: T[] | undefined = this.data[key];
-		if (rows === undefined) {
-			this.data[key] = [];
+		const index = this.data.findIndex(([currKey, {}]) => currKey === key);
+
+		if (index === -1) {
+			this.data.push([key, [row]]);
+		} else {
+			const [{}, rows] = this.data[index];
+			rows.push(row);
 		}
-		this.data[key].push(row);
+	}
+
+	public sortCategory(
+		fn: (
+			a: { key: string; category: C; rows: T[] },
+			b: { key: string; category: C; rows: T[] }
+		) => number
+	): DataByCategory<T, C> {
+		this.data.sort(([key1, rows1], [key2, rows2]) => {
+			const category1 = this.categoryFor(key1);
+			const category2 = this.categoryFor(key2);
+			return fn(
+				{ key: key1, category: category1, rows: rows1 },
+				{ key: key2, category: category2, rows: rows2 }
+			);
+		});
+		return this;
+	}
+
+	public reduceCategory<U>(
+		fn: (
+			previousValue: U,
+			currentValue: { category: C; rows: T[] },
+			index: number
+		) => U,
+		initialState: U
+	): U {
+		return this.data.reduce<U>((prev, [key, rows], index) => {
+			const category = this.categoryFor(key);
+			return fn(prev, { category, rows }, index);
+		}, initialState);
 	}
 
 	public forEach(fn: (category: C, row: T) => void): void {
-		Object.entries(this.data).forEach(([key, rows]) => {
+		this.data.forEach(([key, rows]) => {
 			const category = this.categoryFor(key);
 			rows.forEach((row) => {
 				fn(category, row);
@@ -23,16 +54,19 @@ export abstract class DataByCategory<T, C> {
 	}
 
 	public filter(predicate: (category: C, row: T) => boolean): DataByCategory<T, C> {
-		Object.entries(this.data).forEach(([key, rows]) => {
+		this.data = this.data.map(([key, rows]) => {
 			const category = this.categoryFor(key);
 			const filtered = rows.filter((row) => {
 				return predicate(category, row);
 			});
 
 			if (filtered.length <= rows.length) {
-				this.data[key] = filtered;
+				return [key, filtered];
 			}
+			return [key, rows];
 		});
 		return this;
 	}
+	protected abstract categoryFor(key: string): C;
+	protected abstract keyFor(category: C): string;
 }
