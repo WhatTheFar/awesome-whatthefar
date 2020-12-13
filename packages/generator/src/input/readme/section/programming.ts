@@ -5,6 +5,7 @@ import {
 	MarkdownTable,
 	parseCsvFromInput,
 } from '@awesome-whatthefar/parser';
+import { DevOpsData, getDevOpsDataSingleton } from '../../../data/devops';
 import { publishedId } from '../../table';
 import { ReadmePagePageReference } from '../readme';
 
@@ -44,7 +45,6 @@ export async function generateDevSection(): Promise<MarkdownItem[]> {
 
 	interface Data {
 		title: string;
-		// categories: string[];
 		expertise: string;
 		ref: string;
 	}
@@ -127,72 +127,21 @@ export function categoryFrom(other: string): [string, string] {
 }
 
 export async function generateDevOpsSection(): Promise<MarkdownItem[]> {
-	const [data, errors] = await parseCsvFromInput({
-		type: 'GoogleSheetInput',
-		publishedId,
-		sheetId: '609606435',
+	const devops = await getDevOpsDataSingleton();
+
+	devops.filter(({}, row) => {
+		return row.expertise !== '';
 	});
 
-	if (errors && !!errors.length) {
-		throw new Error('Cannot parse CSV from input');
-	}
-
-	// indexes
-	const [TITLE, EXPERTISE, CATEGORY, {}, OTHERS, {}, REF] = [0, 1, 2, 3, 4, 5, 6];
-
-	interface Data {
-		title: string;
-		// categories: string[];
-		expertise: string;
-		ref: string;
-	}
-	const dataByCat: {
-		[category: string]: Data[];
-	} = {};
-
-	data.slice(1)
-		.filter((e) => {
-			return e[EXPERTISE] !== '';
-		})
-		.forEach((e) => {
-			const categories = [e[CATEGORY]];
-			if (e[OTHERS] !== '') {
-				categories.push(
-					...e[OTHERS].split(',')
-						.map((s) => {
-							// TODO: support subcategory
-							const [category, {} /* subcetegoy */] = categoryFrom(
-								s.trim()
-							);
-							if (category === '') {
-								return null;
-							}
-							return category;
-						})
-						.filter((s): s is string => s !== null)
-				);
-			}
-			categories.forEach((c) => {
-				if (!(c in dataByCat)) {
-					dataByCat[c] = [];
-				}
-				dataByCat[c].push({
-					title: e[TITLE],
-					expertise: e[EXPERTISE],
-					ref: e[REF],
-				});
-			});
-		});
-
-	function toTable(cat: string): MarkdownTable {
+	function toTable(title: string, rows: DevOpsData[]): MarkdownTable {
 		const tableData = [
 			['Title', 'Expertise Level', 'Reference'],
-			...dataByCat[cat].map((e) => [e.title, e.expertise, e.ref]),
+			...rows.map((e) => [e.title, e.expertise, e.ref]),
 		];
 
 		const table: MarkdownTable = {
 			type: 'MarkdownTable',
-			title: cat,
+			title,
 			tableData: {
 				input: {
 					type: 'MemoryInput',
@@ -206,19 +155,58 @@ export async function generateDevOpsSection(): Promise<MarkdownItem[]> {
 		return table;
 	}
 
-	const tables: MarkdownTable[] = Object.keys(dataByCat).map((cat) => {
-		return toTable(cat);
-	});
+	const initialState: {
+		items: MarkdownItem[];
+		category: string | undefined;
+	} = { items: [], category: undefined };
 
-	const items: MarkdownItem[] = [
+	const generated = devops
+		.sortCategory((a, b) => {
+			return a.key.localeCompare(b.key);
+		})
+		.reduceCategory((prev, curr) => {
+			const { items: prevItems, category: prevCategory } = prev;
+			const {
+				category: [category, subcategory],
+				rows,
+			} = curr;
+
+			if (subcategory !== '') {
+				// TODO: handle if subcategory is duplicated to category
+				const table = toTable(subcategory, rows);
+
+				if (prevCategory !== category) {
+					const section: MarkdownSection<any> = {
+						type: 'MarkdownSection',
+						title: category,
+						items: [table],
+					};
+					prevItems.push(section);
+				} else {
+					// TODO: double check whether it is a MarkdownSecton or not
+					const section = prevItems[
+						prevItems.length - 1
+					] as MarkdownSection<any>;
+					// TODO: handle if section.items is undefined
+					section.items?.push(table);
+				}
+			} else {
+				const table = toTable(category, rows);
+				prevItems.push(table);
+			}
+
+			return { items: prevItems, category };
+		}, initialState);
+
+	const wrapper: MarkdownItem[] = [
 		{
 			type: 'MarkdownSection',
 			title: 'DevOps',
-			items: [...tables],
+			items: [...generated.items],
 		},
 	];
 
-	return items;
+	return wrapper;
 }
 
 export const machineLearningTable: MarkdownTable = {
