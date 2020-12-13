@@ -171,6 +171,10 @@ export async function generateDevOpsSection(): Promise<MarkdownItem[]> {
 				rows,
 			} = curr;
 
+			if (rows.length === 0) {
+				return prev;
+			}
+
 			if (subcategory !== '') {
 				// TODO: handle if subcategory is duplicated to category
 				const table = toTable(subcategory, rows);
