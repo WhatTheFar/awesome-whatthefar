@@ -1,4 +1,4 @@
-import { categoryFrom } from './devops';
+import { categoryFrom } from './subcategory';
 
 describe('Generate Items', () => {
 	test.each`

@@ -1,19 +1,6 @@
 import { parseCsvFromInput } from '@awesome-whatthefar/parser';
 import { publishedId } from '../input/table';
-import { DataByCategory } from './core';
-
-export function categoryFrom(other: string): [string, string] {
-	const re = /^(?<cat>[\w\/ ]*)?(?:\[(?<sub>[\w\/ ]*)\])?$/;
-	const match = other.match(re);
-	if (match == null) {
-		throw new Error(`Can't get category from '${other}'`);
-	}
-	if (match.groups === undefined) {
-		// this should not happen
-		throw new Error(`Can't get category from '${other}'`);
-	}
-	return [match.groups.cat ?? '', match.groups.sub ?? ''];
-}
+import { categoryFrom, DataBySubcategory } from './subcategory';
 
 export interface DevOpsData {
 	title: string;
@@ -22,16 +9,7 @@ export interface DevOpsData {
 	ref: string;
 }
 
-export class DevOpsDataByCategory extends DataByCategory<DevOpsData, [string, string]> {
-	protected categoryFor(key: string): [string, string] {
-		// TODO: handle error
-		return key.split('.') as [string, string];
-	}
-
-	protected keyFor(category: [string, string]): string {
-		return category.join('.');
-	}
-}
+export class DevOpsDataByCategory extends DataBySubcategory<DevOpsData> {}
 
 let singleton: Promise<DevOpsDataByCategory> | undefined;
 

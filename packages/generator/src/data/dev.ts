@@ -1,7 +1,6 @@
 import { parseCsvFromInput } from '@awesome-whatthefar/parser';
 import { publishedId } from '../input/table';
-import { DataByCategory } from './core';
-import { categoryFrom } from './devops';
+import { categoryFrom, DataBySubcategory } from './subcategory';
 
 export interface DevData {
 	title: string;
@@ -10,28 +9,7 @@ export interface DevData {
 	ref: string;
 }
 
-export class DevDataByCategory extends DataByCategory<DevData, [string, string]> {
-	// TODO: refactor to be a mixin
-	public subcategoryFor(category: string): string[] {
-		const keys = this.data.map((e) => e[0]);
-		return keys.reduce<string[]>((subcategories, key) => {
-			const [currCategory, currSubcategory] = this.categoryFor(key);
-			if (currCategory === category && currSubcategory !== '') {
-				return [...subcategories, currSubcategory];
-			}
-			return subcategories;
-		}, []);
-	}
-
-	protected categoryFor(key: string): [string, string] {
-		// TODO: handle error
-		return key.split('.') as [string, string];
-	}
-
-	protected keyFor(category: [string, string]): string {
-		return category.join('.');
-	}
-}
+export class DevDataByCategory extends DataBySubcategory<DevData> {}
 
 let singleton: Promise<DevDataByCategory> | undefined;
 

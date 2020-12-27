@@ -3,7 +3,6 @@ import {
 	MarkdownPageContext,
 	MarkdownSection,
 	MarkdownTable,
-	parseCsvFromInput,
 } from '@awesome-whatthefar/parser';
 import { getDevDataSingleton } from '../../../data/dev';
 import { DevOpsData, getDevOpsDataSingleton } from '../../../data/devops';
@@ -140,7 +139,7 @@ export async function generateDevOpsSection(): Promise<MarkdownItem[]> {
 				return prev;
 			}
 
-			if (dev.subcategoryFor(category).length > 0) {
+			if (devops.subcategoryFor(category).length > 0) {
 				// TODO: handle if subcategory is duplicated to category
 				const table = toTable(subcategory, rows);
 
