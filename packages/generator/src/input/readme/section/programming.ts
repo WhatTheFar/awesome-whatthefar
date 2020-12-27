@@ -5,6 +5,7 @@ import {
 	MarkdownTable,
 	parseCsvFromInput,
 } from '@awesome-whatthefar/parser';
+import { getDevDataSingleton } from '../../../data/dev';
 import { DevOpsData, getDevOpsDataSingleton } from '../../../data/devops';
 import { publishedId } from '../../table';
 import { ReadmePagePageReference } from '../readme';
@@ -26,58 +27,21 @@ export async function createProgrammingSection() {
 }
 
 export async function generateDevSection(): Promise<MarkdownItem[]> {
-	const [data, errors] = await parseCsvFromInput({
-		type: 'GoogleSheetInput',
-		publishedId,
-		sheetId: '1452936795',
+	const dev = await getDevDataSingleton();
+
+	dev.filter(({}, row) => {
+		return row.expertise !== '';
 	});
 
-	if (errors && !!errors.length) {
-		throw new Error('Cannot parse CSV from input');
-	}
-
-	// indexes
-	const TITLE = 0;
-	const EXPERTISE = 1;
-	const CATEGORY = 2;
-	const OTHERS = 3;
-	const REF = 5;
-
-	interface Data {
-		title: string;
-		expertise: string;
-		ref: string;
-	}
-	const dataByCat: {
-		[category: string]: Data[];
-	} = {};
-
-	data.slice(1).forEach((e) => {
-		const categories = [e[CATEGORY]];
-		if (e[OTHERS] !== '') {
-			categories.push(...e[OTHERS].split(',').map((s) => s.trim()));
-		}
-		categories.forEach((c) => {
-			if (!(c in dataByCat)) {
-				dataByCat[c] = [];
-			}
-			dataByCat[c].push({
-				title: e[TITLE],
-				expertise: e[EXPERTISE],
-				ref: e[REF],
-			});
-		});
-	});
-
-	function toTable(cat: string): MarkdownTable {
+	function toTable(title: string, rows: DevOpsData[]): MarkdownTable {
 		const tableData = [
 			['Title', 'Expertise Level', 'Reference'],
-			...dataByCat[cat].map((e) => [e.title, e.expertise, e.ref]),
+			...rows.map((e) => [e.title, e.expertise, e.ref]),
 		];
 
 		const table: MarkdownTable = {
 			type: 'MarkdownTable',
-			title: cat,
+			title: title === '' ? undefined : title,
 			tableData: {
 				input: {
 					type: 'MemoryInput',
@@ -91,26 +55,62 @@ export async function generateDevSection(): Promise<MarkdownItem[]> {
 		return table;
 	}
 
-	const progPrincipleTable = toTable('Principle');
-	const progLanguageTable = toTable('Language');
-	delete dataByCat.Principle;
-	delete dataByCat.Language;
+	const initialState: {
+		items: MarkdownItem[];
+		category: string | undefined;
+	} = { items: [], category: undefined };
 
-	const tables: MarkdownTable[] = Object.keys(dataByCat).map((cat) => {
-		return toTable(cat);
-	});
+	const generated = dev
+		.sortCategory((a, b) => {
+			return a.key.localeCompare(b.key);
+		})
+		.reduceCategory((prev, curr) => {
+			const { items: prevItems, category: prevCategory } = prev;
+			const {
+				category: [category, subcategory],
+				rows,
+			} = curr;
 
-	const items: MarkdownItem[] = [
-		progLanguageTable,
-		progPrincipleTable,
+			if (rows.length === 0) {
+				return prev;
+			}
+
+			if (dev.subcategoryFor(category).length > 0) {
+				// TODO: handle if subcategory is duplicated to category
+				const table = toTable(subcategory, rows);
+
+				if (prevCategory !== category) {
+					const section: MarkdownSection<any> = {
+						type: 'MarkdownSection',
+						title: category,
+						items: [table],
+					};
+					prevItems.push(section);
+				} else {
+					// TODO: double check whether it is a MarkdownSecton or not
+					const section = prevItems[
+						prevItems.length - 1
+					] as MarkdownSection<any>;
+					// TODO: handle if section.items is undefined
+					section.items?.push(table);
+				}
+			} else {
+				const table = toTable(category, rows);
+				prevItems.push(table);
+			}
+
+			return { items: prevItems, category };
+		}, initialState);
+
+	const wrapper: MarkdownItem[] = [
 		{
 			type: 'MarkdownSection',
 			title: 'Developer',
-			items: [...tables],
+			items: [...generated.items],
 		},
 	];
 
-	return items;
+	return wrapper;
 }
 
 export async function generateDevOpsSection(): Promise<MarkdownItem[]> {
