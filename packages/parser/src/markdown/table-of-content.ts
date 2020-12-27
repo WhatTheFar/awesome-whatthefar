@@ -31,6 +31,7 @@ export function parseTableOfContent(
 		return item
 			.filter(isTableOfContent)
 			.map(_.partial(parseTableOfContent, _, offset))
+			.filter(e => e !== '')
 			.join(NEW_LINE);
 	} else {
 		switch (item.type) {
@@ -42,6 +43,7 @@ export function parseTableOfContent(
 					parseHeaderReference(item.title, item.title);
 				if (item.items) {
 					const result = parseTableOfContent(item.items, ++offset);
+					// TODO: handle empty result more properly
 					if (result) {
 						output += NEW_LINE + result;
 					}
