@@ -26,34 +26,34 @@ export async function createProgrammingSection() {
 	return programmingSection;
 }
 
+function toTable(title: string, rows: DevOpsData[]): MarkdownTable {
+	const tableData = [
+		['Title', 'Expertise Level', 'Reference'],
+		...rows.map((e) => [e.title, e.expertise, e.ref]),
+	];
+
+	const table: MarkdownTable = {
+		type: 'MarkdownTable',
+		title: title === '' ? undefined : title,
+		tableData: {
+			input: {
+				type: 'MemoryInput',
+				data: tableData,
+			},
+			options: {
+				align: ['left', 'center', { type: 'Reference', colunm: 0 }],
+			},
+		},
+	};
+	return table;
+}
+
 export async function generateDevSection(): Promise<MarkdownItem[]> {
 	const dev = await getDevDataSingleton();
 
 	dev.filter(({}, row) => {
 		return row.expertise !== '';
 	});
-
-	function toTable(title: string, rows: DevOpsData[]): MarkdownTable {
-		const tableData = [
-			['Title', 'Expertise Level', 'Reference'],
-			...rows.map((e) => [e.title, e.expertise, e.ref]),
-		];
-
-		const table: MarkdownTable = {
-			type: 'MarkdownTable',
-			title: title === '' ? undefined : title,
-			tableData: {
-				input: {
-					type: 'MemoryInput',
-					data: tableData,
-				},
-				options: {
-					align: ['left', 'center', { type: 'Reference', colunm: 0 }],
-				},
-			},
-		};
-		return table;
-	}
 
 	const initialState: {
 		items: MarkdownItem[];
@@ -120,28 +120,6 @@ export async function generateDevOpsSection(): Promise<MarkdownItem[]> {
 		return row.expertise !== '';
 	});
 
-	function toTable(title: string, rows: DevOpsData[]): MarkdownTable {
-		const tableData = [
-			['Title', 'Expertise Level', 'Reference'],
-			...rows.map((e) => [e.title, e.expertise, e.ref]),
-		];
-
-		const table: MarkdownTable = {
-			type: 'MarkdownTable',
-			title,
-			tableData: {
-				input: {
-					type: 'MemoryInput',
-					data: tableData,
-				},
-				options: {
-					align: ['left', 'center', { type: 'Reference', colunm: 0 }],
-				},
-			},
-		};
-		return table;
-	}
-
 	const initialState: {
 		items: MarkdownItem[];
 		category: string | undefined;
@@ -162,7 +140,7 @@ export async function generateDevOpsSection(): Promise<MarkdownItem[]> {
 				return prev;
 			}
 
-			if (subcategory !== '') {
+			if (dev.subcategoryFor(category).length > 0) {
 				// TODO: handle if subcategory is duplicated to category
 				const table = toTable(subcategory, rows);
 
