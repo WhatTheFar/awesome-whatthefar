@@ -28,7 +28,7 @@ export abstract class DataByCategory<T, C> {
 			a: { key: string; category: C; rows: T[] },
 			b: { key: string; category: C; rows: T[] }
 		) => number
-	): DataByCategory<T, C> {
+	): this {
 		this.data.sort(([key1, rows1], [key2, rows2]) => {
 			const category1 = this.categoryFor(key1);
 			const category2 = this.categoryFor(key2);
@@ -63,7 +63,7 @@ export abstract class DataByCategory<T, C> {
 		});
 	}
 
-	public filter(predicate: (category: C, row: T) => boolean): DataByCategory<T, C> {
+	public filter(predicate: (category: C, row: T) => boolean): this {
 		this.data = this.data.map(([key, rows]) => {
 			const category = this.categoryFor(key);
 			const filtered = rows.filter((row) => {
