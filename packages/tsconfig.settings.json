@@ -9,6 +9,9 @@
 		"strict": true,
 		"strictFunctionTypes": true,
 		"composite": true,
-		"moduleResolution": "node"
+		"moduleResolution": "node",
+        "lib": [
+            "es2019"
+        ]
 	}
 }
