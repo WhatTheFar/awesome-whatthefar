@@ -13,6 +13,16 @@ export abstract class DataByCategory<T, C> {
 		}
 	}
 
+	public pop(category: C): T[] {
+		const key = this.keyFor(category);
+		const index = this.data.findIndex((e) => e[0] === key);
+		if (index === -1) {
+			return [];
+		}
+		const [[{}, items]] = this.data.splice(index, 1);
+		return items;
+	}
+
 	public sortCategory(
 		fn: (
 			a: { key: string; category: C; rows: T[] },
