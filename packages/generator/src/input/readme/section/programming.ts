@@ -27,7 +27,7 @@ export async function createProgrammingSection() {
 }
 
 function generateTables<T>(
-	data: DataBySubcategory<T>,
+	bundledData: DataBySubcategory<T>,
 	toTableFunc: (title: string, data: T[]) => MarkdownTable
 ): MarkdownItem[] {
 	const initialState: {
@@ -35,20 +35,20 @@ function generateTables<T>(
 		category: string | undefined;
 	} = { items: [], category: undefined };
 
-	const reduced = data.reduceCategory((prev, curr) => {
+	const reduced = bundledData.reduceCategory((prev, curr) => {
 		const { items: prevItems, category: prevCategory } = prev;
 		const {
 			category: [category, subcategory],
-			rows,
+			data,
 		} = curr;
 
-		if (rows.length === 0) {
+		if (data.length === 0) {
 			return prev;
 		}
 
-		if (data.subcategoryFor(category).length > 0) {
+		if (bundledData.subcategoryFor(category).length > 0) {
 			// TODO: handle if subcategory is duplicated to category
-			const table = toTableFunc(subcategory, rows);
+			const table = toTableFunc(subcategory, data);
 
 			if (prevCategory !== category) {
 				const section: MarkdownSection<any> = {
@@ -64,7 +64,7 @@ function generateTables<T>(
 				section.items?.push(table);
 			}
 		} else {
-			const table = toTableFunc(category, rows);
+			const table = toTableFunc(category, data);
 			prevItems.push(table);
 		}
 
@@ -74,10 +74,10 @@ function generateTables<T>(
 	return reduced.items;
 }
 
-function toTable(title: string, rows: DevOpsData[]): MarkdownTable {
+function toTable(title: string, data: DevOpsData[]): MarkdownTable {
 	const tableData = [
 		['Title', 'Expertise Level', 'Reference'],
-		...rows.map((e) => [e.title, e.expertise, e.ref]),
+		...data.map((e) => [e.title, e.expertise, e.ref]),
 	];
 
 	const table: MarkdownTable = {

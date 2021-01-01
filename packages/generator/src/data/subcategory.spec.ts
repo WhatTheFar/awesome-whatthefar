@@ -1,6 +1,6 @@
-import { categoryFrom } from './subcategory';
+import { parseSubcategory } from './subcategory';
 
-describe('Generate Items', () => {
+describe('Subcategory', () => {
 	test.each`
 		other                                  | category
 		${'Kubernetes[Configuration]'}         | ${['Kubernetes', 'Configuration']}
@@ -11,7 +11,7 @@ describe('Generate Items', () => {
 	`(
 		'categoryFrom($other) should return $category',
 		({ other, category }: { other: string; category: [string, string] }) => {
-			const actual: [string, string] = categoryFrom(other);
+			const actual: [string, string] = parseSubcategory(other);
 
 			expect(actual).toEqual(category);
 		}

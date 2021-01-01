@@ -1,6 +1,6 @@
 import { DataByCategory } from './core';
 
-export function categoryFrom(other: string): [string, string] {
+export function parseSubcategory(other: string): [string, string] {
 	const re = /^(?<cat>[\w\/ ]*)?(?:\[(?<sub>[\w\/ ]*)\])?$/;
 	const match = other.match(re);
 	if (match == null) {
@@ -14,8 +14,17 @@ export function categoryFrom(other: string): [string, string] {
 }
 
 export class DataBySubcategory<T> extends DataByCategory<T, [string, string]> {
+	public static categoryFor(key: string): [string, string] {
+		// TODO: handle error
+		return key.split('.') as [string, string];
+	}
+
+	public static keyFor(category: [string, string]): string {
+		return category.join('.');
+	}
+
 	public subcategoryFor(category: string): string[] {
-		const keys = this.data.map((e) => e[0]);
+		const keys = this.pairs.map(({ key }) => key);
 		return keys.reduce<string[]>((subcategories, key) => {
 			const [currCategory, currSubcategory] = this.categoryFor(key);
 			if (currCategory === category && currSubcategory !== '') {
@@ -25,12 +34,18 @@ export class DataBySubcategory<T> extends DataByCategory<T, [string, string]> {
 		}, []);
 	}
 
+	public popSubcategoryFor(category: string): T[] {
+		const subcategories = this.subcategoryFor(category);
+		return subcategories.flatMap((sub) => {
+			return this.pop([category, sub]);
+		});
+	}
+
 	protected categoryFor(key: string): [string, string] {
-		// TODO: handle error
-		return key.split('.') as [string, string];
+		return DataBySubcategory.categoryFor(key);
 	}
 
 	protected keyFor(category: [string, string]): string {
-		return category.join('.');
+		return DataBySubcategory.keyFor(category);
 	}
 }

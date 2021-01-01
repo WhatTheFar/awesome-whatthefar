@@ -1,6 +1,6 @@
 import { parseCsvFromInput } from '@awesome-whatthefar/parser';
 import { publishedId } from '../input/table';
-import { categoryFrom, DataBySubcategory } from './subcategory';
+import { parseSubcategory, DataBySubcategory } from './subcategory';
 
 export interface DevData {
 	title: string;
@@ -51,7 +51,7 @@ async function getDevData(): Promise<DevDataByCategory> {
 		if (e[OTHERS] !== '') {
 			categories.push(
 				...e[OTHERS].split(',').map((s) => {
-					const [cat, sub] = categoryFrom(s.trim());
+					const [cat, sub] = parseSubcategory(s.trim());
 					return [cat === '' ? e[CATEGORY] : cat, sub] as [string, string];
 				})
 			);

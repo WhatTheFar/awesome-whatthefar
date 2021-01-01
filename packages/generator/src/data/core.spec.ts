@@ -13,9 +13,9 @@ describe('class DataByCategory', () => {
 		}
 
 		const instance = new SimpleDataByCategory([
-			['first', ['1']],
-			['second', ['1', '2']],
-			['third', ['1', '2', '3']],
+			{ key: 'first', data: ['1'] },
+			{ key: 'second', data: ['1', '2'] },
+			{ key: 'third', data: ['1', '2', '3'] },
 		]);
 
 		describe('When forEach() is called', () => {

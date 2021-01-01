@@ -1,40 +1,47 @@
-export abstract class DataByCategory<T, C> {
-	constructor(public data: Array<[string, T[]]> = []) {}
+interface DataKeyPair<Datum> {
+	key: string;
+	data: Datum[];
+}
 
-	public push(category: C, row: T): void {
+export abstract class DataByCategory<Datum, Category> {
+	constructor(public pairs: Array<DataKeyPair<Datum>> = []) {}
+
+	public push(category: Category, datum: Datum): void {
 		const key = this.keyFor(category);
-		const index = this.data.findIndex(([currKey, {}]) => currKey === key);
-
+		const index = this.pairs.findIndex(({ key: thisKey }) => thisKey === key);
 		if (index === -1) {
-			this.data.push([key, [row]]);
+			// no key exists, create a new category pair
+			this.pairs.push({ key, data: [datum] });
 		} else {
-			const [{}, rows] = this.data[index];
-			rows.push(row);
+			// key exists, push a new datum into exisitng category's data
+			const { data } = this.pairs[index];
+			data.push(datum);
 		}
 	}
 
-	public pop(category: C): T[] {
+	public pop(category: Category): Datum[] {
 		const key = this.keyFor(category);
-		const index = this.data.findIndex((e) => e[0] === key);
+		const index = this.pairs.findIndex(({ key: thisKey }) => thisKey === key);
 		if (index === -1) {
 			return [];
 		}
-		const [[{}, items]] = this.data.splice(index, 1);
-		return items;
+		const [pair] = this.pairs.splice(index, 1);
+		const { data } = pair;
+		return data;
 	}
 
 	public sortCategory(
 		fn: (
-			a: { key: string; category: C; rows: T[] },
-			b: { key: string; category: C; rows: T[] }
+			a: { key: string; category: Category; data: Datum[] },
+			b: { key: string; category: Category; data: Datum[] }
 		) => number
 	): this {
-		this.data.sort(([key1, rows1], [key2, rows2]) => {
+		this.pairs.sort(({ key: key1, data: data1 }, { key: key2, data: data2 }) => {
 			const category1 = this.categoryFor(key1);
 			const category2 = this.categoryFor(key2);
 			return fn(
-				{ key: key1, category: category1, rows: rows1 },
-				{ key: key2, category: category2, rows: rows2 }
+				{ key: key1, category: category1, data: data1 },
+				{ key: key2, category: category2, data: data2 }
 			);
 		});
 		return this;
@@ -43,40 +50,41 @@ export abstract class DataByCategory<T, C> {
 	public reduceCategory<U>(
 		fn: (
 			previousValue: U,
-			currentValue: { category: C; rows: T[] },
+			currentValue: { category: Category; data: Datum[] },
 			index: number
 		) => U,
 		initialState: U
 	): U {
-		return this.data.reduce<U>((prev, [key, rows], index) => {
+		return this.pairs.reduce<U>((prev, { key, data }, index) => {
 			const category = this.categoryFor(key);
-			return fn(prev, { category, rows }, index);
+			return fn(prev, { category, data }, index);
 		}, initialState);
 	}
 
-	public forEach(fn: (category: C, row: T) => void): void {
-		this.data.forEach(([key, rows]) => {
+	public forEach(fn: (category: Category, datum: Datum) => void): void {
+		this.pairs.forEach(({ key, data }) => {
 			const category = this.categoryFor(key);
-			rows.forEach((row) => {
-				fn(category, row);
+			data.forEach((datum) => {
+				fn(category, datum);
 			});
 		});
 	}
 
-	public filter(predicate: (category: C, row: T) => boolean): this {
-		this.data = this.data.map(([key, rows]) => {
+	public filter(predicate: (category: Category, datum: Datum) => boolean): this {
+		this.pairs = this.pairs.map(({ key, data }) => {
 			const category = this.categoryFor(key);
-			const filtered = rows.filter((row) => {
-				return predicate(category, row);
+			const filtered = data.filter((datum) => {
+				return predicate(category, datum);
 			});
 
-			if (filtered.length <= rows.length) {
-				return [key, filtered];
+			if (filtered.length <= data.length) {
+				return { key, data: filtered };
 			}
-			return [key, rows];
+			return { key, data };
 		});
 		return this;
 	}
-	protected abstract categoryFor(key: string): C;
-	protected abstract keyFor(category: C): string;
+
+	protected abstract categoryFor(key: string): Category;
+	protected abstract keyFor(category: Category): string;
 }
