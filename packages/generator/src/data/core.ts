@@ -71,17 +71,21 @@ export abstract class DataByCategory<Datum, Category> {
 	}
 
 	public filter(predicate: (category: Category, datum: Datum) => boolean): this {
-		this.pairs = this.pairs.map(({ key, data }) => {
-			const category = this.categoryFor(key);
-			const filtered = data.filter((datum) => {
-				return predicate(category, datum);
-			});
+		this.pairs = this.pairs
+			.map(({ key, data }): DataKeyPair<Datum> | undefined => {
+				const category = this.categoryFor(key);
+				const filtered = data.filter((datum) => {
+					return predicate(category, datum);
+				});
 
-			if (filtered.length <= data.length) {
-				return { key, data: filtered };
-			}
-			return { key, data };
-		});
+				if (filtered.length === 0) {
+					return undefined;
+				} else if (filtered.length <= data.length) {
+					return { key, data: filtered };
+				}
+				return { key, data };
+			})
+			.filter((e): e is DataKeyPair<Datum> => e !== undefined);
 		return this;
 	}
 
