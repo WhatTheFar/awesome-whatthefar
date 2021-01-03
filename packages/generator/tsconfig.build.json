@@ -1,5 +1,5 @@
 {
 	"extends": "./tsconfig.json",
-	"exclude": ["awesome-whatthefar", "node_modules", "test", "**/*spec.ts"]
+	"exclude": ["src/awesome-whatthefar", "node_modules", "test", "**/*spec.ts"]
 }
 
