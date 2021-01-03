@@ -4,9 +4,8 @@ import {
 	MarkdownSection,
 	MarkdownTable,
 } from '@awesome-whatthefar/parser';
-import { DataBySubcategory } from 'src/data/subcategory';
-import { getDevDataSingleton } from '../../../data/dev';
-import { DevOpsData, getDevOpsDataSingleton } from '../../../data/devops';
+import { getDevDataSingleton, getDevOpsDataSingleton } from '../../../data';
+import { tablesFromSubcategoricalData, toExpertiseTable } from '../../../template';
 import { publishedId } from '../../table';
 import { ReadmePagePageReference } from '../readme';
 
@@ -26,76 +25,6 @@ export async function createProgrammingSection() {
 	return programmingSection;
 }
 
-function generateTables<T>(
-	bundledData: DataBySubcategory<T>,
-	toTableFunc: (title: string, data: T[]) => MarkdownTable
-): MarkdownItem[] {
-	const initialState: {
-		items: MarkdownItem[];
-		category: string | undefined;
-	} = { items: [], category: undefined };
-
-	const reduced = bundledData.reduceCategory((prev, curr) => {
-		const { items: prevItems, category: prevCategory } = prev;
-		const {
-			category: [category, subcategory],
-			data,
-		} = curr;
-
-		if (data.length === 0) {
-			return prev;
-		}
-
-		if (bundledData.subcategoryFor(category).length > 0) {
-			// TODO: handle if subcategory is duplicated to category
-			const table = toTableFunc(subcategory, data);
-
-			if (prevCategory !== category) {
-				const section: MarkdownSection<any> = {
-					type: 'MarkdownSection',
-					title: category,
-					items: [table],
-				};
-				prevItems.push(section);
-			} else {
-				// TODO: double check whether it is a MarkdownSecton or not
-				const section = prevItems[prevItems.length - 1] as MarkdownSection<any>;
-				// TODO: handle if section.items is undefined
-				section.items?.push(table);
-			}
-		} else {
-			const table = toTableFunc(category, data);
-			prevItems.push(table);
-		}
-
-		return { items: prevItems, category };
-	}, initialState);
-
-	return reduced.items;
-}
-
-function toTable(title: string, data: DevOpsData[]): MarkdownTable {
-	const tableData = [
-		['Title', 'Expertise Level', 'Reference'],
-		...data.map((e) => [e.title, e.expertise, e.ref]),
-	];
-
-	const table: MarkdownTable = {
-		type: 'MarkdownTable',
-		title: title === '' ? undefined : title,
-		tableData: {
-			input: {
-				type: 'MemoryInput',
-				data: tableData,
-			},
-			options: {
-				align: ['left', 'center', { type: 'Reference', colunm: 0 }],
-			},
-		},
-	};
-	return table;
-}
-
 export async function generateDevSection(): Promise<MarkdownItem[]> {
 	const dev = await getDevDataSingleton();
 
@@ -103,11 +32,11 @@ export async function generateDevSection(): Promise<MarkdownItem[]> {
 		return row.expertise !== '';
 	});
 
-	const generated = generateTables(
+	const generated = tablesFromSubcategoricalData(
 		dev.sortCategory((a, b) => {
 			return a.key.localeCompare(b.key);
 		}),
-		toTable
+		toExpertiseTable
 	);
 
 	const wrapper: MarkdownItem[] = [
@@ -128,11 +57,11 @@ export async function generateDevOpsSection(): Promise<MarkdownItem[]> {
 		return row.expertise !== '';
 	});
 
-	const generated = generateTables(
+	const generated = tablesFromSubcategoricalData(
 		devops.sortCategory((a, b) => {
 			return a.key.localeCompare(b.key);
 		}),
-		toTable
+		toExpertiseTable
 	);
 
 	const wrapper: MarkdownItem[] = [
