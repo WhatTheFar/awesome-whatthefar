@@ -1,4 +1,4 @@
-import { DataByCategory } from './core';
+import { DataByCategory } from './category';
 
 export function parseSubcategory(other: string): MainCategoryWtihSub {
 	const re = /^(?<cat>[\w\/ ]*)?(?:\[(?<sub>[\w\/ ]*)\])?$/;

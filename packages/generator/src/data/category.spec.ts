@@ -1,4 +1,4 @@
-import { DataByCategory } from './core';
+import { DataByCategory } from './category';
 
 describe('class DataByCategory', () => {
 	describe('Given an instance of DataByCategory<string, string>', () => {

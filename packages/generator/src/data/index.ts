@@ -1,4 +1,4 @@
-export * from './core';
+export * from './category';
 export * from './dev';
 export * from './devops';
 export * from './google-sheet';
