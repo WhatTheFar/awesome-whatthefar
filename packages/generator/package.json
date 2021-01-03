@@ -1,9 +1,13 @@
 {
 	"name": "@awesome-whatthefar/generator",
 	"version": "0.0.9",
-	"main": "index.ts",
+	"main": "lib/index.js",
+	"typings": "lib/index.d.ts",
 	"license": "MIT",
 	"scripts": {
+		"prepublish": "yarn build",
+		"prebuild": "rm -rf lib && rm -f tsconfig.build.tsbuildinfo",
+		"build": "tsc -p tsconfig.build.json",
 		"start": "ts-node src/index.ts",
 		"test": "jest --verbose",
 		"test:watch": "jest --verbose --watch",
@@ -26,5 +30,8 @@
 		"prettier": "^2.2.1",
 		"ts-jest": "^26.4.4",
 		"tsconfig-paths": "^3.9.0"
+	},
+	"publishConfig": {
+		"access": "public"
 	}
 }
