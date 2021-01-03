@@ -1,7 +1,7 @@
 import { MarkdownItem, MarkdownPage } from '@awesome-whatthefar/parser';
 import { resolve } from 'path';
-import { createPathAppendFunction } from '../../directory';
-import { GENERATED_CONTENT_DIR, MYERS_BRIGGS_DIR } from './../../directory';
+import { createPathAppendFunction } from '../directory';
+import { GENERATED_CONTENT_DIR, MYERS_BRIGGS_DIR } from '../directory';
 // tslint:disable:max-line-length
 
 const get1MyersBriggsPath = createPathAppendFunction(MYERS_BRIGGS_DIR);

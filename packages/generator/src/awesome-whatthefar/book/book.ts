@@ -5,7 +5,7 @@ import {
 	nonFictionThaiBookTable,
 	readedNonFictionBookTable,
 } from '../table';
-import { GENERATED_CONTENT_DIR } from './../../directory';
+import { GENERATED_CONTENT_DIR } from '../directory';
 import { programmingBookTable } from './../table';
 // tslint:disable:max-line-length
 

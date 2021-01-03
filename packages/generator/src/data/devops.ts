@@ -1,6 +1,6 @@
 import { parseCsvFromInput } from '@awesome-whatthefar/parser';
-import { publishedId } from '../input/table';
-import { parseSubcategory, DataBySubcategory } from './subcategory';
+import { publishedId } from './google-sheet';
+import { DataBySubcategory, parseSubcategory } from './subcategory';
 
 export interface DevOpsData {
 	title: string;

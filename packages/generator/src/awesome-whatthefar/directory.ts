@@ -3,14 +3,14 @@ import { resolve } from 'path';
 
 export function mkdirpSync(dir: string) {
 	if (!existsSync(dir)) {
-		mkdirSync(dir);
+		mkdirSync(dir, { recursive: true });
 	}
 }
 
 export const createPathAppendFunction = (path: string) => (...pathSegments: string[]) =>
 	resolve(path, ...pathSegments);
 
-export const GENERATED_ROOT_DIR = resolve(__dirname, '..', 'generated');
+export const GENERATED_ROOT_DIR = resolve(__dirname, '..', '..', 'generated');
 
 export const CONTENT_DIR = resolve(GENERATED_ROOT_DIR, 'content');
 
@@ -42,3 +42,4 @@ export function initDir(): void {
 	mkdirpSync(GENERATED_CONTENT_DIR);
 	mkdirpSync(GENERATED_PODCAST_NOTE_DIR);
 }
+

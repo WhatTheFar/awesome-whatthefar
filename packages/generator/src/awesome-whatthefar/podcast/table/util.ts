@@ -1,5 +1,5 @@
 import { TableDataMapperFunction } from '@awesome-whatthefar/parser/lib/markdown/table/mapper';
-import { generateMarkdownWithoutFronMatter } from '../../../util';
+import { generateMarkdownWithoutFronMatter } from '../../util';
 
 export function createSoundCloundUrlDataMapperFunc(
 	prefix: string

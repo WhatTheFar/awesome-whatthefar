@@ -1,9 +1,9 @@
 import { generateMarkdownFile } from '@awesome-whatthefar/parser';
 import _ from 'lodash';
 import { initDir } from './directory';
-import { createReadmePage } from './input/readme';
+import { createReadmePage } from './readme';
 
-export async function main(): Promise<void> {
+async function main(): Promise<void> {
 	initDir();
 
 	const label = '✨  Done';
@@ -12,4 +12,8 @@ export async function main(): Promise<void> {
 	await generateMarkdownFile(await createReadmePage());
 
 	console.timeEnd(label);
+}
+
+if (require.main === module) {
+	main();
 }

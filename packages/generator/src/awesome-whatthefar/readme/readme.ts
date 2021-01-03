@@ -3,7 +3,7 @@ import {
 	MarkdownPage,
 	MarkdownPageReference,
 } from '@awesome-whatthefar/parser';
-import { GENERATED_ROOT_DIR } from '../../directory';
+import { GENERATED_ROOT_DIR } from '../directory';
 import { bookPage } from '../book';
 import { potatoImage } from '../image';
 import { podcastPage } from '../podcast';

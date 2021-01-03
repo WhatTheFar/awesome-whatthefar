@@ -1,9 +1,9 @@
 import { MarkdownTable } from '@awesome-whatthefar/parser';
-import { BOOK_NOTE_DIR } from '../directory';
-import { createFileRefDataMapperFunc } from '../util';
+import { publishedId } from '../data';
+import { BOOK_NOTE_DIR } from './directory';
+import { createFileRefDataMapperFunc } from './util';
 
-export const publishedId =
-	'2PACX-1vQ6FlZEwgS9hr8lly1EwA1vCK1qDlOkLoZD3ninNi6vZlA5e7DtFtzMoPyJeFbeYntOfcqqldNmRD0d';
+export { publishedId } from '../data';
 
 export const contactTable: MarkdownTable = {
 	type: 'MarkdownTable',

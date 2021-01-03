@@ -1,5 +1,5 @@
 import { MarkdownPage } from '@awesome-whatthefar/parser';
-import { GENERATED_CONTENT_DIR } from './../../directory';
+import { GENERATED_CONTENT_DIR } from '../directory';
 import { podcastBookmarkSection } from './section/podcast-bookmark';
 import { podcastResourceTable } from './table/podcast-resource';
 

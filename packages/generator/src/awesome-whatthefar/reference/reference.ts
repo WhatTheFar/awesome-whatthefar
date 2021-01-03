@@ -3,7 +3,7 @@ import {
 	MarkdownPage,
 	MarkdownPageReference,
 } from '@awesome-whatthefar/parser';
-import { GENERATED_CONTENT_DIR, getAssetPath } from '../../directory';
+import { GENERATED_CONTENT_DIR, getAssetPath } from '../directory';
 import { potatoImage } from '../image';
 import { anotherRefPage } from './another-ref';
 import { managementSection } from './section/management';
