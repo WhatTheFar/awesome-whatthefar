@@ -1,6 +1,6 @@
 import { DataByCategory } from './core';
 
-export function parseSubcategory(other: string): [string, string] {
+export function parseSubcategory(other: string): MainCategoryWtihSub {
 	const re = /^(?<cat>[\w\/ ]*)?(?:\[(?<sub>[\w\/ ]*)\])?$/;
 	const match = other.match(re);
 	if (match == null) {
@@ -13,13 +13,15 @@ export function parseSubcategory(other: string): [string, string] {
 	return [match.groups.cat ?? '', match.groups.sub ?? ''];
 }
 
-export class DataBySubcategory<T> extends DataByCategory<T, [string, string]> {
-	public static categoryFor(key: string): [string, string] {
+export type MainCategoryWtihSub = [string, string];
+
+export class DataBySubcategory<T> extends DataByCategory<T, MainCategoryWtihSub> {
+	public static categoryFor(key: string): MainCategoryWtihSub {
 		// TODO: handle error
-		return key.split('.') as [string, string];
+		return key.split('.') as MainCategoryWtihSub;
 	}
 
-	public static keyFor(category: [string, string]): string {
+	public static keyFor(category: MainCategoryWtihSub): string {
 		return category.join('.');
 	}
 
@@ -34,18 +36,46 @@ export class DataBySubcategory<T> extends DataByCategory<T, [string, string]> {
 		}, []);
 	}
 
-	public popSubcategoryFor(category: string): T[] {
-		const subcategories = this.subcategoryFor(category);
+	public popSubcategoryFor(mainCategory: string): T[] {
+		const subcategories = this.subcategoryFor(mainCategory);
 		return subcategories.flatMap((sub) => {
-			return this.pop([category, sub]);
+			return this.pop([mainCategory, sub]);
 		});
 	}
 
-	protected categoryFor(key: string): [string, string] {
+	public reduceMainCategory<U>(
+		fn: (
+			previousValue: U,
+			currentValue: {
+				mainCategory: string;
+				subcategories: DataBySubcategory<T>;
+			},
+			index: number
+		) => U,
+		initialState: U
+	): U {
+		const mainCategories = new Set(
+			this.pairs.map(({ key }) => {
+				const [mainCategory, {}] = this.categoryFor(key);
+				return mainCategory;
+			})
+		);
+		return Array.from(mainCategories).reduce<U>((prev, curr, index) => {
+			const mainCategory = curr;
+			const filtered = this.pairs.filter(({ key }) => {
+				const [thisMainCategory, {}] = this.categoryFor(key);
+				return thisMainCategory === mainCategory;
+			});
+			const subcategories = new DataBySubcategory(filtered);
+			return fn(prev, { mainCategory, subcategories }, index);
+		}, initialState);
+	}
+
+	protected categoryFor(key: string): MainCategoryWtihSub {
 		return DataBySubcategory.categoryFor(key);
 	}
 
-	protected keyFor(category: [string, string]): string {
+	protected keyFor(category: MainCategoryWtihSub): string {
 		return DataBySubcategory.keyFor(category);
 	}
 }
