@@ -37,3 +37,8 @@ export const getPodcastNotePath = createPathAppendFunction(PODCAST_NOTE_DIR);
 export const getGeneratedPodcastNotePath = createPathAppendFunction(
 	GENERATED_PODCAST_NOTE_DIR
 );
+
+export function initDir(): void {
+	mkdirpSync(GENERATED_CONTENT_DIR);
+	mkdirpSync(GENERATED_PODCAST_NOTE_DIR);
+}
