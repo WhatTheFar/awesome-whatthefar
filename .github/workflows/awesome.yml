@@ -16,6 +16,9 @@ jobs:
     steps:
       - name: Checkout 🛎️
         uses: actions/checkout@v2
+        with:
+          # TODO: find a way to checkout master branch with a shallow clone
+          fetch-depth: 0
 
       - name: Cache node modules
         uses: actions/cache@v2
