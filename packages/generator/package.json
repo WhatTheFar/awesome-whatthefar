@@ -1,6 +1,6 @@
 {
 	"name": "@awesome-whatthefar/generator",
-	"version": "0.0.11",
+	"version": "0.0.12",
 	"main": "lib/index.js",
 	"typings": "lib/index.d.ts",
 	"license": "MIT",
@@ -19,7 +19,7 @@
 		"format": "yarn prettier && yarn lint:fix"
 	},
 	"dependencies": {
-		"@awesome-whatthefar/parser": "^0.0.11",
+		"@awesome-whatthefar/parser": "^0.0.12",
 		"@types/glob": "^7.1.1",
 		"front-matter": "^3.0.1",
 		"glob": "^7.1.3"
