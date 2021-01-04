@@ -29,18 +29,20 @@ describe('class DataByCategory', () => {
 		});
 
 		describe('When filter() is called', () => {
-			test('Then data rows must be changed', () => {
+			test('Then it should return new instance with data changed', () => {
 				const spy = jest.fn((_category: string, row: string) => {
 					return row !== '2';
 				});
 
-				instance.filter(spy);
+				const actual = instance.filter(spy);
+
+				expect(actual).not.toBe(instance);
+				expect(actual).toBeInstanceOf(DataByCategory);
 
 				let count = 0;
-				instance.forEach(() => {
+				actual.forEach(() => {
 					count += 1;
 				});
-
 				expect(count).toBe(4);
 				expect(spy.mock.calls.length).toBe(6);
 			});

@@ -1,3 +1,5 @@
+import _ from 'lodash';
+
 interface DataKeyPair<Datum> {
 	key: string;
 	data: Datum[];
@@ -71,7 +73,8 @@ export abstract class DataByCategory<Datum, Category> {
 	}
 
 	public filter(predicate: (category: Category, datum: Datum) => boolean): this {
-		this.pairs = this.pairs
+		const newThis = _.cloneDeep(this);
+		newThis.pairs = this.pairs
 			.map(({ key, data }): DataKeyPair<Datum> | undefined => {
 				const category = this.categoryFor(key);
 				const filtered = data.filter((datum) => {
@@ -86,7 +89,7 @@ export abstract class DataByCategory<Datum, Category> {
 				return { key, data };
 			})
 			.filter((e): e is DataKeyPair<Datum> => e !== undefined);
-		return this;
+		return newThis;
 	}
 
 	protected abstract categoryFor(key: string): Category;
