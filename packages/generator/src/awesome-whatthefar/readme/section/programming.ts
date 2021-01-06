@@ -26,9 +26,9 @@ export async function createProgrammingSection() {
 }
 
 export async function generateDevSection(): Promise<MarkdownItem[]> {
-	const dev = await getDevDataSingleton();
+	const rawDev = await getDevDataSingleton();
 
-	dev.filter(({}, row) => {
+	const dev = rawDev.filter(({}, row) => {
 		return row.expertise !== '';
 	});
 
@@ -51,9 +51,9 @@ export async function generateDevSection(): Promise<MarkdownItem[]> {
 }
 
 export async function generateDevOpsSection(): Promise<MarkdownItem[]> {
-	const devops = await getDevOpsDataSingleton();
+	const rawDevops = await getDevOpsDataSingleton();
 
-	devops.filter(({}, row) => {
+	const devops = rawDevops.filter(({}, row) => {
 		return row.expertise !== '';
 	});
 
