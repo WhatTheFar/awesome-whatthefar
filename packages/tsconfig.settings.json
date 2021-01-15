@@ -14,5 +14,6 @@
             "es2019",
             "dom"
         ]
-	}
+	},
+	"references": [{ "path": "../parser" }]
 }
