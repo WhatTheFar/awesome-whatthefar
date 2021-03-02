@@ -1,0 +1,71 @@
+name: Awesome
+
+on:
+  schedule:
+    # * is a special character in YAML so you have to quote this string
+    - cron:  '0 1,12 * * *'
+
+jobs:
+  awesome:
+    name: Awesome
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout 🛎️
+        uses: actions/checkout@v2
+        with:
+          ref: dev
+          # TODO: find a way to checkout main branch with a shallow clone
+          fetch-depth: 0
+
+      - name: Cache node modules
+        uses: actions/cache@v2
+        env:
+          cache-name: cache-node-modules
+        with:
+          path: '**/node_modules'
+          key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/yarn.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-build-${{ env.cache-name }}-
+            ${{ runner.os }}-build-
+            ${{ runner.os }}-
+
+      - name: Install dependencies
+        run: |
+          yarn install
+
+      - name: Build packages
+        run: |
+          yarn build
+
+      - name: Run tests
+        run: |
+          yarn lerna run test
+
+      - name: Run awesome script
+        run: |
+          ./awesome.sh --copy --force --path temp
+
+      - name: Configure git
+        run: |
+          git config --global user.email "jakpat.m@gmail.com"
+          git config --global user.name "WhatTheFar"
+
+      - name: Checkout main branch
+        run: |
+          git checkout main
+          git fetch --all
+          git reset --hard origin/main
+
+      - name: Copy generated contents
+        run: |
+          rm -rf content && cp -r ./temp/* .
+
+      - name: Amend git commit
+        run: |
+          git add .
+          git commit --amend --no-edit
+
+      - name: Force push!!!
+        run: |
+          git push --force origin main
