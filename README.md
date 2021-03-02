@@ -17,14 +17,19 @@
         -   [Android](#android)
         -   [Backend](#backend)
         -   [Communicating](#communicating)
+            -   [Protocol Buffer](#protocol-buffer)
         -   [Database](#database)
         -   [Flutter](#flutter)
+        -   [Frontend CSS](#frontend-css)
+        -   [Frontend React](#frontend-react)
+            -   [State Management](#state-management)
+            -   [Utilities](#utilities)
+        -   [Frontend Vue](#frontend-vue)
+            -   [State Management](#state-management)
         -   [Frontend](#frontend)
-            -   [Build Tool](#build-tool)
-            -   [CSS](#css)
+            -   [Bundler](#bundler)
+            -   [Dev server](#dev-server)
             -   [Framework](#framework)
-            -   [Framework React](#framework-react)
-            -   [Framework Vue](#framework-vue)
         -   [Language](#language)
         -   [Library](#library)
         -   [Principle](#principle)
@@ -128,6 +133,8 @@
 | [grpc-gateway](https://github.com/grpc-ecosystem/grpc-gateway) |    Advanced     |
 | [gRPC-Go](https://github.com/grpc/grpc-go)                     |    Advanced     |
 | NestJS                                                         |    Advanced     |
+| Prisma                                                         |    Advanced     |
+| Prisma2                                                        |     Novice      |
 | GraphQL                                                        |    Advanced     |
 | gRPC                                                           |    Advanced     |
 | Firebase                                                       |  Intermediate   |
@@ -135,7 +142,7 @@
 
 [Back to Top](#table-of-contents)
 
-### Communicating
+## Communicating
 
 | Title              | Expertise Level |
 | :----------------- | :-------------: |
@@ -147,15 +154,23 @@
 
 [Back to Top](#table-of-contents)
 
+### Protocol Buffer
+
+| Title              | Expertise Level |
+| :----------------- | :-------------: |
+| Protocol Buffers 3 |   Proficient    |
+
+[Back to Top](#table-of-contents)
+
 ### Database
 
 | Title      | Expertise Level |
 | :--------- | :-------------: |
+| Prisma     |    Advanced     |
+| Prisma2    |     Novice      |
 | Firebase   |  Intermediate   |
 | MongoDB    |    Advanced     |
 | PostgreSQL |  Intermediate   |
-| Prisma     |    Advanced     |
-| Prisma2    |     Novice      |
 | Realm      |  Intermediate   |
 
 [Back to Top](#table-of-contents)
@@ -165,6 +180,47 @@
 | Title   | Expertise Level |
 | :------ | :-------------: |
 | Flutter |     Novice      |
+
+[Back to Top](#table-of-contents)
+
+### Frontend CSS
+
+| Title        | Expertise Level |
+| :----------- | :-------------: |
+| CSS          |  Intermediate   |
+| Tailwind CSS |  Intermediate   |
+
+[Back to Top](#table-of-contents)
+
+## Frontend React
+
+### State Management
+
+| Title                                                    | Expertise Level |
+| :------------------------------------------------------- | :-------------: |
+| [Jotai](https://github.com/pmndrs/jotai)                 |  Intermediate   |
+| [Redux](https://github.com/reduxjs/redux)                |  Intermediate   |
+| [Redux Tookit](https://github.com/reduxjs/redux-toolkit) |  Intermediate   |
+| [redux-saga](https://github.com/redux-saga/redux-saga)   |  Intermediate   |
+| [Zustand](https://github.com/pmndrs/zustand)             |  Intermediate   |
+
+[Back to Top](#table-of-contents)
+
+### Utilities
+
+| Title                                | Expertise Level |
+| :----------------------------------- | :-------------: |
+| [SWR](https://github.com/vercel/swr) |  Intermediate   |
+
+[Back to Top](#table-of-contents)
+
+## Frontend Vue
+
+### State Management
+
+| Title                                 | Expertise Level |
+| :------------------------------------ | :-------------: |
+| [Vuex](https://github.com/vuejs/vuex) |  Intermediate   |
 
 [Back to Top](#table-of-contents)
 
@@ -178,7 +234,7 @@
 
 [Back to Top](#table-of-contents)
 
-### Build Tool
+### Bundler
 
 | Title | Expertise Level |
 | :---- | :-------------: |
@@ -186,12 +242,11 @@
 
 [Back to Top](#table-of-contents)
 
-### CSS
+### Dev server
 
-| Title        | Expertise Level |
-| :----------- | :-------------: |
-| CSS          |  Intermediate   |
-| Tailwind CSS |  Intermediate   |
+| Title | Expertise Level |
+| :---- | :-------------: |
+| Vite  |  Intermediate   |
 
 [Back to Top](#table-of-contents)
 
@@ -200,24 +255,9 @@
 | Title   | Expertise Level |
 | :------ | :-------------: |
 | Angular |  Intermediate   |
+| Apollo  |  Intermediate   |
 | React   |    Advanced     |
 | Vue.js  |  Intermediate   |
-
-[Back to Top](#table-of-contents)
-
-### Framework React
-
-| Title | Expertise Level |
-| :---- | :-------------: |
-| React |    Advanced     |
-
-[Back to Top](#table-of-contents)
-
-### Framework Vue
-
-| Title  | Expertise Level |
-| :----- | :-------------: |
-| Vue.js |  Intermediate   |
 
 [Back to Top](#table-of-contents)
 
@@ -274,7 +314,7 @@
 | Title                                                        | Expertise Level |
 | :----------------------------------------------------------- | :-------------: |
 | Alfred                                                       |        -        |
-| [Fork](https://git-fork.com/)                                |        -        |
+| [Fork](https://git-fork.com)                                 |        -        |
 | iTerm                                                        |        -        |
 | [Lens - The Kubernetes IDE](https://github.com/lensapp/lens) |        -        |
 | Neovim                                                       |   Enthusiasm    |
@@ -314,6 +354,7 @@
 | [Docker](https://www.docker.com/)                   |    Advanced     |
 | [docker-compose](https://github.com/docker/compose) |    Advanced     |
 | [Podman](https://github.com/containers/podman)      |     Novice      |
+| [Tini](https://github.com/krallin/tini)             |     Novice      |
 
 [Back to Top](#table-of-contents)
 
