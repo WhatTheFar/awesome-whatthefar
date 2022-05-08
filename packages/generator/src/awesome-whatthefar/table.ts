@@ -135,7 +135,7 @@ export const programmingBookTable: MarkdownTable = {
 			sheetId: '538544451',
 		},
 		options: {
-			align: ['left', 'left', 'center', { type: 'Reference', colunm: 0 }],
+			align: ['left', 'left', 'skip', { type: 'Reference', colunm: 0 }],
 		},
 	},
 };
